@@ -1,0 +1,11 @@
+{
+  "name": "google-play-competitor",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "update": "node update.js"
+  },
+  "dependencies": {
+    "google-play-scraper": "^10.1.3"
+  }
+}
