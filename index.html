@@ -16,44 +16,66 @@
       --card-bg: #ffffff;
       --text-main: #202124;
       --text-secondary: #5f6368;
-      --border: #e0e3e7;
-      --blue: #1a73e8;
+      --border: #dfe3e8;
+      --primary: #1a73e8;
+      --hover-bg: #f3f7fd;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
+      min-width: 320px;
       padding: 24px;
-      background: var(--page-bg);
       color: var(--text-main);
+      background: var(--page-bg);
       font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         Roboto,
+        "Helvetica Neue",
         Arial,
         sans-serif;
     }
 
+    button,
+    img {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* ==============================
+       页面头部
+    ============================== */
+
     .page-header {
-      margin-bottom: 24px;
+      margin-bottom: 26px;
       padding-bottom: 20px;
       border-bottom: 1px solid var(--border);
     }
 
-    h1 {
+    .page-header h1 {
       margin: 0 0 10px;
-      font-size: 30px;
+      font-size: 32px;
+      line-height: 1.3;
+      letter-spacing: -0.5px;
     }
 
     .page-meta {
       color: var(--text-secondary);
       font-size: 15px;
-      line-height: 1.7;
+      line-height: 1.8;
     }
+
+    /* ==============================
+       应用列表
+    ============================== */
 
     .comparison-list {
       display: flex;
@@ -66,29 +88,35 @@
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 10px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.04),
+        0 3px 10px rgba(0, 0, 0, 0.03);
     }
 
     .app-header {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 15px;
+      min-height: 80px;
       padding: 16px 20px;
       border-bottom: 1px solid var(--border);
     }
 
     .rank {
       flex: 0 0 auto;
-      color: var(--blue);
-      font-size: 26px;
+      min-width: 48px;
+      color: var(--primary);
+      font-size: 28px;
+      line-height: 1;
       font-weight: 800;
     }
 
     .app-icon {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       flex: 0 0 auto;
-      border-radius: 10px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
       object-fit: cover;
     }
 
@@ -96,91 +124,310 @@
       min-width: 0;
     }
 
-    .app-info h2 {
+    .app-title {
       margin: 0;
-      font-size: 19px;
-      line-height: 1.4;
+      font-size: 20px;
+      line-height: 1.45;
     }
 
-    .app-info h2 a {
+    .app-title a {
       color: var(--text-main);
       text-decoration: none;
     }
 
-    .app-info h2 a:hover {
-      color: var(--blue);
+    .app-title a:hover {
+      color: var(--primary);
       text-decoration: underline;
     }
 
     .app-meta {
-      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 14px;
+      margin-top: 5px;
       color: var(--text-secondary);
       font-size: 13px;
+      line-height: 1.6;
     }
+
+    /* ==============================
+       截图横向区域
+    ============================== */
 
     .screenshots-container {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 14px;
+      width: 100%;
       overflow-x: auto;
-      padding: 22px 16px 16px;
+      overflow-y: hidden;
+      padding: 24px 16px 16px;
       scroll-behavior: smooth;
+      scroll-snap-type: x proximity;
+      overscroll-behavior-x: contain;
+      scrollbar-width: thin;
+      scrollbar-color: #adb3bb transparent;
     }
 
     .screenshots-container::-webkit-scrollbar {
-      height: 8px;
+      height: 9px;
+    }
+
+    .screenshots-container::-webkit-scrollbar-track {
+      background: transparent;
     }
 
     .screenshots-container::-webkit-scrollbar-thumb {
-      background: #b7bcc3;
+      background: #adb3bb;
+      border: 2px solid white;
       border-radius: 999px;
     }
 
+    /*
+      关键：
+      不设置固定宽度。
+      每张截图按自身比例决定宽度。
+
+      竖屏图会比较窄；
+      横屏图会比较宽；
+      所有图片都完整显示，不裁切。
+    */
+
     .screenshot-item {
+      position: relative;
       flex: 0 0 auto;
+      display: block;
       height: 420px;
       overflow: hidden;
-      background: #eef0f2;
+      padding: 0;
+      background: #eef1f4;
       border: 1px solid var(--border);
-      border-radius: 6px;
+      border-radius: 7px;
+      scroll-snap-align: start;
+      cursor: zoom-in;
     }
 
     .screenshot-item img {
       display: block;
       width: auto;
       height: 100%;
+      max-width: none;
       object-fit: contain;
+      background: #eef1f4;
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
     }
 
-    .empty {
-      padding: 30px 10px;
-      color: #999;
+    .screenshot-item:hover img {
+      transform: scale(1.012);
+      opacity: 0.95;
+    }
+
+    .zoom-hint {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      padding: 5px 9px;
+      color: #fff;
+      font-size: 12px;
+      line-height: 1;
+      background: rgba(0, 0, 0, 0.62);
+      border-radius: 999px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease;
+    }
+
+    .screenshot-item:hover .zoom-hint {
+      opacity: 1;
+    }
+
+    .empty-state {
+      padding: 34px 12px;
+      color: #92979d;
       font-size: 14px;
     }
 
-    @media (max-width: 700px) {
+    /* ==============================
+       大图预览
+    ============================== */
+
+    .lightbox {
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 84px;
+      background: rgba(11, 13, 16, 0.92);
+      backdrop-filter: blur(5px);
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .lightbox-image {
+      display: block;
+      max-width: calc(100vw - 180px);
+      max-height: calc(100vh - 120px);
+      object-fit: contain;
+      border-radius: 7px;
+      box-shadow: 0 18px 70px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-caption {
+      margin-top: 14px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 18px;
+      right: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      padding: 0;
+      color: #fff;
+      font-size: 31px;
+      line-height: 1;
+      background: rgba(255, 255, 255, 0.12);
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .lightbox-arrow {
+      position: fixed;
+      top: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 64px;
+      padding: 0;
+      color: #fff;
+      font-size: 40px;
+      line-height: 1;
+      background: rgba(255, 255, 255, 0.1);
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-arrow:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .lightbox-arrow:disabled {
+      visibility: hidden;
+    }
+
+    .lightbox-previous {
+      left: 18px;
+    }
+
+    .lightbox-next {
+      right: 18px;
+    }
+
+    /* ==============================
+       手机适配
+    ============================== */
+
+    @media (max-width: 720px) {
       body {
         padding: 12px;
       }
 
-      h1 {
-        font-size: 23px;
+      .page-header h1 {
+        font-size: 24px;
+      }
+
+      .page-meta {
+        font-size: 13px;
       }
 
       .app-header {
-        padding: 14px;
+        gap: 10px;
+        min-height: 68px;
+        padding: 13px 14px;
       }
 
       .rank {
+        min-width: 38px;
         font-size: 22px;
       }
 
-      .app-info h2 {
+      .app-icon {
+        width: 43px;
+        height: 43px;
+        border-radius: 10px;
+      }
+
+      .app-title {
         font-size: 17px;
+      }
+
+      .app-meta {
+        font-size: 12px;
+      }
+
+      .screenshots-container {
+        gap: 10px;
+        padding: 16px 10px 12px;
       }
 
       .screenshot-item {
         height: 330px;
+      }
+
+      .lightbox {
+        padding: 64px 12px 70px;
+      }
+
+      .lightbox-image {
+        max-width: calc(100vw - 24px);
+        max-height: calc(100vh - 150px);
+      }
+
+      .lightbox-arrow {
+        top: auto;
+        bottom: 12px;
+        width: 52px;
+        height: 44px;
+        transform: none;
+      }
+
+      .lightbox-previous {
+        left: calc(50% - 62px);
+      }
+
+      .lightbox-next {
+        right: calc(50% - 62px);
       }
     }
   </style>
@@ -191,647 +438,37 @@
     <h1>🎬 Captune 竞品截图对比</h1>
 
     <div class="page-meta">
-      市场：EN-US
-      ｜搜索词：“captions”
-      ｜排序：Google Play 搜索结果顺序
-      ｜共 10 个应用
+      美国 Google Play Captions 竞品
+      ｜市场：EN-US
+      ｜顺序：自定义竞品顺序
+      ｜共 1 个应用
     </div>
   </header>
 
   <main class="comparison-list">
     
-    <section class="app-card">
+    <section
+      class="app-card"
+      data-app-name="Mojo: Reels and Video Captions"
+      data-screenshots="[&quot;https://play-lh.googleusercontent.com/Wj5m6eWQHabW-9AfLqijSHfn5Jl_VoycvGNb04RsyrL1wzCrJC_zsuFQZ9_jVv_rGpFCzUYmk4mLt1Q5_6luOEU=w1800&quot;,&quot;https://play-lh.googleusercontent.com/XZWEJrhYKI8k5DLRfONm_9GNwkUljLZoa3-9zgS7uFs-YFlKiz2PIZuvbKVJbnhGNGN-yFECxe2gvvprcEibRQ=w1800&quot;,&quot;https://play-lh.googleusercontent.com/EMt1znRvZfAfpbcisyVUs9v2comSEClwHsDg3LSTkhxb_Nj6V4YUsKnX9JyEftiiSX5Aon9YWhDpGiGtHT3CQts=w1800&quot;,&quot;https://play-lh.googleusercontent.com/IqoTaHYfmEigYgrAWqZ-mX8_gSKVh3UFSzVwuX4sTYMEZduznCViHyrMlcW98zARyNjob0znjau_dXhwkJsj320=w1800&quot;,&quot;https://play-lh.googleusercontent.com/HSGqWYurZuoG5NxIHl-wZtJAJNT-9P0v0hHe4cES-5bb6t1yEkP9otpFn6PcbsU0jls3RbwsGMjuieQs3BfS=w1800&quot;,&quot;https://play-lh.googleusercontent.com/Iff4Qo7on2VbMzx_dekrFt85Ik1kGI_M7jVZNHXxofTRBpzy7GP3wYNxI8233ZZOzjNfY3RhqGTXfSjFnZ3XKw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/p3n1OqQ0EKACFeiJWsPm-_6wfG-I_q8Ur-lRa_LCHlLddLiaChNFrdD3cPfT4xxawCs-fB-t_4ewhSMr03Nq=w1800&quot;,&quot;https://play-lh.googleusercontent.com/mOoeogDVtRMzfYMoUiAhsE_DpYLlz3sIi-wggvH_rwAi7yMEDk9L82DC_J760A3K7DmIlsZB0YHoN4_uGppz=w1800&quot;]"
+    >
       <div class="app-header">
-        <div class="rank">#1</div>
-
-        
-              <img
-                class="app-icon"
-                src="https://play-lh.googleusercontent.com/sCUCk1yeohxck2IeoEB5jhqPT6KTpOm3tsMtyRaK_PruKBMnWH1TSZxmVpxTl_7R6erhG7K9vxEGymCkj5rW"
-                alt=""
-                referrerpolicy="no-referrer"
-              />
-            
-
-        <div class="app-info">
-          <h2>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.nocap.captions&amp;hl=en&amp;gl=us"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Captions Lite
-            </a>
-          </h2>
-
-          <div class="app-meta">
-            Captions
-             · 评分 4.197183
-             · 1,000,000+
-          </div>
+        <div class="rank">
+          #1
         </div>
-      </div>
-
-      <div class="screenshots-container">
-        
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/BCO0KD6abwdlPlb9o2zhkFQ1xknzAYi_eeYowwp8SUZWlyr-iI10nX1kEcwk-WCOEHJkobbmgnoKXUsxUvR1=w1200"
-                alt="Captions Lite 截图 1"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/cRDQkTHTsFvDckicrB9kjPAJ7yP-zgHMgfkQTjK1jb-AP4zZOsf8ODk8iJ6PoeJP9L9ZA2tvEubT1IHVWNx5kos=w1200"
-                alt="Captions Lite 截图 2"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/CEA_0gsMweIdqmCSqNkojb2cXRpb0kzm7ePU0gWLzxb2DsBrzgJRJ96ILUbo_g4jf-XauVtsRgm6n6j-YRCZEzA=w1200"
-                alt="Captions Lite 截图 3"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/mZMZJDDmpcWZ6tusTWtC02NWRaCKESPTgJZzRbKA3HhK5Eo94X7niETTflAanURTO0vH37smARXtqcyTnFGI1w=w1200"
-                alt="Captions Lite 截图 4"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/bmBe8kZYdoYXMTI0fC-u0kmjfruwMTlNPSe86Pv5Fl-WZuVKzOOyU8jGFcIOdk4q4HjYIw4oSQybRpydbzZ2MA=w1200"
-                alt="Captions Lite 截图 5"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/Zf49rrXeuvJMlin-NKbo-S11NOqf1_vS3kfj6lYLIa4MPgd-tT9Y0Ful80aaa_KIvVEWRcxuzkDLvBP51rol=w1200"
-                alt="Captions Lite 截图 6"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/kOU5rToTKjkriM3HwMYh-hPrboXj85BN2j-J8YvOwGVaIf3NZs1DtQMSq6KU4LRf2sYA7JF2bQaxYyaWuVhW0g=w1200"
-                alt="Captions Lite 截图 7"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-      </div>
-    </section>
-  
-    <section class="app-card">
-      <div class="app-header">
-        <div class="rank">#2</div>
-
-        
-              <img
-                class="app-icon"
-                src="https://play-lh.googleusercontent.com/LEcOmYY_oeNFJHnNmkwfVuf4n9sKTX1wYw6EliXE6OJ22iXbcjmPW3k87CNN0-_-Tnq7k6lsixLtNyA9LQ6xyg"
-                alt=""
-                referrerpolicy="no-referrer"
-              />
-            
-
-        <div class="app-info">
-          <h2>
-            <a
-              href="https://play.google.com/store/apps/details?id=captions.ai.videoeditor&amp;hl=en&amp;gl=us"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Captions AI - Auto Captions
-            </a>
-          </h2>
-
-          <div class="app-meta">
-            Music Video Editor with Effects &amp; Slideshow
-             · 评分 4.71
-             · 100,000+
-          </div>
-        </div>
-      </div>
-
-      <div class="screenshots-container">
-        
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/5dO8UG2uEFLXQCOdIn-ahX0mH8fFyHCcd7c3fhGo2IrLrV6lackS5IRsAbGD0Jx9-A5Groj9pjNlY09jqRMoIw=w1200"
-                alt="Captions AI - Auto Captions 截图 1"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/H5STr5rQbhEeasxlci29k9KCEUHktmqnHQnMvJXr1V93k6rhrRSrgYgsK3TXTR-OT4axZacki9jdoKUdwrS-hA=w1200"
-                alt="Captions AI - Auto Captions 截图 2"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/kdwpt7BGFbRTPMuLr0XK7xOT5veGFcL0GBNpmRkDDEH12CX1PMLwjwRszm6EzLdhoS5vzgR7oKQEa-fvSbZeJnM=w1200"
-                alt="Captions AI - Auto Captions 截图 3"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/w-EzoL3X-oQDci9oUemFULJk-napq9mMsHBdyrr0Pr2X7BomGzGFlEBIeVHB8vnDGxadrHLayy31VpUmhM_ocnk=w1200"
-                alt="Captions AI - Auto Captions 截图 4"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/JWm9GxCD66o6er0ImeQlUKPtsoDFNH1UeP3wBh0mRqKE2jSnm3f0ZnisnPv70f91-XAs7ZQnRZKzKqER8S4Ffg=w1200"
-                alt="Captions AI - Auto Captions 截图 5"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/CwoaB3CSUjXeK95_su-PUoiUXtvrQLBlrDAa3Nuu_3GKXwmt9pADgPH389IVW0rxMxWd7lIPmSoye_YJS9kZ=w1200"
-                alt="Captions AI - Auto Captions 截图 6"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/Kn1zK8eOcz_9COYJqUXLylHU2ztm2vrMj_plosaE7mDnzf0Tnbo6k5F_czL9IoIguZUoLaikGNrwa4IY0MKi7A=w1200"
-                alt="Captions AI - Auto Captions 截图 7"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/vm5TqCfhlwnWsVQ-ooLr7mAfzl2CMq0wDdaJBbraVrPRomHMHNiA2EQ62wnmLfM__h0vwFheJE-gVcZyI-hCVvg=w1200"
-                alt="Captions AI - Auto Captions 截图 8"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-      </div>
-    </section>
-  
-    <section class="app-card">
-      <div class="app-header">
-        <div class="rank">#3</div>
-
-        
-              <img
-                class="app-icon"
-                src="https://play-lh.googleusercontent.com/TwRZaBQYFA29fHxonnvHjgNu5XjrFVOkKn1eKI79GIGJn9lBdokfULSZsXed55M0diLOpjVSaWkjbDG4pi7leQ"
-                alt=""
-                referrerpolicy="no-referrer"
-              />
-            
-
-        <div class="app-info">
-          <h2>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.captionsai&amp;hl=en&amp;gl=us"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Dubs: Captions for Videos
-            </a>
-          </h2>
-
-          <div class="app-meta">
-            Captions Subtitles
-             · 评分 4.1043477
-             · 1,000,000+
-          </div>
-        </div>
-      </div>
-
-      <div class="screenshots-container">
-        
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/42cXgXIaeO7rtm5ImcH-T_aTejsMjrEko8HKQWAHyh7cgDkLHVlsTPZdx1J20StWxWw_0QyT98TB32IOtRFL=w1200"
-                alt="Dubs: Captions for Videos 截图 1"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/L3dxkUW7LHDympBXNtfj5ECg5pFaiBY560VsbAw1TV-D8oN8pZbgnXPPj25eltq2GrxPGgg1v8EehX0J9p59dQ=w1200"
-                alt="Dubs: Captions for Videos 截图 2"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/Pr7Dlk5cPw5eOGszfiTLCULHmArYKSyuH9vTtwbWZXsptbxpqZxdKEHvNc7DCayUBj9EXBvyvIz49llSYGIk_ig=w1200"
-                alt="Dubs: Captions for Videos 截图 3"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/uGm8MBzZBMdfEHxdP9RM61ON_a7T1n_jxx8Ln1vhOJk19ta4MJ__ciZ8UwQRls4tPPKrXW9ls9s3RY3DWt_C7Q=w1200"
-                alt="Dubs: Captions for Videos 截图 4"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-      </div>
-    </section>
-  
-    <section class="app-card">
-      <div class="app-header">
-        <div class="rank">#4</div>
-
-        
-              <img
-                class="app-icon"
-                src="https://play-lh.googleusercontent.com/mbWtYGzY6W3-m53FBGyrpvMbh3kSUR6gETUlegKMizS3cDlllHLhIkGfevVWvqlwkLWyKtH0uQ6a33qbSfmm"
-                alt=""
-                referrerpolicy="no-referrer"
-              />
-            
-
-        <div class="app-info">
-          <h2>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.pixsterstudio.captions&amp;hl=en&amp;gl=us"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Captions AI: Videos Subtitles
-            </a>
-          </h2>
-
-          <div class="app-meta">
-            Pixster Studio
-             · 评分 4.651786
-             · 1,000,000+
-          </div>
-        </div>
-      </div>
-
-      <div class="screenshots-container">
-        
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/5UYGjlqiLoIhJhfC5E0ZoXPYvs-0X22ZC65UbUHZHZX_EeW7JbFZhFFmWTu-eOWjZcl1ckv-0Verd6Uwp5PW=w1200"
-                alt="Captions AI: Videos Subtitles 截图 1"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/LKs-b7b9Z5Pqb80rXNZxahd0q_OBOnMabPWvL0um4wCOUDydfW8MIcn4YCzVwFW0e4cs0NzegX05LO6-78Sg=w1200"
-                alt="Captions AI: Videos Subtitles 截图 2"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/uj-DZ641Qs25-jhmQ5mcdPKSRtE5ePhLkF4iHx-Ui-c40KMLQ9iogfWNObszjZu2UOqdGEQWFsrddz-QbSKiWI4=w1200"
-                alt="Captions AI: Videos Subtitles 截图 3"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/_J1kBCRDsgqWQ9JMHMxgm_njmWyRKY90_UrcTl53XKM4u7i-er7gxjjZCQpaz4FwdxYWuZJvBGVyO7uiVyO2=w1200"
-                alt="Captions AI: Videos Subtitles 截图 4"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/ULuChOurrs-t89WA3ESY9TxEzh1kiy8ebwulNpB6J_8k4ikWvjxFJ8YX1IYXwyBtmPj96ZFJmfepAZa77WSudQ=w1200"
-                alt="Captions AI: Videos Subtitles 截图 5"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/y0Rq37lw1hUjj3Nv9jG6p0DXobXUBlwqh8RL2q3zNkIQv6HyhGbxsrzdGNDXREMIFG__qpWkt-u1IkRcZq9WQg=w1200"
-                alt="Captions AI: Videos Subtitles 截图 6"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/PGNG2bjTMA7ba_SGyz32dlrOD-kKVfjrwq0IsYV9tKbyfEvJYWUztVvSvlCljA1hQkAXgxsdGqIyt1cEPfn5Tw=w1200"
-                alt="Captions AI: Videos Subtitles 截图 7"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/6zRYwG_UvYh71MwEDOLhLpFVzP1hzqWKJohUnZ1RzCPxjrEGoC42oY84wSCDK9dYWKF7yGOfSr6jqV9tWkz65w=w1200"
-                alt="Captions AI: Videos Subtitles 截图 8"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/NFDqpR26Ic9-xof0d4KA3Um5QKtCYy4C7g_eOHYaYUAUVZu2sRlbXAji-8OkBlHd6TaLk-E6S-ETOeZXaZ9ltA=w1200"
-                alt="Captions AI: Videos Subtitles 截图 9"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/hVksuZPqMt58X3gm5g70-rbvyMkIH0GlHpjacCsxd8MIwXTpQV14TggEBuC3HvrIr-gPP1kYiNKQbUxNLqJ_UQ=w1200"
-                alt="Captions AI: Videos Subtitles 截图 10"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/0BKaX1WH9fQezCErmucmg9bcEA4xtTwhPaRUCQd0jHIFIcaoq3zXQT37b9Vy0nf9WWa3BZHIqEQfdaz9T6CDuA=w1200"
-                alt="Captions AI: Videos Subtitles 截图 11"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/HqjBQW9iiVCnKxmSTCdBfv1W8cWSem-JTvUU2-s6MFcXd3hL0os8MVTVrnBCkNoRshIOcbhKG0azp9U4Ckn8=w1200"
-                alt="Captions AI: Videos Subtitles 截图 12"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/gkbhOnoK5t3CIieArk8WWhev_KmymmvBxfI5Dgs5nsuiqYwBa0iEvcfyRvOn07ztLUpXjy5SCNPrs98wnuXY=w1200"
-                alt="Captions AI: Videos Subtitles 截图 13"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/U6Hv8I8O3FzMmGbtjk4y89eGHLmy81yme3wMWFi_trQRre2cORjGIx-OiMO3IMy7VtHkuLu9u1RJ0HfEeO08=w1200"
-                alt="Captions AI: Videos Subtitles 截图 14"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/6zRYwG_UvYh71MwEDOLhLpFVzP1hzqWKJohUnZ1RzCPxjrEGoC42oY84wSCDK9dYWKF7yGOfSr6jqV9tWkz65w=w1200"
-                alt="Captions AI: Videos Subtitles 截图 15"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/NFDqpR26Ic9-xof0d4KA3Um5QKtCYy4C7g_eOHYaYUAUVZu2sRlbXAji-8OkBlHd6TaLk-E6S-ETOeZXaZ9ltA=w1200"
-                alt="Captions AI: Videos Subtitles 截图 16"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/hVksuZPqMt58X3gm5g70-rbvyMkIH0GlHpjacCsxd8MIwXTpQV14TggEBuC3HvrIr-gPP1kYiNKQbUxNLqJ_UQ=w1200"
-                alt="Captions AI: Videos Subtitles 截图 17"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/0BKaX1WH9fQezCErmucmg9bcEA4xtTwhPaRUCQd0jHIFIcaoq3zXQT37b9Vy0nf9WWa3BZHIqEQfdaz9T6CDuA=w1200"
-                alt="Captions AI: Videos Subtitles 截图 18"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/HqjBQW9iiVCnKxmSTCdBfv1W8cWSem-JTvUU2-s6MFcXd3hL0os8MVTVrnBCkNoRshIOcbhKG0azp9U4Ckn8=w1200"
-                alt="Captions AI: Videos Subtitles 截图 19"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/gkbhOnoK5t3CIieArk8WWhev_KmymmvBxfI5Dgs5nsuiqYwBa0iEvcfyRvOn07ztLUpXjy5SCNPrs98wnuXY=w1200"
-                alt="Captions AI: Videos Subtitles 截图 20"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/U6Hv8I8O3FzMmGbtjk4y89eGHLmy81yme3wMWFi_trQRre2cORjGIx-OiMO3IMy7VtHkuLu9u1RJ0HfEeO08=w1200"
-                alt="Captions AI: Videos Subtitles 截图 21"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-      </div>
-    </section>
-  
-    <section class="app-card">
-      <div class="app-header">
-        <div class="rank">#5</div>
-
-        
-              <img
-                class="app-icon"
-                src="https://play-lh.googleusercontent.com/fROaPeJXcL6USzmkBt1nHpo55heIS7NgNiJN0Jd55HmMRGmX0lhLLzmYfLP6IjwZLJ0BGQSyKuOSCJ2CcpxHDw"
-                alt=""
-                referrerpolicy="no-referrer"
-              />
-            
-
-        <div class="app-info">
-          <h2>
-            <a
-              href="https://play.google.com/store/apps/details?id=ai.captiono.app&amp;hl=en&amp;gl=us"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Captiono: AI Subtitles
-            </a>
-          </h2>
-
-          <div class="app-meta">
-            Captiono
-             · 评分 4.178218
-             · 1,000,000+
-          </div>
-        </div>
-      </div>
-
-      <div class="screenshots-container">
-        
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/9l1udxHekXWPRwmdbxuY9jntgahEhwhzxW94Z-vNG8nxcTJKnMrqjSCyLkyN9ov0yF9goBFILnztjPXyBriHP4Q=w1200"
-                alt="Captiono: AI Subtitles 截图 1"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/6s_vkim44F91GOnUIWndyU8d-LyzTHvcOupFoZYVWrqIoL6kLsYhU3q60Uc32gz8nhAL00YadRl8yOh3Z1aO9Q=w1200"
-                alt="Captiono: AI Subtitles 截图 2"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/k2cT9BLzc-MYWJg3rIHuqOrZn6Um1bhJbxjML47Nv6QdW_tZtv2Y-McTyHzL2DBOp29jVo7VfcK8yP0CuQYbMg=w1200"
-                alt="Captiono: AI Subtitles 截图 3"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/8tg8uT3iAMmYcZ-8cL5b8ulx1c0ZWEt2ERd1w9_SzHsObSsyTwqdIheKJ-fG7euHXpO6GFKOhjm7bJ7Ton7n=w1200"
-                alt="Captiono: AI Subtitles 截图 4"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/9hKq8XpW6K9STIiQW54L-ujMyIyFF0j9ZCRDOgnTqGS58bj63DTIigI5nD5o_9cWUM4J8Ns6RfeqOZk76DWbBw0=w1200"
-                alt="Captiono: AI Subtitles 截图 5"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/LPLPLKRXNtfYMzjt82EL1o9Idzol9faXWe2SDw-lSbbuPpX8Ml2_Z0DU9eP5n1Q_dlMmKf3qV1wJOxFrgpdR=w1200"
-                alt="Captiono: AI Subtitles 截图 6"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/zNVBZi-x27T1kxy7xfjl_EA8ax0mhdmMANLK_sCVDE-lh1C0mjr2rNCAAjXOl6-Zutt-1yYutFbAjNiB0qtb=w1200"
-                alt="Captiono: AI Subtitles 截图 7"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/QqAmA_Ct_vmJKm4TS4exPplr2niNShDjv9usW8-YxdpeShCpIMITLzHuVn6FWelUFrjBcjJrs1nFNnsM7Xf7pA=w1200"
-                alt="Captiono: AI Subtitles 截图 8"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-      </div>
-    </section>
-  
-    <section class="app-card">
-      <div class="app-header">
-        <div class="rank">#6</div>
 
         
               <img
                 class="app-icon"
                 src="https://play-lh.googleusercontent.com/edjJkjz5dJJgyZV32afRPPB4fMCwBKrYuwfwQZFc02ItExFyZaV-ASkzMefuPJOZ5iVQO2JAXPpgi_AY9S8tDhw"
-                alt=""
+                alt="Mojo: Reels and Video Captions 图标"
+                loading="lazy"
                 referrerpolicy="no-referrer"
               />
             
 
         <div class="app-info">
-          <h2>
+          <h2 class="app-title">
             <a
               href="https://play.google.com/store/apps/details?id=video.mojo&amp;hl=en&amp;gl=us"
               target="_blank"
@@ -842,787 +479,361 @@
           </h2>
 
           <div class="app-meta">
-            Dailymotion Inc
-             · 评分 4.4845505
-             · 10,000,000+
+            <span>Dailymotion Inc</span>
+
+            <span>评分 4.4845505</span>
+
+            <span>10,000,000+</span>
+
+            <span>8 张截图</span>
           </div>
         </div>
       </div>
 
       <div class="screenshots-container">
         
-            <div class="screenshot-item">
+            <button
+              class="screenshot-item"
+              type="button"
+              data-app-name="Mojo: Reels and Video Captions"
+              data-image-index="0"
+              aria-label="查看 Mojo: Reels and Video Captions 第 1 张截图"
+            >
               <img
-                src="https://play-lh.googleusercontent.com/Wj5m6eWQHabW-9AfLqijSHfn5Jl_VoycvGNb04RsyrL1wzCrJC_zsuFQZ9_jVv_rGpFCzUYmk4mLt1Q5_6luOEU=w1200"
+                src="https://play-lh.googleusercontent.com/Wj5m6eWQHabW-9AfLqijSHfn5Jl_VoycvGNb04RsyrL1wzCrJC_zsuFQZ9_jVv_rGpFCzUYmk4mLt1Q5_6luOEU=w1800"
                 alt="Mojo: Reels and Video Captions 截图 1"
                 loading="lazy"
+                decoding="async"
                 referrerpolicy="no-referrer"
               />
-            </div>
+
+              <span class="zoom-hint">点击放大</span>
+            </button>
           
-            <div class="screenshot-item">
+            <button
+              class="screenshot-item"
+              type="button"
+              data-app-name="Mojo: Reels and Video Captions"
+              data-image-index="1"
+              aria-label="查看 Mojo: Reels and Video Captions 第 2 张截图"
+            >
               <img
-                src="https://play-lh.googleusercontent.com/XZWEJrhYKI8k5DLRfONm_9GNwkUljLZoa3-9zgS7uFs-YFlKiz2PIZuvbKVJbnhGNGN-yFECxe2gvvprcEibRQ=w1200"
+                src="https://play-lh.googleusercontent.com/XZWEJrhYKI8k5DLRfONm_9GNwkUljLZoa3-9zgS7uFs-YFlKiz2PIZuvbKVJbnhGNGN-yFECxe2gvvprcEibRQ=w1800"
                 alt="Mojo: Reels and Video Captions 截图 2"
                 loading="lazy"
+                decoding="async"
                 referrerpolicy="no-referrer"
               />
-            </div>
+
+              <span class="zoom-hint">点击放大</span>
+            </button>
           
-            <div class="screenshot-item">
+            <button
+              class="screenshot-item"
+              type="button"
+              data-app-name="Mojo: Reels and Video Captions"
+              data-image-index="2"
+              aria-label="查看 Mojo: Reels and Video Captions 第 3 张截图"
+            >
               <img
-                src="https://play-lh.googleusercontent.com/EMt1znRvZfAfpbcisyVUs9v2comSEClwHsDg3LSTkhxb_Nj6V4YUsKnX9JyEftiiSX5Aon9YWhDpGiGtHT3CQts=w1200"
+                src="https://play-lh.googleusercontent.com/EMt1znRvZfAfpbcisyVUs9v2comSEClwHsDg3LSTkhxb_Nj6V4YUsKnX9JyEftiiSX5Aon9YWhDpGiGtHT3CQts=w1800"
                 alt="Mojo: Reels and Video Captions 截图 3"
                 loading="lazy"
+                decoding="async"
                 referrerpolicy="no-referrer"
               />
-            </div>
+
+              <span class="zoom-hint">点击放大</span>
+            </button>
           
-            <div class="screenshot-item">
+            <button
+              class="screenshot-item"
+              type="button"
+              data-app-name="Mojo: Reels and Video Captions"
+              data-image-index="3"
+              aria-label="查看 Mojo: Reels and Video Captions 第 4 张截图"
+            >
               <img
-                src="https://play-lh.googleusercontent.com/IqoTaHYfmEigYgrAWqZ-mX8_gSKVh3UFSzVwuX4sTYMEZduznCViHyrMlcW98zARyNjob0znjau_dXhwkJsj320=w1200"
+                src="https://play-lh.googleusercontent.com/IqoTaHYfmEigYgrAWqZ-mX8_gSKVh3UFSzVwuX4sTYMEZduznCViHyrMlcW98zARyNjob0znjau_dXhwkJsj320=w1800"
                 alt="Mojo: Reels and Video Captions 截图 4"
                 loading="lazy"
+                decoding="async"
                 referrerpolicy="no-referrer"
               />
-            </div>
+
+              <span class="zoom-hint">点击放大</span>
+            </button>
           
-            <div class="screenshot-item">
+            <button
+              class="screenshot-item"
+              type="button"
+              data-app-name="Mojo: Reels and Video Captions"
+              data-image-index="4"
+              aria-label="查看 Mojo: Reels and Video Captions 第 5 张截图"
+            >
               <img
-                src="https://play-lh.googleusercontent.com/HSGqWYurZuoG5NxIHl-wZtJAJNT-9P0v0hHe4cES-5bb6t1yEkP9otpFn6PcbsU0jls3RbwsGMjuieQs3BfS=w1200"
+                src="https://play-lh.googleusercontent.com/HSGqWYurZuoG5NxIHl-wZtJAJNT-9P0v0hHe4cES-5bb6t1yEkP9otpFn6PcbsU0jls3RbwsGMjuieQs3BfS=w1800"
                 alt="Mojo: Reels and Video Captions 截图 5"
                 loading="lazy"
+                decoding="async"
                 referrerpolicy="no-referrer"
               />
-            </div>
+
+              <span class="zoom-hint">点击放大</span>
+            </button>
           
-            <div class="screenshot-item">
+            <button
+              class="screenshot-item"
+              type="button"
+              data-app-name="Mojo: Reels and Video Captions"
+              data-image-index="5"
+              aria-label="查看 Mojo: Reels and Video Captions 第 6 张截图"
+            >
               <img
-                src="https://play-lh.googleusercontent.com/Iff4Qo7on2VbMzx_dekrFt85Ik1kGI_M7jVZNHXxofTRBpzy7GP3wYNxI8233ZZOzjNfY3RhqGTXfSjFnZ3XKw=w1200"
+                src="https://play-lh.googleusercontent.com/Iff4Qo7on2VbMzx_dekrFt85Ik1kGI_M7jVZNHXxofTRBpzy7GP3wYNxI8233ZZOzjNfY3RhqGTXfSjFnZ3XKw=w1800"
                 alt="Mojo: Reels and Video Captions 截图 6"
                 loading="lazy"
+                decoding="async"
                 referrerpolicy="no-referrer"
               />
-            </div>
+
+              <span class="zoom-hint">点击放大</span>
+            </button>
           
-            <div class="screenshot-item">
+            <button
+              class="screenshot-item"
+              type="button"
+              data-app-name="Mojo: Reels and Video Captions"
+              data-image-index="6"
+              aria-label="查看 Mojo: Reels and Video Captions 第 7 张截图"
+            >
               <img
-                src="https://play-lh.googleusercontent.com/p3n1OqQ0EKACFeiJWsPm-_6wfG-I_q8Ur-lRa_LCHlLddLiaChNFrdD3cPfT4xxawCs-fB-t_4ewhSMr03Nq=w1200"
+                src="https://play-lh.googleusercontent.com/p3n1OqQ0EKACFeiJWsPm-_6wfG-I_q8Ur-lRa_LCHlLddLiaChNFrdD3cPfT4xxawCs-fB-t_4ewhSMr03Nq=w1800"
                 alt="Mojo: Reels and Video Captions 截图 7"
                 loading="lazy"
+                decoding="async"
                 referrerpolicy="no-referrer"
               />
-            </div>
+
+              <span class="zoom-hint">点击放大</span>
+            </button>
           
-            <div class="screenshot-item">
+            <button
+              class="screenshot-item"
+              type="button"
+              data-app-name="Mojo: Reels and Video Captions"
+              data-image-index="7"
+              aria-label="查看 Mojo: Reels and Video Captions 第 8 张截图"
+            >
               <img
-                src="https://play-lh.googleusercontent.com/mOoeogDVtRMzfYMoUiAhsE_DpYLlz3sIi-wggvH_rwAi7yMEDk9L82DC_J760A3K7DmIlsZB0YHoN4_uGppz=w1200"
+                src="https://play-lh.googleusercontent.com/mOoeogDVtRMzfYMoUiAhsE_DpYLlz3sIi-wggvH_rwAi7yMEDk9L82DC_J760A3K7DmIlsZB0YHoN4_uGppz=w1800"
                 alt="Mojo: Reels and Video Captions 截图 8"
                 loading="lazy"
+                decoding="async"
                 referrerpolicy="no-referrer"
               />
-            </div>
-          
-      </div>
-    </section>
-  
-    <section class="app-card">
-      <div class="app-header">
-        <div class="rank">#7</div>
 
-        
-              <img
-                class="app-icon"
-                src="https://play-lh.googleusercontent.com/zTqKx1AvsqnnAuEFj5-ykEobwEcdKI-_y_tlVGKS90iqrtJYjZFibcYTU5tUp-JyvjQqXuRYYWxb0m4eNrFOKQ"
-                alt=""
-                referrerpolicy="no-referrer"
-              />
-            
-
-        <div class="app-info">
-          <h2>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.captionmate.app&amp;hl=en&amp;gl=us"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              CaptionMate: Call Captions
-            </a>
-          </h2>
-
-          <div class="app-meta">
-            MEZMO Corporation
-             · 评分 4.04
-             · 10,000+
-          </div>
-        </div>
-      </div>
-
-      <div class="screenshots-container">
-        
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/iWXBJ2tKeNcmorNlhnP6tDEDrjsURjS2_R2PPF-iC3EmJKAFY1d4DcgNL1taCZY0Ap1JVWcJlLhlZLZMTMOlFA=w1200"
-                alt="CaptionMate: Call Captions 截图 1"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/BBuquJBxpUNWiG9f7eYIxy-K_nsupOI7fKrzOefoF5spEujFgjGbu0rP-Dbgk6Q7QwRQmYhdCSv4qKYYyxlb=w1200"
-                alt="CaptionMate: Call Captions 截图 2"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/_XeEKC_vVuI1_O53NzkDnFG8WRjHxVrpIpXaO1yy6c8REGDM0rBGcoXa_eG9wJxatsCgVOHEJoEfXkHuCp7HGpk=w1200"
-                alt="CaptionMate: Call Captions 截图 3"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/63HW50SZMWw2kEkbczki5nFgJiInNWvu6Ke3e23MDQkakHD2DyDflZODqVaHY2uQkWshJ_knBPhMNzQPk-3p=w1200"
-                alt="CaptionMate: Call Captions 截图 4"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/f92IHM6QTSfCP422GNaiOeSItW4-sqAjX6OqC1G_q8uOeZqdGMFru0GbEa9RZ6BrlVxEd7xBYE-0BnGhMZ2GXg=w1200"
-                alt="CaptionMate: Call Captions 截图 5"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/bBhgKRRdAo9gVenBYN-3MuJR2GlOuiG4VR_WvR4uk95zPOKCHDQndPzi_lG3sjN3i7dsHmL4ZtRZ_gMhJBQe-A=w1200"
-                alt="CaptionMate: Call Captions 截图 6"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/t5ur1vxpIC8gmPSmMdP1KmjCRS50WrWtiBfXQ_G2uSTIhKkDfRlYagDIAMxm0w2HoIcFS1M1ZInNO0WXxbgp9Vw=w1200"
-                alt="CaptionMate: Call Captions 截图 7"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/7uUqJ6PhdYC1vBl1VmLTTwp57QMUGwfbQgsDin36U2D5CoSrGW1-e3fOnT_zfdUpFyYYPTlODM7FEBuPpAeL1tU=w1200"
-                alt="CaptionMate: Call Captions 截图 8"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/grzerOQVpVSTnwwgAu_bMOFDSK4ZZ7vBXz8ASA9op_Aq7qgUX3OuFxN9QITphdyNWYlmv5420IwUTjU4H2ZRyA=w1200"
-                alt="CaptionMate: Call Captions 截图 9"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/Uiby5Ae-50-LWjN0l1mM5r3fBv3ToZTD7sr8Pu5AjnvVjxdt5pPUuQoiyyKCey3b-k3rdgu8t9ogGbiwHxvQa7s=w1200"
-                alt="CaptionMate: Call Captions 截图 10"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/cm1ScLO7cTrf_1giMWEJLtmzqJTcZg7nao4H9LoHtIPSs1A6YKGZmj7bh-6wyvcMHHKEJ1Bw5I9bZqQ8XhgY=w1200"
-                alt="CaptionMate: Call Captions 截图 11"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/IvNWHQv5DB6zg5qLbGWScV0JIVfG8zUnsYZoCLOXL3Rup3FNZVZ4H9yUSYQHBni8I5Kifrl5SFanNtmxOAfO=w1200"
-                alt="CaptionMate: Call Captions 截图 12"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/qp1vaw7pX17fXTVmHzgvF1PCxreroIHw9xGXF5ReQNf4mypviMbCYG5DcfOpuL9V1SoXYurAtCBscC3j1jQOWA=w1200"
-                alt="CaptionMate: Call Captions 截图 13"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/tdouSYt3Y1MtUcCSGWi9_f4ivHmpQxZyjM7TPXYz040x_XSk19kd_fGUHQBIanZIZXgX2j_oTBigGjyXB661xQ=w1200"
-                alt="CaptionMate: Call Captions 截图 14"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/rF4xvH1NBZupce-GdmsHz0wGA0-Wa8KyDwqUqm_uVbak_rtIedXKLoHRTGyX3H_77l-r2M4-azgtSdZgjm5ztu8=w1200"
-                alt="CaptionMate: Call Captions 截图 15"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/wP1pxnBqBlVJMi76Xv_D2qFOI8RlK31zAFXrBxn1muTSTI-sb4j-xbO7allnEY7zd9hi2DSDJ_HIEzclxTgtSWo=w1200"
-                alt="CaptionMate: Call Captions 截图 16"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/SF2Fb4I3954V1Vp6YaogSot8jqPefAmam6xLZ_mGUxavLacPgLJEhz6oj4jH1lnYj2z8ObKjIkKSu4MshlwzkA=w1200"
-                alt="CaptionMate: Call Captions 截图 17"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/mdjyf3mHD1J5u33tIf0BWE4UY4lzld7-Cus4IP2OapRj_RTS0PrQfl2p4jYTUBA7TdM-EWZII3ZBsvDJJXZ8tg8=w1200"
-                alt="CaptionMate: Call Captions 截图 18"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/eNdU0dQVtm_khxAhB-sxCEgfLeNC_9IJxd0nwt5qTRuTTzLznbeJEo6uwjVQj0WPf_Or41d29DPnoI13idGeRg=w1200"
-                alt="CaptionMate: Call Captions 截图 19"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/559OQ_3mILJ0rGshVrl4_S01xzgnHF6Hm4NQAj7NhKJvq9ucWCY4Jh1DBDfrOoB2vrJl2MAQTHADdLj56UjPpDE=w1200"
-                alt="CaptionMate: Call Captions 截图 20"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/B7-KJBRQ8hg3f-5SNX9s1P14cC8Chl6HhBhaCnLRlnMVbgeOXfu1iJILttMUA3KY0LgIO1bzh_tB_wor3eaN=w1200"
-                alt="CaptionMate: Call Captions 截图 21"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/D9cN6R13fA9hNfjxXO7DfI23MeSk3tWYuzjbRHX17NpEvSl9o_SvH0RScCK7hq8nEADb12sH9Q8Dt9n6b6Spa14=w1200"
-                alt="CaptionMate: Call Captions 截图 22"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/0VmTzdePpGvyvUd9npZATLXzJvdqpME0ej34ySTjCJL1xVBWRFc9mYl8uk-hnYgg9sqdg864gR2h8AzcAFMnnwo=w1200"
-                alt="CaptionMate: Call Captions 截图 23"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/n_SzzUUZtZpOfTcqSfg3S8vsyHKVcCXv1lIKxAHMr65lLtcTBVlAPG7k8-ZYGXbtuWfFw_9AclVn1qnRRx2amQ=w1200"
-                alt="CaptionMate: Call Captions 截图 24"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-      </div>
-    </section>
-  
-    <section class="app-card">
-      <div class="app-header">
-        <div class="rank">#8</div>
-
-        
-              <img
-                class="app-icon"
-                src="https://play-lh.googleusercontent.com/h6b1Msu3psRp_5P9vlzP-XyykVZ_K6xwFmiI42n5ypbwHoO0ZQxtt5pR3z2lokSRdc10N-Y0yrYcxIsD5wTAQbo"
-                alt=""
-                referrerpolicy="no-referrer"
-              />
-            
-
-        <div class="app-info">
-          <h2>
-            <a
-              href="https://play.google.com/store/apps/details?id=co.mixcord.mixcaptions&amp;hl=en&amp;gl=us"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              MixCaptions AI Text, Subtitle
-            </a>
-          </h2>
-
-          <div class="app-meta">
-            Mixcord Inc
-             · 评分 3.47
-             · 100,000+
-          </div>
-        </div>
-      </div>
-
-      <div class="screenshots-container">
-        
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/sjOh_Xhhjb_YHS7NIvDyUMduJKhU2La1De4asKcoBd4AWYcFHCpKW-hULykNHlQk1LRDO4EYZkDkjrB_1Gu5=w1200"
-                alt="MixCaptions AI Text, Subtitle 截图 1"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/dbXcflXePqh3as75Nokp81nabYgb3XiK4JOkyW74NLhZ2PN_ZD6him-kXyyzitXxnC6csKMUSsm9O78qgjes=w1200"
-                alt="MixCaptions AI Text, Subtitle 截图 2"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/eeNAEdjYeAeQA3tyPYpRJMTq85pNF1xweKcOpc2a1ur_jA3BolM4TjU9bu8kk23GgQDazLLTE_5mtbSaAaBVCQ0=w1200"
-                alt="MixCaptions AI Text, Subtitle 截图 3"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/VrRqUXv2GFSi8LpPVXbH3lrlaqyT39B5UztfJgSuOlXkwAIhzT10QD7Rw7cbkAcL8SW0tUu_WlVkbfxMmjHn=w1200"
-                alt="MixCaptions AI Text, Subtitle 截图 4"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/kyq_2bkzxMXz2ynXizhu_VOHOsbEeVoO8g2QDrtnJIrj-WqSDXGJz1V0kUO0BGz5nTlEcEwiy3i72jW1MRKsBi8=w1200"
-                alt="MixCaptions AI Text, Subtitle 截图 5"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-      </div>
-    </section>
-  
-    <section class="app-card">
-      <div class="app-header">
-        <div class="rank">#9</div>
-
-        
-              <img
-                class="app-icon"
-                src="https://play-lh.googleusercontent.com/PUyAVysrqZl0qQ0GCkT24ISUL8UsD07167xblJrJx9BUYkfPNbRJfis9ohgGmy-Z3TODn5R3gkplt9tjL9QjNg"
-                alt=""
-                referrerpolicy="no-referrer"
-              />
-            
-
-        <div class="app-info">
-          <h2>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.ai.captionsgenerator&amp;hl=en&amp;gl=us"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Captions AI - Video Subtitles
-            </a>
-          </h2>
-
-          <div class="app-meta">
-            Coloring Laze
-             · 评分 1.7777778
-             · 10,000+
-          </div>
-        </div>
-      </div>
-
-      <div class="screenshots-container">
-        
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/9nTU2UfjzksM7tCWBYxX7-qv9cBfu8pof1LFkrLkSorD3eougcYDM3FKb3wbceiAoIdfeyGxYyRo4XIiqlhr=w1200"
-                alt="Captions AI - Video Subtitles 截图 1"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/MXg7TGk3lDQoeTDLJ_dqbigN6ZfA2BG3mUKuhz3zejQ2PThLX6eXI1fk2BXAs-7npJlTdFDPzKM4P122QWcIbQ=w1200"
-                alt="Captions AI - Video Subtitles 截图 2"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/BnRndUE0FzZ2WY8go4rIV7_PhJj5HOnLHvr_aTf-OwU9W6AwD2ov31iAR4mso9t_AQ9I_hByfr3G9lwJXbJoRw=w1200"
-                alt="Captions AI - Video Subtitles 截图 3"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/0eFGs9Wl3JWgAeEhveopjlPYuWwN7KUrrvPjy5N8ebvIgD_KWxOZ1YfoG9ZZ6R-ff6VyVjNZA5Gb2kpOS0FMGg=w1200"
-                alt="Captions AI - Video Subtitles 截图 4"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/g8vM50O5MMZAxG55KbF9xxAMD4xmpifLXFnWU41Ucu6TBejZ3vuxQ5f7QU1J4oToalYUGNEqfMP8nTRmHkmMXQ=w1200"
-                alt="Captions AI - Video Subtitles 截图 5"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/b7f4FpuKK-i7bNy1cvXA1WBscTIJOmktW3_CUIubIw7UPWDbOL7ch828_6UYeYQx-TkFDGlKAEnJYyvwK3uoug=w1200"
-                alt="Captions AI - Video Subtitles 截图 6"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/KkxQh0llZk1PNzUqjkL1QZVbbdnRY_5ORCtrgBQJ7n28CiYOR75bHawC138Y9sqoavfcK4I4_4WIaDszxPUEz28=w1200"
-                alt="Captions AI - Video Subtitles 截图 7"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/3Lo_2u2uKo9jnvSzfsmwYi7-Y84k9XYIXWQgq9xnbWrFPnJXDtfYfxGsZYF_IoRBqbwH1bsTZMYyPvxwRWL2Xg=w1200"
-                alt="Captions AI - Video Subtitles 截图 8"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-      </div>
-    </section>
-  
-    <section class="app-card">
-      <div class="app-header">
-        <div class="rank">#10</div>
-
-        
-              <img
-                class="app-icon"
-                src="https://play-lh.googleusercontent.com/2oEhXTo0hk5xbYdBoZWwG8XZXvMkwCuBbKIt5ObSYcsVfdM2pt3L3Sjes3p3PQH0QMMe4BC3zQ6JrlR-t6ILOg"
-                alt=""
-                referrerpolicy="no-referrer"
-              />
-            
-
-        <div class="app-info">
-          <h2>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.innocaption.vpdp&amp;hl=en&amp;gl=us"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              InnoCaption Live Call Captions
-            </a>
-          </h2>
-
-          <div class="app-meta">
-            MEZMO Corporation
-             · 评分 4.2462006
-             · 1,000,000+
-          </div>
-        </div>
-      </div>
-
-      <div class="screenshots-container">
-        
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/SafqMiLPlWwmfmSdpU-nf0c1rNNC6dv4SiO3KBwvO3CgB5DQI9tD-DjeVq5Zl3ONO4sZMaZ6Pyztw9c_U37S=w1200"
-                alt="InnoCaption Live Call Captions 截图 1"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/o0Qm2SoGwhuh6LtfzSTR4WgLA4KGNvp9bQJfLPDbaq4xCnkNQ0v4ryO74QXB0PO2c3c2xBttm9gUiDXZEXx-GXI=w1200"
-                alt="InnoCaption Live Call Captions 截图 2"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/tTBZgep3u_avQ3LAheXai2qurknIZxbxJr9L--f9f5qiFS-33rQ1v1pKWkSZLpexFVKJwtdx800GLhIjap8g3Q=w1200"
-                alt="InnoCaption Live Call Captions 截图 3"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/_u3I0TaQcWiXoT2TaVy75qRy484BV0i0t-RXbCfeP9X1UdZgDrYGxuQ3XYWrIhCOQXSq6QrAFV847YZzdnvXSTo=w1200"
-                alt="InnoCaption Live Call Captions 截图 4"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/I1czWuCeIMtWgiIIiQdNEUSaFJiHOPWyyvBk2WzvIbA2TErGcYXcnpoZASP1ZCUypVplJzWXkWmX5zp7LLqDJw=w1200"
-                alt="InnoCaption Live Call Captions 截图 5"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/QQUvLDvrsfSBxf0igquY-i-ymBZgO0xaIkZ5gBc08dLO7tXJQ1oAOaRCiDSJWrHwxBmpLG7LHygrpu5T9Dm5cg=w1200"
-                alt="InnoCaption Live Call Captions 截图 6"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/4s-Hy1PSLTm4XbdB153xW6TnyeUV_6WuVmDBE1nHCGNx_UFucTuvkdH5ypaAt8ui8DJsdQl55mhg-d4uSbAJjBA=w1200"
-                alt="InnoCaption Live Call Captions 截图 7"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/6-Z1RE2e5o0hBxXSvwxfzCvyFGjOYvFSULFyjtKj1Q7Q3QpkTDCCxSvf101RDqP8FWconBoJ5xx6WIB75lNBLJY=w1200"
-                alt="InnoCaption Live Call Captions 截图 8"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/SHHDiqkgLT2VXP0hKQVgiMGsyPGZHFEIkpMwrVmwKHDBbN-8w--hPQi1vczXwc9NUBZmC-S1hXzZ5wcfkKPNe2k=w1200"
-                alt="InnoCaption Live Call Captions 截图 9"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/9YEncXH3bNXQ5Sn2q_lSYptOAwuII3EdVB5fzbVPKxhjqiSngPctHB7kbSs_uMVN0ji0umirjLr7HYbZsFVv=w1200"
-                alt="InnoCaption Live Call Captions 截图 10"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/I40t9x7bb5GlRHTY2syZlVuMSmNEC5BQ5WbjPju0UPbz8cnJv_CN9pQ0TTM3-rg1lErXC1PRkk1Ne2tB_1OqmYg=w1200"
-                alt="InnoCaption Live Call Captions 截图 11"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/Gf04zNYttbXXskKiK0y4ok7qIWfxNkUFbDuG796baaO9nYyScy5_Tw7xxSUbUugdlwcmXaXpYkTxKQI4qm38Pw=w1200"
-                alt="InnoCaption Live Call Captions 截图 12"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/nUcKUqgWys1fFdv-GvLL6PxNDsoLMlcxIuVBGDYVvyNUjZl1AANYRJbaJckUWQ2J1fvK4auJTSsGH3qNssRY1Q=w1200"
-                alt="InnoCaption Live Call Captions 截图 13"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/9KQyf9IWiVK3XeakGvAeRWzcRRGOBnpCpeAhkl6FMA5HEJabyYPs-NCn4ttYsnUOBDTJ8HhT75NCsL6uX93_Aw=w1200"
-                alt="InnoCaption Live Call Captions 截图 14"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/_hc9FjMtkjEbT_t7WwmlmV34rtxRSr_mE5EESvGvVtFlbllRkYzPIwgVxJEpH7JwAj1nogEFuCZ5BDN-TVWZbVs=w1200"
-                alt="InnoCaption Live Call Captions 截图 15"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/rHQuMlLoanly1wtEv42B86_U-JlWVRJoZLm_Jf9VCPQ8p3cGyHyrOfLGuDWPQv3JtPjR7iVrZyN9f0OZZtV7Xw=w1200"
-                alt="InnoCaption Live Call Captions 截图 16"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/SHHDiqkgLT2VXP0hKQVgiMGsyPGZHFEIkpMwrVmwKHDBbN-8w--hPQi1vczXwc9NUBZmC-S1hXzZ5wcfkKPNe2k=w1200"
-                alt="InnoCaption Live Call Captions 截图 17"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/9YEncXH3bNXQ5Sn2q_lSYptOAwuII3EdVB5fzbVPKxhjqiSngPctHB7kbSs_uMVN0ji0umirjLr7HYbZsFVv=w1200"
-                alt="InnoCaption Live Call Captions 截图 18"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/I40t9x7bb5GlRHTY2syZlVuMSmNEC5BQ5WbjPju0UPbz8cnJv_CN9pQ0TTM3-rg1lErXC1PRkk1Ne2tB_1OqmYg=w1200"
-                alt="InnoCaption Live Call Captions 截图 19"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/Gf04zNYttbXXskKiK0y4ok7qIWfxNkUFbDuG796baaO9nYyScy5_Tw7xxSUbUugdlwcmXaXpYkTxKQI4qm38Pw=w1200"
-                alt="InnoCaption Live Call Captions 截图 20"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/nUcKUqgWys1fFdv-GvLL6PxNDsoLMlcxIuVBGDYVvyNUjZl1AANYRJbaJckUWQ2J1fvK4auJTSsGH3qNssRY1Q=w1200"
-                alt="InnoCaption Live Call Captions 截图 21"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/9KQyf9IWiVK3XeakGvAeRWzcRRGOBnpCpeAhkl6FMA5HEJabyYPs-NCn4ttYsnUOBDTJ8HhT75NCsL6uX93_Aw=w1200"
-                alt="InnoCaption Live Call Captions 截图 22"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/_hc9FjMtkjEbT_t7WwmlmV34rtxRSr_mE5EESvGvVtFlbllRkYzPIwgVxJEpH7JwAj1nogEFuCZ5BDN-TVWZbVs=w1200"
-                alt="InnoCaption Live Call Captions 截图 23"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
-          
-            <div class="screenshot-item">
-              <img
-                src="https://play-lh.googleusercontent.com/rHQuMlLoanly1wtEv42B86_U-JlWVRJoZLm_Jf9VCPQ8p3cGyHyrOfLGuDWPQv3JtPjR7iVrZyN9f0OZZtV7Xw=w1200"
-                alt="InnoCaption Live Call Captions 截图 24"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            </div>
+              <span class="zoom-hint">点击放大</span>
+            </button>
           
       </div>
     </section>
   
   </main>
+
+  <div
+    class="lightbox"
+    id="lightbox"
+    aria-hidden="true"
+  >
+    <button
+      class="lightbox-close"
+      id="lightboxClose"
+      type="button"
+      aria-label="关闭预览"
+    >
+      ×
+    </button>
+
+    <button
+      class="lightbox-arrow lightbox-previous"
+      id="lightboxPrevious"
+      type="button"
+      aria-label="上一张"
+    >
+      ‹
+    </button>
+
+    <div class="lightbox-content">
+      <img
+        class="lightbox-image"
+        id="lightboxImage"
+        src=""
+        alt=""
+      />
+
+      <div
+        class="lightbox-caption"
+        id="lightboxCaption"
+      ></div>
+    </div>
+
+    <button
+      class="lightbox-arrow lightbox-next"
+      id="lightboxNext"
+      type="button"
+      aria-label="下一张"
+    >
+      ›
+    </button>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage =
+      document.getElementById("lightboxImage");
+    const lightboxCaption =
+      document.getElementById("lightboxCaption");
+    const lightboxClose =
+      document.getElementById("lightboxClose");
+    const lightboxPrevious =
+      document.getElementById("lightboxPrevious");
+    const lightboxNext =
+      document.getElementById("lightboxNext");
+
+    let activeScreenshots = [];
+    let activeImageIndex = 0;
+    let activeAppName = "";
+
+    function decodeHtml(value) {
+      const textarea = document.createElement("textarea");
+      textarea.innerHTML = value;
+      return textarea.value;
+    }
+
+    function updateLightbox() {
+      const imageUrl = activeScreenshots[activeImageIndex];
+
+      if (!imageUrl) {
+        return;
+      }
+
+      lightboxImage.src = imageUrl;
+      lightboxImage.alt =
+        activeAppName + " 截图 " + (activeImageIndex + 1);
+
+      lightboxCaption.textContent =
+        activeAppName +
+        " · " +
+        (activeImageIndex + 1) +
+        " / " +
+        activeScreenshots.length;
+
+      lightboxPrevious.disabled =
+        activeImageIndex <= 0;
+
+      lightboxNext.disabled =
+        activeImageIndex >= activeScreenshots.length - 1;
+    }
+
+    function openLightbox(card, index) {
+      const encodedScreenshots =
+        card.dataset.screenshots || "[]";
+
+      try {
+        activeScreenshots = JSON.parse(
+          decodeHtml(encodedScreenshots)
+        );
+      } catch (error) {
+        console.error("截图数据解析失败", error);
+        activeScreenshots = [];
+      }
+
+      activeAppName = card.dataset.appName || "";
+      activeImageIndex = index;
+
+      updateLightbox();
+
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+      document.body.style.overflow = "";
+    }
+
+    function showPreviousImage() {
+      if (activeImageIndex > 0) {
+        activeImageIndex -= 1;
+        updateLightbox();
+      }
+    }
+
+    function showNextImage() {
+      if (
+        activeImageIndex <
+        activeScreenshots.length - 1
+      ) {
+        activeImageIndex += 1;
+        updateLightbox();
+      }
+    }
+
+    document
+      .querySelectorAll(".screenshot-item")
+      .forEach((button) => {
+        button.addEventListener("click", () => {
+          const card = button.closest(".app-card");
+          const index = Number(
+            button.dataset.imageIndex || 0
+          );
+
+          openLightbox(card, index);
+        });
+      });
+
+    lightboxClose.addEventListener(
+      "click",
+      closeLightbox
+    );
+
+    lightboxPrevious.addEventListener(
+      "click",
+      showPreviousImage
+    );
+
+    lightboxNext.addEventListener(
+      "click",
+      showNextImage
+    );
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (!lightbox.classList.contains("is-open")) {
+        return;
+      }
+
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+
+      if (event.key === "ArrowLeft") {
+        showPreviousImage();
+      }
+
+      if (event.key === "ArrowRight") {
+        showNextImage();
+      }
+    });
+  </script>
 </body>
 </html>
