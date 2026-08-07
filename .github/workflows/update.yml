@@ -3,7 +3,7 @@ name: 更新竞品截图网页
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 2 * * *"
+     - cron: "0 2 * * *"
 
 permissions:
   contents: write
