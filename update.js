@@ -1,18 +1,18 @@
 import gplay from "google-play-scraper";
 import fs from "node:fs/promises";
 
-/* ==============================
+/* =========================
    读取配置
-============================== */
+========================= */
 
 async function readConfig() {
-  const content = await fs.readFile("./config.json", "utf8");
-  return JSON.parse(content);
+  const text = await fs.readFile("./config.json", "utf8");
+  return JSON.parse(text);
 }
 
-/* ==============================
-   基础工具
-============================== */
+/* =========================
+   工具函数
+========================= */
 
 function escapeHtml(value = "") {
   return String(value)
@@ -23,35 +23,6 @@ function escapeHtml(value = "") {
     .replaceAll("'", "&#039;");
 }
 
-function parseAppId(value = "") {
-  const input = String(value).trim();
-
-  if (!input) {
-    throw new Error("没有填写 Google Play 链接或 appId");
-  }
-
-  /*
-    支持完整 Google Play 链接：
-    https://play.google.com/store/apps/details?id=com.example.app
-  */
-  if (input.startsWith("http://") || input.startsWith("https://")) {
-    const url = new URL(input);
-    const appId = url.searchParams.get("id");
-
-    if (!appId) {
-      throw new Error(`链接中没有找到 id 参数：${input}`);
-    }
-
-    return appId;
-  }
-
-  /*
-    同时支持直接填写：
-    com.example.app
-  */
-  return input;
-}
-
 function normalizeImageUrl(url = "") {
   const value = String(url).trim();
 
@@ -59,71 +30,59 @@ function normalizeImageUrl(url = "") {
     return "";
   }
 
-  /*
-    Google Play 返回的截图链接可能没有尺寸参数。
-    添加较大尺寸，确保放大后清晰。
-  */
+  // 保留 Google Play 自带参数
   if (value.includes("=")) {
     return value;
   }
 
+  // 放大查看时仍保持较清晰
   return `${value}=w1800`;
 }
 
-/* ==============================
-   生成单个应用 HTML
-============================== */
+/* =========================
+   单个 App HTML
+========================= */
 
-function createAppHtml(app) {
+function createAppHtml(app, rank) {
   const screenshots = Array.isArray(app.screenshots)
-    ? app.screenshots
-        .map(normalizeImageUrl)
-        .filter(Boolean)
+    ? app.screenshots.map(normalizeImageUrl).filter(Boolean)
     : [];
 
-  const screenshotsHtml = screenshots.length
+  const screenshotButtons = screenshots.length
     ? screenshots
-        .map((url, index) => {
-          return `
-            <button
-              class="screenshot-item"
-              type="button"
-              data-app-name="${escapeHtml(app.title)}"
-              data-image-index="${index}"
-              aria-label="查看 ${escapeHtml(app.title)} 第 ${index + 1} 张截图"
-            >
-              <img
-                src="${escapeHtml(url)}"
-                alt="${escapeHtml(app.title)} 截图 ${index + 1}"
-                loading="lazy"
-                decoding="async"
-                referrerpolicy="no-referrer"
-              />
-
-              <span class="zoom-hint">点击放大</span>
-            </button>
-          `;
-        })
+        .map((url, index) => `
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="${index}"
+            aria-label="查看 ${escapeHtml(app.title)} 第 ${index + 1} 张截图"
+          >
+            <img
+              src="${escapeHtml(url)}"
+              alt="${escapeHtml(app.title)} 截图 ${index + 1}"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        `)
         .join("")
     : `
-        <div class="empty-state">
-          没有获取到该应用的商店截图
+        <div class="empty">
+          没有获取到截图
         </div>
       `;
-
-  const appScreenshotsJson = escapeHtml(
-    JSON.stringify(screenshots)
-  );
 
   return `
     <section
       class="app-card"
       data-app-name="${escapeHtml(app.title)}"
-      data-screenshots="${appScreenshotsJson}"
+      data-screenshots='${escapeHtml(JSON.stringify(screenshots))}'
     >
       <div class="app-header">
+
         <div class="rank">
-          #${escapeHtml(app.customRank)}
+          #${rank}
         </div>
 
         ${
@@ -132,7 +91,7 @@ function createAppHtml(app) {
               <img
                 class="app-icon"
                 src="${escapeHtml(app.icon)}"
-                alt="${escapeHtml(app.title)} 图标"
+                alt=""
                 loading="lazy"
                 referrerpolicy="no-referrer"
               />
@@ -141,9 +100,10 @@ function createAppHtml(app) {
         }
 
         <div class="app-info">
+
           <h2 class="app-title">
             <a
-              href="${escapeHtml(app.url)}"
+              href="${escapeHtml(app.url || "")}"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -152,6 +112,7 @@ function createAppHtml(app) {
           </h2>
 
           <div class="app-meta">
+
             ${
               app.developer
                 ? `<span>${escapeHtml(app.developer)}</span>`
@@ -164,754 +125,1071 @@ function createAppHtml(app) {
                 : ""
             }
 
-            ${
-              app.installs
-                ? `<span>${escapeHtml(app.installs)}</span>`
-                : ""
-            }
-
             <span>${screenshots.length} 张截图</span>
+
           </div>
+
         </div>
+
       </div>
 
       <div class="screenshots-container">
-        ${screenshotsHtml}
+        ${screenshotButtons}
       </div>
+
     </section>
   `;
 }
 
-/* ==============================
-   生成完整网页
-============================== */
+/* =========================
+   生成页面
+========================= */
 
 function createPage(config, apps) {
-  const cardsHtml = apps
-    .map(createAppHtml)
+
+  const appCards = apps
+    .map((app, index) => createAppHtml(app, index + 1))
     .join("");
+
+  const generatedTime = new Date().toLocaleString(
+    "zh-CN",
+    {
+      timeZone: "Asia/Shanghai",
+      hour12: false
+    }
+  );
 
   return `<!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-  <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-  <title>${escapeHtml(config.title)}</title>
-
-  <style>
-    :root {
-      --page-bg: #f5f6f8;
-      --card-bg: #ffffff;
-      --text-main: #202124;
-      --text-secondary: #5f6368;
-      --border: #dfe3e8;
-      --primary: #1a73e8;
-      --hover-bg: #f3f7fd;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      min-width: 320px;
-      padding: 24px;
-      color: var(--text-main);
-      background: var(--page-bg);
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
-    }
-
-    button,
-    img {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    /* ==============================
-       页面头部
-    ============================== */
-
-    .page-header {
-      margin-bottom: 26px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .page-header h1 {
-      margin: 0 0 10px;
-      font-size: 32px;
-      line-height: 1.3;
-      letter-spacing: -0.5px;
-    }
-
-    .page-meta {
-      color: var(--text-secondary);
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    /* ==============================
-       应用列表
-    ============================== */
-
-    .comparison-list {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .app-card {
-      overflow: hidden;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      box-shadow:
-        0 1px 2px rgba(0, 0, 0, 0.04),
-        0 3px 10px rgba(0, 0, 0, 0.03);
-    }
-
-    .app-header {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      min-height: 80px;
-      padding: 16px 20px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .rank {
-      flex: 0 0 auto;
-      min-width: 48px;
-      color: var(--primary);
-      font-size: 28px;
-      line-height: 1;
-      font-weight: 800;
-    }
-
-    .app-icon {
-      width: 52px;
-      height: 52px;
-      flex: 0 0 auto;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      object-fit: cover;
-    }
-
-    .app-info {
-      min-width: 0;
-    }
-
-    .app-title {
-      margin: 0;
-      font-size: 20px;
-      line-height: 1.45;
-    }
-
-    .app-title a {
-      color: var(--text-main);
-      text-decoration: none;
-    }
-
-    .app-title a:hover {
-      color: var(--primary);
-      text-decoration: underline;
-    }
-
-    .app-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px 14px;
-      margin-top: 5px;
-      color: var(--text-secondary);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    /* ==============================
-       截图横向区域
-    ============================== */
-
-    .screenshots-container {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      width: 100%;
-      overflow-x: auto;
-      overflow-y: hidden;
-      padding: 24px 16px 16px;
-      scroll-behavior: smooth;
-      scroll-snap-type: x proximity;
-      overscroll-behavior-x: contain;
-      scrollbar-width: thin;
-      scrollbar-color: #adb3bb transparent;
-    }
-
-    .screenshots-container::-webkit-scrollbar {
-      height: 9px;
-    }
-
-    .screenshots-container::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .screenshots-container::-webkit-scrollbar-thumb {
-      background: #adb3bb;
-      border: 2px solid white;
-      border-radius: 999px;
-    }
-
-    /*
-      关键：
-      不设置固定宽度。
-      每张截图按自身比例决定宽度。
-
-      竖屏图会比较窄；
-      横屏图会比较宽；
-      所有图片都完整显示，不裁切。
-    */
-
-    .screenshot-item {
-      position: relative;
-      flex: 0 0 auto;
-      display: block;
-      height: 420px;
-      overflow: hidden;
-      padding: 0;
-      background: #eef1f4;
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      scroll-snap-align: start;
-      cursor: zoom-in;
-    }
-
-    .screenshot-item img {
-      display: block;
-      width: auto;
-      height: 100%;
-      max-width: none;
-      object-fit: contain;
-      background: #eef1f4;
-      transition:
-        transform 0.2s ease,
-        opacity 0.2s ease;
-    }
-
-    .screenshot-item:hover img {
-      transform: scale(1.012);
-      opacity: 0.95;
-    }
-
-    .zoom-hint {
-      position: absolute;
-      right: 10px;
-      bottom: 10px;
-      padding: 5px 9px;
-      color: #fff;
-      font-size: 12px;
-      line-height: 1;
-      background: rgba(0, 0, 0, 0.62);
-      border-radius: 999px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.18s ease;
-    }
-
-    .screenshot-item:hover .zoom-hint {
-      opacity: 1;
-    }
-
-    .empty-state {
-      padding: 34px 12px;
-      color: #92979d;
-      font-size: 14px;
-    }
-
-    /* ==============================
-       大图预览
-    ============================== */
-
-    .lightbox {
-      position: fixed;
-      z-index: 9999;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 32px 84px;
-      background: rgba(11, 13, 16, 0.92);
-      backdrop-filter: blur(5px);
-    }
-
-    .lightbox.is-open {
-      display: flex;
-    }
-
-    .lightbox-content {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      max-width: 100%;
-      max-height: 100%;
-    }
-
-    .lightbox-image {
-      display: block;
-      max-width: calc(100vw - 180px);
-      max-height: calc(100vh - 120px);
-      object-fit: contain;
-      border-radius: 7px;
-      box-shadow: 0 18px 70px rgba(0, 0, 0, 0.5);
-    }
-
-    .lightbox-caption {
-      margin-top: 14px;
-      color: rgba(255, 255, 255, 0.88);
-      font-size: 14px;
-      line-height: 1.5;
-      text-align: center;
-    }
-
-    .lightbox-close {
-      position: fixed;
-      top: 18px;
-      right: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 46px;
-      height: 46px;
-      padding: 0;
-      color: #fff;
-      font-size: 31px;
-      line-height: 1;
-      background: rgba(255, 255, 255, 0.12);
-      border: 0;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-
-    .lightbox-close:hover {
-      background: rgba(255, 255, 255, 0.22);
-    }
-
-    .lightbox-arrow {
-      position: fixed;
-      top: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 52px;
-      height: 64px;
-      padding: 0;
-      color: #fff;
-      font-size: 40px;
-      line-height: 1;
-      background: rgba(255, 255, 255, 0.1);
-      border: 0;
-      border-radius: 10px;
-      cursor: pointer;
-      transform: translateY(-50%);
-    }
-
-    .lightbox-arrow:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .lightbox-arrow:disabled {
-      visibility: hidden;
-    }
-
-    .lightbox-previous {
-      left: 18px;
-    }
-
-    .lightbox-next {
-      right: 18px;
-    }
-
-    /* ==============================
-       手机适配
-    ============================== */
-
-    @media (max-width: 720px) {
-      body {
-        padding: 12px;
-      }
-
-      .page-header h1 {
-        font-size: 24px;
-      }
-
-      .page-meta {
-        font-size: 13px;
-      }
-
-      .app-header {
-        gap: 10px;
-        min-height: 68px;
-        padding: 13px 14px;
-      }
-
-      .rank {
-        min-width: 38px;
-        font-size: 22px;
-      }
-
-      .app-icon {
-        width: 43px;
-        height: 43px;
-        border-radius: 10px;
-      }
-
-      .app-title {
-        font-size: 17px;
-      }
-
-      .app-meta {
-        font-size: 12px;
-      }
-
-      .screenshots-container {
-        gap: 10px;
-        padding: 16px 10px 12px;
-      }
-
-      .screenshot-item {
-        height: 330px;
-      }
-
-      .lightbox {
-        padding: 64px 12px 70px;
-      }
-
-      .lightbox-image {
-        max-width: calc(100vw - 24px);
-        max-height: calc(100vh - 150px);
-      }
-
-      .lightbox-arrow {
-        top: auto;
-        bottom: 12px;
-        width: 52px;
-        height: 44px;
-        transform: none;
-      }
-
-      .lightbox-previous {
-        left: calc(50% - 62px);
-      }
-
-      .lightbox-next {
-        right: calc(50% - 62px);
-      }
-    }
-  </style>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>${escapeHtml(config.title)}</title>
+
+<style>
+
+:root {
+  --page-bg: #f5f6f8;
+  --card-bg: #ffffff;
+  --text-main: #202124;
+  --text-sub: #666b72;
+  --border: #e0e3e7;
+  --blue: #1a73e8;
+}
+
+/* =========================
+   全局
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 16px 20px 30px;
+  background: var(--page-bg);
+  color: var(--text-main);
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+}
+
+/* =========================
+   顶部
+========================= */
+
+.page-header {
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-header h1 {
+  margin: 0 0 7px;
+  font-size: 25px;
+  line-height: 1.3;
+}
+
+.page-meta {
+  color: var(--text-sub);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* =========================
+   App 列表
+========================= */
+
+.comparison-list {
+  display: flex;
+  flex-direction: column;
+
+  /*
+    原来卡片之间比较松。
+    改成 10px，方便一次看到更多 App。
+  */
+
+  gap: 10px;
+}
+
+.app-card {
+  overflow: hidden;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  box-shadow:
+    0 1px 2px rgba(0,0,0,0.035);
+}
+
+/* =========================
+   App 标题区
+========================= */
+
+.app-header {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  /*
+    标题区域压缩
+  */
+
+  min-height: 50px;
+  padding: 7px 12px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.rank {
+  flex: 0 0 auto;
+
+  min-width: 34px;
+
+  color: var(--blue);
+
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.app-icon {
+  width: 34px;
+  height: 34px;
+
+  flex: 0 0 auto;
+
+  border-radius: 7px;
+
+  object-fit: cover;
+}
+
+.app-info {
+  min-width: 0;
+}
+
+.app-title {
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.app-title a {
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.app-title a:hover {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.app-meta {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 2px 10px;
+
+  margin-top: 2px;
+
+  color: var(--text-sub);
+
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* =========================
+   截图区
+========================= */
+
+.screenshots-container {
+
+  display: flex;
+  align-items: center;
+
+  /*
+    截图之间原来 14px。
+    现在压到 7px。
+  */
+
+  gap: 7px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  /*
+    上下空间一起减少
+  */
+
+  padding: 8px 10px 8px;
+
+  scroll-behavior: smooth;
+
+  scrollbar-width: thin;
+  scrollbar-color: #b5bac1 transparent;
+}
+
+.screenshots-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.screenshots-container::-webkit-scrollbar-thumb {
+  background: #b5bac1;
+  border-radius: 999px;
+}
+
+/*
+  核心调整：
+
+  之前大约 420px 高。
+  现在改成 230px。
+
+  因此页面纵向一次可以看到
+  大约 2.5～3 个 App。
+*/
+
+.screenshot-item {
+
+  position: relative;
+
+  display: block;
+
+  flex: 0 0 auto;
+
+  height: 230px;
+
+  overflow: hidden;
+
+  padding: 0;
+
+  background: #eef0f2;
+
+  border: 1px solid var(--border);
+  border-radius: 5px;
+
+  cursor: zoom-in;
+}
+
+/*
+  不锁定宽度。
+
+  所以：
+  横图 → 自然更宽
+  竖图 → 自然更窄
+  不同尺寸全部显示
+*/
+
+.screenshot-item img {
+
+  display: block;
+
+  width: auto;
+  height: 100%;
+
+  max-width: none;
+
+  object-fit: contain;
+
+  background: #eef0f2;
+
+  transition:
+    transform 0.16s ease,
+    opacity 0.16s ease;
+}
+
+.screenshot-item:hover img {
+  transform: scale(1.015);
+  opacity: 0.95;
+}
+
+.empty {
+  padding: 25px;
+  color: #999;
+  font-size: 12px;
+}
+
+/* =========================
+   图片放大 Lightbox
+========================= */
+
+.lightbox {
+
+  position: fixed;
+
+  z-index: 9999;
+
+  inset: 0;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 26px 76px;
+
+  background:
+    rgba(8,10,13,0.93);
+
+  backdrop-filter: blur(5px);
+
+  cursor: zoom-out;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox-main {
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/*
+  点击放大的主图片
+*/
+
+.lightbox-image {
+
+  display: block;
+
+  max-width:
+    calc(100vw - 170px);
+
+  max-height:
+    calc(100vh - 90px);
+
+  object-fit: contain;
+
+  border-radius: 6px;
+
+  box-shadow:
+    0 18px 70px rgba(0,0,0,0.5);
+
+  /*
+    再次点击图片：
+    JS 会关闭放大状态。
+  */
+
+  cursor: zoom-out;
+}
+
+.lightbox-caption {
+
+  margin-top: 9px;
+
+  color:
+    rgba(255,255,255,0.82);
+
+  font-size: 13px;
+
+  text-align: center;
+}
+
+/* =========================
+   左右箭头
+========================= */
+
+.lightbox-arrow {
+
+  position: fixed;
+
+  top: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 60px;
+
+  padding: 0;
+
+  color: white;
+
+  font-size: 35px;
+
+  border: 0;
+
+  border-radius: 8px;
+
+  background:
+    rgba(255,255,255,0.10);
+
+  cursor: pointer;
+
+  transform:
+    translateY(-50%);
+}
+
+.lightbox-arrow:hover {
+  background:
+    rgba(255,255,255,0.20);
+}
+
+.lightbox-arrow:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+.previous {
+  left: 15px;
+}
+
+.next {
+  right: 15px;
+}
+
+/* =========================
+   关闭按钮
+========================= */
+
+.close {
+
+  position: fixed;
+
+  top: 14px;
+  right: 16px;
+
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  color: white;
+
+  font-size: 27px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,0.12);
+
+  cursor: pointer;
+}
+
+/* =========================
+   手机
+========================= */
+
+@media (max-width: 720px) {
+
+  body {
+    padding: 10px;
+  }
+
+  .page-header h1 {
+    font-size: 20px;
+  }
+
+  .app-header {
+    padding: 6px 8px;
+  }
+
+  .rank {
+    min-width: 30px;
+    font-size: 17px;
+  }
+
+  .app-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .app-title {
+    font-size: 14px;
+  }
+
+  /*
+    手机再稍微缩小
+  */
+
+  .screenshot-item {
+    height: 190px;
+  }
+
+  .screenshots-container {
+    padding: 7px;
+    gap: 6px;
+  }
+
+  .lightbox {
+    padding: 55px 10px;
+  }
+
+  .lightbox-image {
+
+    max-width:
+      calc(100vw - 20px);
+
+    max-height:
+      calc(100vh - 130px);
+  }
+
+}
+
+</style>
+
 </head>
 
 <body>
-  <header class="page-header">
-    <h1>🎬 ${escapeHtml(config.title)}</h1>
 
-    <div class="page-meta">
-      ${escapeHtml(config.description || "")}
-      ｜市场：${escapeHtml(config.language.toUpperCase())}-${escapeHtml(
-        config.country.toUpperCase()
-      )}
-      ｜顺序：自定义竞品顺序
-      ｜共 ${apps.length} 个应用
-    </div>
-  </header>
+<header class="page-header">
 
-  <main class="comparison-list">
-    ${cardsHtml}
-  </main>
+  <h1>
+    🎬 ${escapeHtml(config.title)}
+  </h1>
 
-  <div
-    class="lightbox"
-    id="lightbox"
-    aria-hidden="true"
-  >
-    <button
-      class="lightbox-close"
-      id="lightboxClose"
-      type="button"
-      aria-label="关闭预览"
-    >
-      ×
-    </button>
+  <div class="page-meta">
 
-    <button
-      class="lightbox-arrow lightbox-previous"
-      id="lightboxPrevious"
-      type="button"
-      aria-label="上一张"
-    >
-      ‹
-    </button>
+    市场：
+    ${escapeHtml(config.language.toUpperCase())}-${escapeHtml(config.country.toUpperCase())}
 
-    <div class="lightbox-content">
-      <img
-        class="lightbox-image"
-        id="lightboxImage"
-        src=""
-        alt=""
-      />
+    ｜搜索词：
+    “${escapeHtml(config.keyword)}”
 
-      <div
-        class="lightbox-caption"
-        id="lightboxCaption"
-      ></div>
-    </div>
+    ｜展示：
+    Google Play 搜索前 ${apps.length} 名
 
-    <button
-      class="lightbox-arrow lightbox-next"
-      id="lightboxNext"
-      type="button"
-      aria-label="下一张"
-    >
-      ›
-    </button>
+    ｜最后更新：
+    ${escapeHtml(generatedTime)}
+
   </div>
 
-  <script>
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage =
-      document.getElementById("lightboxImage");
-    const lightboxCaption =
-      document.getElementById("lightboxCaption");
-    const lightboxClose =
-      document.getElementById("lightboxClose");
-    const lightboxPrevious =
-      document.getElementById("lightboxPrevious");
-    const lightboxNext =
-      document.getElementById("lightboxNext");
+</header>
 
-    let activeScreenshots = [];
-    let activeImageIndex = 0;
-    let activeAppName = "";
+<main class="comparison-list">
 
-    function decodeHtml(value) {
-      const textarea = document.createElement("textarea");
-      textarea.innerHTML = value;
-      return textarea.value;
-    }
+${appCards}
 
-    function updateLightbox() {
-      const imageUrl = activeScreenshots[activeImageIndex];
+</main>
 
-      if (!imageUrl) {
-        return;
-      }
+<!-- =========================
+     放大查看
+========================= -->
 
-      lightboxImage.src = imageUrl;
-      lightboxImage.alt =
-        activeAppName + " 截图 " + (activeImageIndex + 1);
+<div
+  class="lightbox"
+  id="lightbox"
+>
 
-      lightboxCaption.textContent =
-        activeAppName +
-        " · " +
-        (activeImageIndex + 1) +
-        " / " +
-        activeScreenshots.length;
+  <button
+    class="close"
+    id="close"
+    type="button"
+  >
+    ×
+  </button>
 
-      lightboxPrevious.disabled =
-        activeImageIndex <= 0;
+  <button
+    class="lightbox-arrow previous"
+    id="previous"
+    type="button"
+  >
+    ‹
+  </button>
 
-      lightboxNext.disabled =
-        activeImageIndex >= activeScreenshots.length - 1;
-    }
+  <div class="lightbox-main">
 
-    function openLightbox(card, index) {
-      const encodedScreenshots =
-        card.dataset.screenshots || "[]";
+    <img
+      class="lightbox-image"
+      id="lightboxImage"
+      src=""
+      alt=""
+    >
 
-      try {
-        activeScreenshots = JSON.parse(
-          decodeHtml(encodedScreenshots)
-        );
-      } catch (error) {
-        console.error("截图数据解析失败", error);
-        activeScreenshots = [];
-      }
+    <div
+      class="lightbox-caption"
+      id="lightboxCaption"
+    ></div>
 
-      activeAppName = card.dataset.appName || "";
-      activeImageIndex = index;
+  </div>
 
-      updateLightbox();
+  <button
+    class="lightbox-arrow next"
+    id="next"
+    type="button"
+  >
+    ›
+  </button>
 
-      lightbox.classList.add("is-open");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-    }
+</div>
 
-    function closeLightbox() {
-      lightbox.classList.remove("is-open");
-      lightbox.setAttribute("aria-hidden", "true");
-      lightboxImage.src = "";
-      document.body.style.overflow = "";
-    }
+<script>
 
-    function showPreviousImage() {
-      if (activeImageIndex > 0) {
-        activeImageIndex -= 1;
-        updateLightbox();
-      }
-    }
+/* =========================
+   Lightbox 状态
+========================= */
 
-    function showNextImage() {
-      if (
-        activeImageIndex <
-        activeScreenshots.length - 1
-      ) {
-        activeImageIndex += 1;
-        updateLightbox();
-      }
-    }
+const lightbox =
+  document.getElementById("lightbox");
 
-    document
-      .querySelectorAll(".screenshot-item")
-      .forEach((button) => {
-        button.addEventListener("click", () => {
-          const card = button.closest(".app-card");
-          const index = Number(
+const lightboxImage =
+  document.getElementById("lightboxImage");
+
+const lightboxCaption =
+  document.getElementById("lightboxCaption");
+
+const previousButton =
+  document.getElementById("previous");
+
+const nextButton =
+  document.getElementById("next");
+
+const closeButton =
+  document.getElementById("close");
+
+let activeImages = [];
+let activeIndex = 0;
+let activeAppName = "";
+
+/* =========================
+   HTML entity 解码
+========================= */
+
+function decodeHtml(value) {
+
+  const textarea =
+    document.createElement("textarea");
+
+  textarea.innerHTML = value;
+
+  return textarea.value;
+}
+
+/* =========================
+   更新放大图片
+========================= */
+
+function updateLightbox() {
+
+  if (!activeImages.length) {
+    return;
+  }
+
+  lightboxImage.src =
+    activeImages[activeIndex];
+
+  lightboxImage.alt =
+    activeAppName +
+    " 截图 " +
+    (activeIndex + 1);
+
+  lightboxCaption.textContent =
+    activeAppName +
+    " · " +
+    (activeIndex + 1) +
+    " / " +
+    activeImages.length;
+
+  previousButton.disabled =
+    activeIndex === 0;
+
+  nextButton.disabled =
+    activeIndex === activeImages.length - 1;
+}
+
+/* =========================
+   打开放大
+========================= */
+
+function openLightbox(card, index) {
+
+  try {
+
+    activeImages =
+      JSON.parse(
+        decodeHtml(
+          card.dataset.screenshots || "[]"
+        )
+      );
+
+  } catch (error) {
+
+    console.error(
+      "截图数据解析失败",
+      error
+    );
+
+    activeImages = [];
+  }
+
+  activeAppName =
+    card.dataset.appName || "";
+
+  activeIndex = index;
+
+  updateLightbox();
+
+  lightbox.classList.add("open");
+
+  document.body.style.overflow =
+    "hidden";
+}
+
+/* =========================
+   关闭放大
+========================= */
+
+function closeLightbox() {
+
+  lightbox.classList.remove("open");
+
+  lightboxImage.src = "";
+
+  document.body.style.overflow =
+    "";
+}
+
+/* =========================
+   上一张
+========================= */
+
+function previousImage() {
+
+  if (activeIndex > 0) {
+
+    activeIndex -= 1;
+
+    updateLightbox();
+
+  }
+}
+
+/* =========================
+   下一张
+========================= */
+
+function nextImage() {
+
+  if (
+    activeIndex <
+    activeImages.length - 1
+  ) {
+
+    activeIndex += 1;
+
+    updateLightbox();
+
+  }
+}
+
+/* =========================
+   点击普通截图 → 放大
+========================= */
+
+document
+  .querySelectorAll(".screenshot-item")
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        const card =
+          button.closest(".app-card");
+
+        const index =
+          Number(
             button.dataset.imageIndex || 0
           );
 
-          openLightbox(card, index);
-        });
-      });
-
-    lightboxClose.addEventListener(
-      "click",
-      closeLightbox
+        openLightbox(
+          card,
+          index
+        );
+      }
     );
 
-    lightboxPrevious.addEventListener(
-      "click",
-      showPreviousImage
-    );
+  });
 
-    lightboxNext.addEventListener(
-      "click",
-      showNextImage
-    );
+/* =========================
+   关键要求：
 
-    lightbox.addEventListener("click", (event) => {
-      if (event.target === lightbox) {
-        closeLightbox();
-      }
-    });
+   放大后再次点击图片
+   → 恢复普通状态
+========================= */
 
-    document.addEventListener("keydown", (event) => {
-      if (!lightbox.classList.contains("is-open")) {
-        return;
-      }
+lightboxImage.addEventListener(
+  "click",
+  event => {
 
-      if (event.key === "Escape") {
-        closeLightbox();
-      }
+    event.stopPropagation();
 
-      if (event.key === "ArrowLeft") {
-        showPreviousImage();
-      }
+    closeLightbox();
 
-      if (event.key === "ArrowRight") {
-        showNextImage();
-      }
-    });
-  </script>
+  }
+);
+
+/* =========================
+   点击黑色背景关闭
+========================= */
+
+lightbox.addEventListener(
+  "click",
+  event => {
+
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+
+  }
+);
+
+/* =========================
+   X 关闭
+========================= */
+
+closeButton.addEventListener(
+  "click",
+  event => {
+
+    event.stopPropagation();
+
+    closeLightbox();
+
+  }
+);
+
+/* =========================
+   左右按钮
+========================= */
+
+previousButton.addEventListener(
+  "click",
+  event => {
+
+    event.stopPropagation();
+
+    previousImage();
+
+  }
+);
+
+nextButton.addEventListener(
+  "click",
+  event => {
+
+    event.stopPropagation();
+
+    nextImage();
+
+  }
+);
+
+/* =========================
+   键盘
+========================= */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      !lightbox.classList.contains("open")
+    ) {
+      return;
+    }
+
+    if (event.key === "ArrowLeft") {
+
+      previousImage();
+
+    }
+
+    if (event.key === "ArrowRight") {
+
+      nextImage();
+
+    }
+
+    if (event.key === "Escape") {
+
+      closeLightbox();
+
+    }
+
+  }
+);
+
+</script>
+
 </body>
+
 </html>`;
 }
 
-/* ==============================
-   根据配置获取指定竞品
-============================== */
+/* =========================
+   搜索 Google Play 前 N 名
+========================= */
 
-async function fetchConfiguredApps(config) {
-  if (!Array.isArray(config.apps)) {
-    throw new Error(
-      "config.json 中没有找到 apps 数组"
-    );
-  }
+async function fetchTopApps(config) {
 
-  const sortedApps = [...config.apps].sort(
-    (a, b) => Number(a.rank) - Number(b.rank)
+  console.log(
+    "开始搜索：",
+    config.keyword
   );
 
-  const results = [];
+  const searchResults =
+    await gplay.search({
 
-  for (let index = 0; index < sortedApps.length; index += 1) {
-    const configuredApp = sortedApps[index];
+      term: config.keyword,
+
+      num: config.appCount,
+
+      lang: config.language,
+
+      country: config.country,
+
+      fullDetail: false
+
+    });
+
+  /*
+    防止 scraper 返回超过要求数量
+  */
+
+  const topResults =
+    searchResults.slice(
+      0,
+      config.appCount
+    );
+
+  const apps = [];
+
+  for (
+    let index = 0;
+    index < topResults.length;
+    index += 1
+  ) {
+
+    const result =
+      topResults[index];
+
+    console.log(
+      `[${index + 1}/${topResults.length}] ` +
+      result.title
+    );
 
     try {
-      const appId = parseAppId(
-        configuredApp.url || configuredApp.appId
-      );
+
+      const detail =
+        await gplay.app({
+
+          appId: result.appId,
+
+          lang: config.language,
+
+          country: config.country
+
+        });
+
+      apps.push(detail);
 
       console.log(
-        `[${index + 1}/${sortedApps.length}] 获取：` +
-        `${configuredApp.name || appId}`
+        "成功：",
+        detail.title,
+        detail.screenshots?.length || 0,
+        "张截图"
       );
 
-      const detail = await gplay.app({
-        appId,
-        lang: config.language,
-        country: config.country
-      });
-
-      results.push({
-        ...detail,
-        customRank: configuredApp.rank,
-        configuredName: configuredApp.name || ""
-      });
-
-      console.log(
-        `获取成功：${detail.title}，` +
-        `${detail.screenshots?.length || 0} 张截图`
-      );
     } catch (error) {
+
       console.error(
-        `获取失败：${configuredApp.name || "未知应用"}`
+        "读取失败：",
+        result.title,
+        error.message
       );
 
-      console.error(error.message);
+      /*
+        某个 App 详情获取失败时，
+        不让整个任务失败。
+      */
+
+      apps.push({
+        ...result,
+        title:
+          result.title ||
+          result.appId,
+
+        screenshots: []
+      });
+
     }
+
   }
 
-  return results;
+  return apps;
 }
 
-/* ==============================
+/* =========================
    主程序
-============================== */
+========================= */
 
 async function main() {
-  const config = await readConfig();
 
-  console.log("开始读取指定竞品");
+  const config =
+    await readConfig();
 
-  const apps = await fetchConfiguredApps(config);
+  const apps =
+    await fetchTopApps(config);
 
-  const html = createPage(config, apps);
+  const html =
+    createPage(
+      config,
+      apps
+    );
 
   await fs.writeFile(
     "./index.html",
@@ -921,18 +1199,29 @@ async function main() {
 
   await fs.writeFile(
     "./apps-data.json",
-    JSON.stringify(apps, null, 2),
+    JSON.stringify(
+      apps,
+      null,
+      2
+    ),
     "utf8"
   );
 
   console.log("");
   console.log("更新完成");
-  console.log(`共生成 ${apps.length} 个竞品`);
-  console.log("index.html 已更新");
+  console.log(
+    `当前页面共 ${apps.length} 个应用`
+  );
 }
 
-main().catch((error) => {
-  console.error("程序执行失败：");
+main().catch(error => {
+
+  console.error(
+    "程序执行失败："
+  );
+
   console.error(error);
+
   process.exit(1);
+
 });
