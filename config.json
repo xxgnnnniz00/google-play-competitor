@@ -1,58 +1,7 @@
 {
-  "title": "Captune 竞品截图对比",
+  "title": "Captions Top 19 截图对比",
+  "keyword": "captions",
   "language": "en",
   "country": "us",
-  "description": "美国 Google Play Captions 竞品",
-  "apps": [
-    {
-      "rank": 1,
-      "name": "Captions Lite",
-      "url": "https://play.google.com/store/apps/details?id=com.nocap.captions&hl=en-us"
-    },
-    {
-      "rank": 2,
-      "name": "Captions AI: Videos Subtitles",
-      "url": "https://play.google.com/store/apps/details?id=com.pixsterstudio.captions&hl=en-us"
-    },
-    {
-      "rank": 3,
-      "name": "Mojo: Reels and Video Captions",
-      "url": "https://play.google.com/store/apps/details?id=video.mojo&hl=en-us"
-    },
-    {
-      "rank": 4,
-      "name": "Dubs: Captions for Videos",
-      "url": "https://play.google.com/store/apps/details?id=com.captionsai&hl=en-us"
-    },
-    {
-      "rank": 5,
-      "name": "Captions AI - Auto Captions",
-      "url": "https://play.google.com/store/apps/details?id=captions.ai.videoeditor&hl=en-us"
-    },
-    {
-      "rank": 6,
-      "name": "Captions for Videos - SUBCAP",
-      "url": "https://play.google.com/store/apps/details?id=com.ratel.subcap&hl=en-us"
-    },
-    {
-      "rank": 7,
-      "name": "Captiono: AI Subtitles",
-      "url": "https://play.google.com/store/apps/details?id=ai.captiono.app&hl=en-us"
-    },
-    {
-      "rank": 9,
-      "name": "AutoCap Captions Teleprompter",
-      "url": "https://play.google.com/store/apps/details?id=com.laika.kinetictypovid&hl=en-us"
-    },
-    {
-      "rank": 13,
-      "name": "Zeemo: AI Video&Auto Captions",
-      "url": "https://play.google.com/store/apps/details?id=cn.bluepulse.caption&hl=en-us"
-    },
-    {
-      "rank": 15,
-      "name": "BIGVU Teleprompter & Captions",
-      "url": "https://play.google.com/store/apps/details?id=bigvu.com.reporter&hl=en-us"
-    }
-  ]
+  "appCount": 19
 }
