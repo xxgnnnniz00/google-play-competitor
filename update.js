@@ -30,12 +30,10 @@ function normalizeImageUrl(url = "") {
     return "";
   }
 
-  // 保留 Google Play 自带参数
   if (value.includes("=")) {
     return value;
   }
 
-  // 放大查看时仍保持较清晰
   return `${value}=w1800`;
 }
 
@@ -50,7 +48,8 @@ function createAppHtml(app, rank) {
 
   const screenshotButtons = screenshots.length
     ? screenshots
-        .map((url, index) => `
+        .map(
+          (url, index) => `
           <button
             class="screenshot-item"
             type="button"
@@ -65,7 +64,8 @@ function createAppHtml(app, rank) {
               referrerpolicy="no-referrer"
             />
           </button>
-        `)
+        `
+        )
         .join("")
     : `
         <div class="empty">
@@ -146,18 +146,14 @@ function createAppHtml(app, rank) {
 ========================= */
 
 function createPage(config, apps) {
-
   const appCards = apps
     .map((app, index) => createAppHtml(app, index + 1))
     .join("");
 
-  const generatedTime = new Date().toLocaleString(
-    "zh-CN",
-    {
-      timeZone: "Asia/Shanghai",
-      hour12: false
-    }
-  );
+  const generatedTime = new Date().toLocaleString("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    hour12: false
+  });
 
   return `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -198,7 +194,7 @@ html {
 
 body {
   margin: 0;
-  padding: 16px 20px 30px;
+  padding: 18px 20px 32px;
   background: var(--page-bg);
   color: var(--text-main);
 
@@ -216,14 +212,14 @@ body {
 ========================= */
 
 .page-header {
-  margin-bottom: 14px;
-  padding-bottom: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 13px;
   border-bottom: 1px solid var(--border);
 }
 
 .page-header h1 {
   margin: 0 0 7px;
-  font-size: 25px;
+  font-size: 26px;
   line-height: 1.3;
 }
 
@@ -242,11 +238,10 @@ body {
   flex-direction: column;
 
   /*
-    原来卡片之间比较松。
-    改成 10px，方便一次看到更多 App。
+    保持比较紧凑，
+    但比上一版稍微松一点。
   */
-
-  gap: 10px;
+  gap: 12px;
 }
 
 .app-card {
@@ -258,7 +253,7 @@ body {
   border-radius: 8px;
 
   box-shadow:
-    0 1px 2px rgba(0,0,0,0.035);
+    0 1px 2px rgba(0, 0, 0, 0.035);
 }
 
 /* =========================
@@ -269,14 +264,10 @@ body {
   display: flex;
   align-items: center;
 
-  gap: 9px;
+  gap: 10px;
 
-  /*
-    标题区域压缩
-  */
-
-  min-height: 50px;
-  padding: 7px 12px;
+  min-height: 54px;
+  padding: 8px 12px;
 
   border-bottom: 1px solid var(--border);
 }
@@ -284,21 +275,21 @@ body {
 .rank {
   flex: 0 0 auto;
 
-  min-width: 34px;
+  min-width: 36px;
 
   color: var(--blue);
 
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 800;
 }
 
 .app-icon {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
 
   flex: 0 0 auto;
 
-  border-radius: 7px;
+  border-radius: 8px;
 
   object-fit: cover;
 }
@@ -310,7 +301,7 @@ body {
 .app-title {
   margin: 0;
 
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.35;
 }
 
@@ -343,25 +334,15 @@ body {
 ========================= */
 
 .screenshots-container {
-
   display: flex;
   align-items: center;
 
-  /*
-    截图之间原来 14px。
-    现在压到 7px。
-  */
-
-  gap: 7px;
+  gap: 8px;
 
   overflow-x: auto;
   overflow-y: hidden;
 
-  /*
-    上下空间一起减少
-  */
-
-  padding: 8px 10px 8px;
+  padding: 10px 10px 9px;
 
   scroll-behavior: smooth;
 
@@ -379,24 +360,23 @@ body {
 }
 
 /*
-  核心调整：
+  重点调整：
 
-  之前大约 420px 高。
-  现在改成 230px。
+  上一版 230px 太小，
+  这一版提升到 270px。
 
-  因此页面纵向一次可以看到
-  大约 2.5～3 个 App。
+  正常桌面高度下，
+  一屏大约能看到 2.3～2.5 个 App。
 */
 
 .screenshot-item {
-
   position: relative;
 
   display: block;
 
   flex: 0 0 auto;
 
-  height: 230px;
+  height: 270px;
 
   overflow: hidden;
 
@@ -411,16 +391,14 @@ body {
 }
 
 /*
-  不锁定宽度。
+  保留图片原始比例：
 
-  所以：
-  横图 → 自然更宽
-  竖图 → 自然更窄
-  不同尺寸全部显示
+  横图自然更宽
+  竖图自然更窄
+  不会裁切
 */
 
 .screenshot-item img {
-
   display: block;
 
   width: auto;
@@ -438,22 +416,21 @@ body {
 }
 
 .screenshot-item:hover img {
-  transform: scale(1.015);
-  opacity: 0.95;
+  transform: scale(1.012);
+  opacity: 0.96;
 }
 
 .empty {
-  padding: 25px;
+  padding: 28px;
   color: #999;
   font-size: 12px;
 }
 
 /* =========================
-   图片放大 Lightbox
+   图片放大
 ========================= */
 
 .lightbox {
-
   position: fixed;
 
   z-index: 9999;
@@ -467,8 +444,7 @@ body {
 
   padding: 26px 76px;
 
-  background:
-    rgba(8,10,13,0.93);
+  background: rgba(8, 10, 13, 0.93);
 
   backdrop-filter: blur(5px);
 
@@ -480,7 +456,6 @@ body {
 }
 
 .lightbox-main {
-
   display: flex;
   flex-direction: column;
 
@@ -491,41 +466,26 @@ body {
   max-height: 100%;
 }
 
-/*
-  点击放大的主图片
-*/
-
 .lightbox-image {
-
   display: block;
 
-  max-width:
-    calc(100vw - 170px);
-
-  max-height:
-    calc(100vh - 90px);
+  max-width: calc(100vw - 170px);
+  max-height: calc(100vh - 90px);
 
   object-fit: contain;
 
   border-radius: 6px;
 
   box-shadow:
-    0 18px 70px rgba(0,0,0,0.5);
-
-  /*
-    再次点击图片：
-    JS 会关闭放大状态。
-  */
+    0 18px 70px rgba(0, 0, 0, 0.5);
 
   cursor: zoom-out;
 }
 
 .lightbox-caption {
-
   margin-top: 9px;
 
-  color:
-    rgba(255,255,255,0.82);
+  color: rgba(255, 255, 255, 0.82);
 
   font-size: 13px;
 
@@ -537,7 +497,6 @@ body {
 ========================= */
 
 .lightbox-arrow {
-
   position: fixed;
 
   top: 50%;
@@ -560,17 +519,16 @@ body {
   border-radius: 8px;
 
   background:
-    rgba(255,255,255,0.10);
+    rgba(255, 255, 255, 0.10);
 
   cursor: pointer;
 
-  transform:
-    translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .lightbox-arrow:hover {
   background:
-    rgba(255,255,255,0.20);
+    rgba(255, 255, 255, 0.20);
 }
 
 .lightbox-arrow:disabled {
@@ -591,7 +549,6 @@ body {
 ========================= */
 
 .close {
-
   position: fixed;
 
   top: 14px;
@@ -614,13 +571,13 @@ body {
   border-radius: 50%;
 
   background:
-    rgba(255,255,255,0.12);
+    rgba(255, 255, 255, 0.12);
 
   cursor: pointer;
 }
 
 /* =========================
-   手机
+   手机适配
 ========================= */
 
 @media (max-width: 720px) {
@@ -634,33 +591,29 @@ body {
   }
 
   .app-header {
-    padding: 6px 8px;
+    padding: 7px 8px;
   }
 
   .rank {
-    min-width: 30px;
+    min-width: 31px;
     font-size: 17px;
   }
 
   .app-icon {
-    width: 30px;
-    height: 30px;
+    width: 31px;
+    height: 31px;
   }
 
   .app-title {
     font-size: 14px;
   }
 
-  /*
-    手机再稍微缩小
-  */
-
   .screenshot-item {
-    height: 190px;
+    height: 215px;
   }
 
   .screenshots-container {
-    padding: 7px;
+    padding: 8px 7px;
     gap: 6px;
   }
 
@@ -669,12 +622,8 @@ body {
   }
 
   .lightbox-image {
-
-    max-width:
-      calc(100vw - 20px);
-
-    max-height:
-      calc(100vh - 130px);
+    max-width: calc(100vw - 20px);
+    max-height: calc(100vh - 130px);
   }
 
 }
@@ -694,7 +643,9 @@ body {
   <div class="page-meta">
 
     市场：
-    ${escapeHtml(config.language.toUpperCase())}-${escapeHtml(config.country.toUpperCase())}
+    ${escapeHtml(config.language.toUpperCase())}-${escapeHtml(
+      config.country.toUpperCase()
+    )}
 
     ｜搜索词：
     “${escapeHtml(config.keyword)}”
@@ -799,7 +750,6 @@ let activeAppName = "";
 ========================= */
 
 function decodeHtml(value) {
-
   const textarea =
     document.createElement("textarea");
 
@@ -813,7 +763,6 @@ function decodeHtml(value) {
 ========================= */
 
 function updateLightbox() {
-
   if (!activeImages.length) {
     return;
   }
@@ -845,18 +794,14 @@ function updateLightbox() {
 ========================= */
 
 function openLightbox(card, index) {
-
   try {
-
     activeImages =
       JSON.parse(
         decodeHtml(
           card.dataset.screenshots || "[]"
         )
       );
-
   } catch (error) {
-
     console.error(
       "截图数据解析失败",
       error
@@ -883,7 +828,6 @@ function openLightbox(card, index) {
 ========================= */
 
 function closeLightbox() {
-
   lightbox.classList.remove("open");
 
   lightboxImage.src = "";
@@ -897,13 +841,9 @@ function closeLightbox() {
 ========================= */
 
 function previousImage() {
-
   if (activeIndex > 0) {
-
     activeIndex -= 1;
-
     updateLightbox();
-
   }
 }
 
@@ -912,16 +852,12 @@ function previousImage() {
 ========================= */
 
 function nextImage() {
-
   if (
     activeIndex <
     activeImages.length - 1
   ) {
-
     activeIndex += 1;
-
     updateLightbox();
-
   }
 }
 
@@ -955,10 +891,7 @@ document
   });
 
 /* =========================
-   关键要求：
-
-   放大后再次点击图片
-   → 恢复普通状态
+   再次点击大图 → 关闭
 ========================= */
 
 lightboxImage.addEventListener(
@@ -973,7 +906,7 @@ lightboxImage.addEventListener(
 );
 
 /* =========================
-   点击黑色背景关闭
+   点击黑色背景 → 关闭
 ========================= */
 
 lightbox.addEventListener(
@@ -1029,7 +962,7 @@ nextButton.addEventListener(
 );
 
 /* =========================
-   键盘
+   键盘控制
 ========================= */
 
 document.addEventListener(
@@ -1043,21 +976,15 @@ document.addEventListener(
     }
 
     if (event.key === "ArrowLeft") {
-
       previousImage();
-
     }
 
     if (event.key === "ArrowRight") {
-
       nextImage();
-
     }
 
     if (event.key === "Escape") {
-
       closeLightbox();
-
     }
 
   }
@@ -1075,7 +1002,6 @@ document.addEventListener(
 ========================= */
 
 async function fetchTopApps(config) {
-
   console.log(
     "开始搜索：",
     config.keyword
@@ -1083,22 +1009,12 @@ async function fetchTopApps(config) {
 
   const searchResults =
     await gplay.search({
-
       term: config.keyword,
-
       num: config.appCount,
-
       lang: config.language,
-
       country: config.country,
-
       fullDetail: false
-
     });
-
-  /*
-    防止 scraper 返回超过要求数量
-  */
 
   const topResults =
     searchResults.slice(
@@ -1123,16 +1039,11 @@ async function fetchTopApps(config) {
     );
 
     try {
-
       const detail =
         await gplay.app({
-
           appId: result.appId,
-
           lang: config.language,
-
           country: config.country
-
         });
 
       apps.push(detail);
@@ -1152,17 +1063,11 @@ async function fetchTopApps(config) {
         error.message
       );
 
-      /*
-        某个 App 详情获取失败时，
-        不让整个任务失败。
-      */
-
       apps.push({
         ...result,
         title:
           result.title ||
           result.appId,
-
         screenshots: []
       });
 
@@ -1178,7 +1083,6 @@ async function fetchTopApps(config) {
 ========================= */
 
 async function main() {
-
   const config =
     await readConfig();
 
@@ -1215,7 +1119,6 @@ async function main() {
 }
 
 main().catch(error => {
-
   console.error(
     "程序执行失败："
   );
@@ -1223,5 +1126,4 @@ main().catch(error => {
   console.error(error);
 
   process.exit(1);
-
 });
