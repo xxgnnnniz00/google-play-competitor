@@ -37,7 +37,13 @@ html {
 
 body {
   margin: 0;
-  padding: 18px 20px 32px;
+
+  /*
+    原来 18px 20px 32px
+    现在压缩顶部空间
+  */
+  padding: 10px 16px 24px;
+
   background: var(--page-bg);
   color: var(--text-main);
 
@@ -55,21 +61,33 @@ body {
 ========================= */
 
 .page-header {
-  margin-bottom: 16px;
-  padding-bottom: 13px;
+
+  /*
+    原来：
+    margin-bottom: 16px;
+    padding-bottom: 13px;
+
+    现在明显压缩
+  */
+
+  margin-bottom: 8px;
+  padding-bottom: 7px;
+
   border-bottom: 1px solid var(--border);
 }
 
 .page-header h1 {
-  margin: 0 0 7px;
-  font-size: 26px;
-  line-height: 1.3;
+  margin: 0 0 3px;
+
+  font-size: 24px;
+  line-height: 1.2;
 }
 
 .page-meta {
   color: var(--text-sub);
-  font-size: 13px;
-  line-height: 1.7;
+
+  font-size: 12px;
+  line-height: 1.35;
 }
 
 /* =========================
@@ -81,10 +99,10 @@ body {
   flex-direction: column;
 
   /*
-    保持比较紧凑，
-    但比上一版稍微松一点。
+    原来 12px
+    改成 8px
   */
-  gap: 12px;
+  gap: 8px;
 }
 
 .app-card {
@@ -107,10 +125,21 @@ body {
   display: flex;
   align-items: center;
 
-  gap: 10px;
+  /*
+    原来 gap 10px
+  */
+  gap: 8px;
 
-  min-height: 54px;
-  padding: 8px 12px;
+  /*
+    原来：
+    min-height: 54px;
+    padding: 8px 12px;
+
+    现在压缩
+  */
+
+  min-height: 42px;
+  padding: 4px 10px;
 
   border-bottom: 1px solid var(--border);
 }
@@ -118,21 +147,28 @@ body {
 .rank {
   flex: 0 0 auto;
 
-  min-width: 36px;
+  min-width: 34px;
 
   color: var(--blue);
 
-  font-size: 20px;
+  font-size: 19px;
+  line-height: 1;
   font-weight: 800;
 }
 
 .app-icon {
-  width: 36px;
-  height: 36px;
+
+  /*
+    原来 36px
+    改成 30px
+  */
+
+  width: 30px;
+  height: 30px;
 
   flex: 0 0 auto;
 
-  border-radius: 8px;
+  border-radius: 7px;
 
   object-fit: cover;
 }
@@ -144,8 +180,8 @@ body {
 .app-title {
   margin: 0;
 
-  font-size: 16px;
-  line-height: 1.35;
+  font-size: 15px;
+  line-height: 1.2;
 }
 
 .app-title a {
@@ -162,14 +198,14 @@ body {
   display: flex;
   flex-wrap: wrap;
 
-  gap: 2px 10px;
+  gap: 1px 9px;
 
-  margin-top: 2px;
+  margin-top: 1px;
 
   color: var(--text-sub);
 
-  font-size: 11px;
-  line-height: 1.4;
+  font-size: 10px;
+  line-height: 1.25;
 }
 
 /* =========================
@@ -185,7 +221,12 @@ body {
   overflow-x: auto;
   overflow-y: hidden;
 
-  padding: 10px 10px 9px;
+  /*
+    原来 10px 10px 9px
+    现在压缩截图和标题栏之间的空隙
+  */
+
+  padding: 7px 10px 8px;
 
   scroll-behavior: smooth;
 
@@ -203,13 +244,8 @@ body {
 }
 
 /*
-  重点调整：
-
-  上一版 230px 太小，
-  这一版提升到 270px。
-
-  正常桌面高度下，
-  一屏大约能看到 2.3～2.5 个 App。
+  截图尺寸不动
+  继续保持 270px
 */
 
 .screenshot-item {
@@ -232,14 +268,6 @@ body {
 
   cursor: zoom-in;
 }
-
-/*
-  保留图片原始比例：
-
-  横图自然更宽
-  竖图自然更窄
-  不会裁切
-*/
 
 .screenshot-item img {
   display: block;
@@ -426,7 +454,7 @@ body {
 @media (max-width: 720px) {
 
   body {
-    padding: 10px;
+    padding: 8px;
   }
 
   .page-header h1 {
@@ -434,17 +462,17 @@ body {
   }
 
   .app-header {
-    padding: 7px 8px;
+    padding: 4px 7px;
   }
 
   .rank {
-    min-width: 31px;
+    min-width: 30px;
     font-size: 17px;
   }
 
   .app-icon {
-    width: 31px;
-    height: 31px;
+    width: 28px;
+    height: 28px;
   }
 
   .app-title {
@@ -456,7 +484,7 @@ body {
   }
 
   .screenshots-container {
-    padding: 8px 7px;
+    padding: 6px;
     gap: 6px;
   }
 
@@ -495,7 +523,7 @@ body {
     Google Play 搜索前 19 名
 
     ｜最后更新：
-    2026/8/7 20:10:30
+    2026/8/7 20:29:26
 
   </div>
 
@@ -2701,13 +2729,426 @@ body {
   
     <section
       class="app-card"
+      data-app-name="InnoCaption Live Call Captions"
+      data-screenshots='[&quot;https://play-lh.googleusercontent.com/SafqMiLPlWwmfmSdpU-nf0c1rNNC6dv4SiO3KBwvO3CgB5DQI9tD-DjeVq5Zl3ONO4sZMaZ6Pyztw9c_U37S=w1800&quot;,&quot;https://play-lh.googleusercontent.com/o0Qm2SoGwhuh6LtfzSTR4WgLA4KGNvp9bQJfLPDbaq4xCnkNQ0v4ryO74QXB0PO2c3c2xBttm9gUiDXZEXx-GXI=w1800&quot;,&quot;https://play-lh.googleusercontent.com/tTBZgep3u_avQ3LAheXai2qurknIZxbxJr9L--f9f5qiFS-33rQ1v1pKWkSZLpexFVKJwtdx800GLhIjap8g3Q=w1800&quot;,&quot;https://play-lh.googleusercontent.com/_u3I0TaQcWiXoT2TaVy75qRy484BV0i0t-RXbCfeP9X1UdZgDrYGxuQ3XYWrIhCOQXSq6QrAFV847YZzdnvXSTo=w1800&quot;,&quot;https://play-lh.googleusercontent.com/I1czWuCeIMtWgiIIiQdNEUSaFJiHOPWyyvBk2WzvIbA2TErGcYXcnpoZASP1ZCUypVplJzWXkWmX5zp7LLqDJw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/QQUvLDvrsfSBxf0igquY-i-ymBZgO0xaIkZ5gBc08dLO7tXJQ1oAOaRCiDSJWrHwxBmpLG7LHygrpu5T9Dm5cg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/4s-Hy1PSLTm4XbdB153xW6TnyeUV_6WuVmDBE1nHCGNx_UFucTuvkdH5ypaAt8ui8DJsdQl55mhg-d4uSbAJjBA=w1800&quot;,&quot;https://play-lh.googleusercontent.com/6-Z1RE2e5o0hBxXSvwxfzCvyFGjOYvFSULFyjtKj1Q7Q3QpkTDCCxSvf101RDqP8FWconBoJ5xx6WIB75lNBLJY=w1800&quot;,&quot;https://play-lh.googleusercontent.com/SHHDiqkgLT2VXP0hKQVgiMGsyPGZHFEIkpMwrVmwKHDBbN-8w--hPQi1vczXwc9NUBZmC-S1hXzZ5wcfkKPNe2k=w1800&quot;,&quot;https://play-lh.googleusercontent.com/9YEncXH3bNXQ5Sn2q_lSYptOAwuII3EdVB5fzbVPKxhjqiSngPctHB7kbSs_uMVN0ji0umirjLr7HYbZsFVv=w1800&quot;,&quot;https://play-lh.googleusercontent.com/I40t9x7bb5GlRHTY2syZlVuMSmNEC5BQ5WbjPju0UPbz8cnJv_CN9pQ0TTM3-rg1lErXC1PRkk1Ne2tB_1OqmYg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/Gf04zNYttbXXskKiK0y4ok7qIWfxNkUFbDuG796baaO9nYyScy5_Tw7xxSUbUugdlwcmXaXpYkTxKQI4qm38Pw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/nUcKUqgWys1fFdv-GvLL6PxNDsoLMlcxIuVBGDYVvyNUjZl1AANYRJbaJckUWQ2J1fvK4auJTSsGH3qNssRY1Q=w1800&quot;,&quot;https://play-lh.googleusercontent.com/9KQyf9IWiVK3XeakGvAeRWzcRRGOBnpCpeAhkl6FMA5HEJabyYPs-NCn4ttYsnUOBDTJ8HhT75NCsL6uX93_Aw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/_hc9FjMtkjEbT_t7WwmlmV34rtxRSr_mE5EESvGvVtFlbllRkYzPIwgVxJEpH7JwAj1nogEFuCZ5BDN-TVWZbVs=w1800&quot;,&quot;https://play-lh.googleusercontent.com/rHQuMlLoanly1wtEv42B86_U-JlWVRJoZLm_Jf9VCPQ8p3cGyHyrOfLGuDWPQv3JtPjR7iVrZyN9f0OZZtV7Xw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/SHHDiqkgLT2VXP0hKQVgiMGsyPGZHFEIkpMwrVmwKHDBbN-8w--hPQi1vczXwc9NUBZmC-S1hXzZ5wcfkKPNe2k=w1800&quot;,&quot;https://play-lh.googleusercontent.com/9YEncXH3bNXQ5Sn2q_lSYptOAwuII3EdVB5fzbVPKxhjqiSngPctHB7kbSs_uMVN0ji0umirjLr7HYbZsFVv=w1800&quot;,&quot;https://play-lh.googleusercontent.com/I40t9x7bb5GlRHTY2syZlVuMSmNEC5BQ5WbjPju0UPbz8cnJv_CN9pQ0TTM3-rg1lErXC1PRkk1Ne2tB_1OqmYg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/Gf04zNYttbXXskKiK0y4ok7qIWfxNkUFbDuG796baaO9nYyScy5_Tw7xxSUbUugdlwcmXaXpYkTxKQI4qm38Pw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/nUcKUqgWys1fFdv-GvLL6PxNDsoLMlcxIuVBGDYVvyNUjZl1AANYRJbaJckUWQ2J1fvK4auJTSsGH3qNssRY1Q=w1800&quot;,&quot;https://play-lh.googleusercontent.com/9KQyf9IWiVK3XeakGvAeRWzcRRGOBnpCpeAhkl6FMA5HEJabyYPs-NCn4ttYsnUOBDTJ8HhT75NCsL6uX93_Aw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/_hc9FjMtkjEbT_t7WwmlmV34rtxRSr_mE5EESvGvVtFlbllRkYzPIwgVxJEpH7JwAj1nogEFuCZ5BDN-TVWZbVs=w1800&quot;,&quot;https://play-lh.googleusercontent.com/rHQuMlLoanly1wtEv42B86_U-JlWVRJoZLm_Jf9VCPQ8p3cGyHyrOfLGuDWPQv3JtPjR7iVrZyN9f0OZZtV7Xw=w1800&quot;]'
+    >
+      <div class="app-header">
+
+        <div class="rank">
+          #11
+        </div>
+
+        
+              <img
+                class="app-icon"
+                src="https://play-lh.googleusercontent.com/2oEhXTo0hk5xbYdBoZWwG8XZXvMkwCuBbKIt5ObSYcsVfdM2pt3L3Sjes3p3PQH0QMMe4BC3zQ6JrlR-t6ILOg"
+                alt=""
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              />
+            
+
+        <div class="app-info">
+
+          <h2 class="app-title">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.innocaption.vpdp&amp;hl=en&amp;gl=us"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              InnoCaption Live Call Captions
+            </a>
+          </h2>
+
+          <div class="app-meta">
+
+            <span>MEZMO Corporation</span>
+
+            <span>评分 4.2253733</span>
+
+            <span>24 张截图</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="screenshots-container">
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="0"
+            aria-label="查看 InnoCaption Live Call Captions 第 1 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/SafqMiLPlWwmfmSdpU-nf0c1rNNC6dv4SiO3KBwvO3CgB5DQI9tD-DjeVq5Zl3ONO4sZMaZ6Pyztw9c_U37S=w1800"
+              alt="InnoCaption Live Call Captions 截图 1"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="1"
+            aria-label="查看 InnoCaption Live Call Captions 第 2 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/o0Qm2SoGwhuh6LtfzSTR4WgLA4KGNvp9bQJfLPDbaq4xCnkNQ0v4ryO74QXB0PO2c3c2xBttm9gUiDXZEXx-GXI=w1800"
+              alt="InnoCaption Live Call Captions 截图 2"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="2"
+            aria-label="查看 InnoCaption Live Call Captions 第 3 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/tTBZgep3u_avQ3LAheXai2qurknIZxbxJr9L--f9f5qiFS-33rQ1v1pKWkSZLpexFVKJwtdx800GLhIjap8g3Q=w1800"
+              alt="InnoCaption Live Call Captions 截图 3"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="3"
+            aria-label="查看 InnoCaption Live Call Captions 第 4 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/_u3I0TaQcWiXoT2TaVy75qRy484BV0i0t-RXbCfeP9X1UdZgDrYGxuQ3XYWrIhCOQXSq6QrAFV847YZzdnvXSTo=w1800"
+              alt="InnoCaption Live Call Captions 截图 4"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="4"
+            aria-label="查看 InnoCaption Live Call Captions 第 5 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/I1czWuCeIMtWgiIIiQdNEUSaFJiHOPWyyvBk2WzvIbA2TErGcYXcnpoZASP1ZCUypVplJzWXkWmX5zp7LLqDJw=w1800"
+              alt="InnoCaption Live Call Captions 截图 5"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="5"
+            aria-label="查看 InnoCaption Live Call Captions 第 6 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/QQUvLDvrsfSBxf0igquY-i-ymBZgO0xaIkZ5gBc08dLO7tXJQ1oAOaRCiDSJWrHwxBmpLG7LHygrpu5T9Dm5cg=w1800"
+              alt="InnoCaption Live Call Captions 截图 6"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="6"
+            aria-label="查看 InnoCaption Live Call Captions 第 7 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/4s-Hy1PSLTm4XbdB153xW6TnyeUV_6WuVmDBE1nHCGNx_UFucTuvkdH5ypaAt8ui8DJsdQl55mhg-d4uSbAJjBA=w1800"
+              alt="InnoCaption Live Call Captions 截图 7"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="7"
+            aria-label="查看 InnoCaption Live Call Captions 第 8 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/6-Z1RE2e5o0hBxXSvwxfzCvyFGjOYvFSULFyjtKj1Q7Q3QpkTDCCxSvf101RDqP8FWconBoJ5xx6WIB75lNBLJY=w1800"
+              alt="InnoCaption Live Call Captions 截图 8"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="8"
+            aria-label="查看 InnoCaption Live Call Captions 第 9 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/SHHDiqkgLT2VXP0hKQVgiMGsyPGZHFEIkpMwrVmwKHDBbN-8w--hPQi1vczXwc9NUBZmC-S1hXzZ5wcfkKPNe2k=w1800"
+              alt="InnoCaption Live Call Captions 截图 9"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="9"
+            aria-label="查看 InnoCaption Live Call Captions 第 10 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/9YEncXH3bNXQ5Sn2q_lSYptOAwuII3EdVB5fzbVPKxhjqiSngPctHB7kbSs_uMVN0ji0umirjLr7HYbZsFVv=w1800"
+              alt="InnoCaption Live Call Captions 截图 10"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="10"
+            aria-label="查看 InnoCaption Live Call Captions 第 11 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/I40t9x7bb5GlRHTY2syZlVuMSmNEC5BQ5WbjPju0UPbz8cnJv_CN9pQ0TTM3-rg1lErXC1PRkk1Ne2tB_1OqmYg=w1800"
+              alt="InnoCaption Live Call Captions 截图 11"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="11"
+            aria-label="查看 InnoCaption Live Call Captions 第 12 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/Gf04zNYttbXXskKiK0y4ok7qIWfxNkUFbDuG796baaO9nYyScy5_Tw7xxSUbUugdlwcmXaXpYkTxKQI4qm38Pw=w1800"
+              alt="InnoCaption Live Call Captions 截图 12"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="12"
+            aria-label="查看 InnoCaption Live Call Captions 第 13 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/nUcKUqgWys1fFdv-GvLL6PxNDsoLMlcxIuVBGDYVvyNUjZl1AANYRJbaJckUWQ2J1fvK4auJTSsGH3qNssRY1Q=w1800"
+              alt="InnoCaption Live Call Captions 截图 13"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="13"
+            aria-label="查看 InnoCaption Live Call Captions 第 14 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/9KQyf9IWiVK3XeakGvAeRWzcRRGOBnpCpeAhkl6FMA5HEJabyYPs-NCn4ttYsnUOBDTJ8HhT75NCsL6uX93_Aw=w1800"
+              alt="InnoCaption Live Call Captions 截图 14"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="14"
+            aria-label="查看 InnoCaption Live Call Captions 第 15 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/_hc9FjMtkjEbT_t7WwmlmV34rtxRSr_mE5EESvGvVtFlbllRkYzPIwgVxJEpH7JwAj1nogEFuCZ5BDN-TVWZbVs=w1800"
+              alt="InnoCaption Live Call Captions 截图 15"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="15"
+            aria-label="查看 InnoCaption Live Call Captions 第 16 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/rHQuMlLoanly1wtEv42B86_U-JlWVRJoZLm_Jf9VCPQ8p3cGyHyrOfLGuDWPQv3JtPjR7iVrZyN9f0OZZtV7Xw=w1800"
+              alt="InnoCaption Live Call Captions 截图 16"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="16"
+            aria-label="查看 InnoCaption Live Call Captions 第 17 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/SHHDiqkgLT2VXP0hKQVgiMGsyPGZHFEIkpMwrVmwKHDBbN-8w--hPQi1vczXwc9NUBZmC-S1hXzZ5wcfkKPNe2k=w1800"
+              alt="InnoCaption Live Call Captions 截图 17"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="17"
+            aria-label="查看 InnoCaption Live Call Captions 第 18 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/9YEncXH3bNXQ5Sn2q_lSYptOAwuII3EdVB5fzbVPKxhjqiSngPctHB7kbSs_uMVN0ji0umirjLr7HYbZsFVv=w1800"
+              alt="InnoCaption Live Call Captions 截图 18"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="18"
+            aria-label="查看 InnoCaption Live Call Captions 第 19 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/I40t9x7bb5GlRHTY2syZlVuMSmNEC5BQ5WbjPju0UPbz8cnJv_CN9pQ0TTM3-rg1lErXC1PRkk1Ne2tB_1OqmYg=w1800"
+              alt="InnoCaption Live Call Captions 截图 19"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="19"
+            aria-label="查看 InnoCaption Live Call Captions 第 20 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/Gf04zNYttbXXskKiK0y4ok7qIWfxNkUFbDuG796baaO9nYyScy5_Tw7xxSUbUugdlwcmXaXpYkTxKQI4qm38Pw=w1800"
+              alt="InnoCaption Live Call Captions 截图 20"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="20"
+            aria-label="查看 InnoCaption Live Call Captions 第 21 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/nUcKUqgWys1fFdv-GvLL6PxNDsoLMlcxIuVBGDYVvyNUjZl1AANYRJbaJckUWQ2J1fvK4auJTSsGH3qNssRY1Q=w1800"
+              alt="InnoCaption Live Call Captions 截图 21"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="21"
+            aria-label="查看 InnoCaption Live Call Captions 第 22 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/9KQyf9IWiVK3XeakGvAeRWzcRRGOBnpCpeAhkl6FMA5HEJabyYPs-NCn4ttYsnUOBDTJ8HhT75NCsL6uX93_Aw=w1800"
+              alt="InnoCaption Live Call Captions 截图 22"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="22"
+            aria-label="查看 InnoCaption Live Call Captions 第 23 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/_hc9FjMtkjEbT_t7WwmlmV34rtxRSr_mE5EESvGvVtFlbllRkYzPIwgVxJEpH7JwAj1nogEFuCZ5BDN-TVWZbVs=w1800"
+              alt="InnoCaption Live Call Captions 截图 23"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="23"
+            aria-label="查看 InnoCaption Live Call Captions 第 24 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/rHQuMlLoanly1wtEv42B86_U-JlWVRJoZLm_Jf9VCPQ8p3cGyHyrOfLGuDWPQv3JtPjR7iVrZyN9f0OZZtV7Xw=w1800"
+              alt="InnoCaption Live Call Captions 截图 24"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+      </div>
+
+    </section>
+  
+    <section
+      class="app-card"
       data-app-name="AutoCap Captions Teleprompter"
       data-screenshots='[&quot;https://play-lh.googleusercontent.com/kmjx3IUi-if0MgIfqY6GAauVvCAVwtOCpJLexLjc6GnPYRT1Wv3D3SPcfyr5NOZBBw0NfEZXXrCFj9ihIMovfg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/KeTrRmLhF3AHWXTnH54G04bVO-Y_uK9Atx7zFqGusmD0WT96wh-Z5MyL1j53DuWjZ1RLchcXqgYQ6-e8BRem=w1800&quot;,&quot;https://play-lh.googleusercontent.com/dnk0gXyA-Ys8Sbvx7byq8Q1AX09d7fNfB3jDAMHLPh43QPYVtWZ4INQx_KjXbjy_CWqEfzkq4np5asf8Oukk7Q=w1800&quot;,&quot;https://play-lh.googleusercontent.com/igGvQbJk4gNAtlPj69lQOhxc6f9BXUOmPiTQeSX4AJ1JiLrpsLb5hpFqSjV5WJVovNxN1v31TTLWlprJLqkyT9I=w1800&quot;,&quot;https://play-lh.googleusercontent.com/vj9i8WIEKG-RDoQHgJBCyPaxPsX3PAIOzCUuCDwTQtev3UPM620Q3UL5YQiQd8UjqNQbDx3NyrYBwOA0X5q3lg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/RsuI1YeoTUUWDKgdwyNaNzNSsbfJWMYlhh8nwjqiRNZ5wgoLuI-mwCOrw4OvElMSRqB9U2TYVNnlZTZCziqN5w=w1800&quot;,&quot;https://play-lh.googleusercontent.com/mYB-3vqQsIgL4ICC_KmIKmNIkmJBSIqo6eJUylBfXcHBpH4S-87SMANwwpfMnfr-BU-jIdK_7c0_swKgmXhN=w1800&quot;,&quot;https://play-lh.googleusercontent.com/Zw_-0V2Jhs3pH8Udow53lqdPchVK0ej1h_OLT54ZJt2NavnqJeGaDvzFDekjWXmDqrUmTjgtfjtDPqMQf0P7=w1800&quot;,&quot;https://play-lh.googleusercontent.com/kmjx3IUi-if0MgIfqY6GAauVvCAVwtOCpJLexLjc6GnPYRT1Wv3D3SPcfyr5NOZBBw0NfEZXXrCFj9ihIMovfg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/KeTrRmLhF3AHWXTnH54G04bVO-Y_uK9Atx7zFqGusmD0WT96wh-Z5MyL1j53DuWjZ1RLchcXqgYQ6-e8BRem=w1800&quot;,&quot;https://play-lh.googleusercontent.com/dnk0gXyA-Ys8Sbvx7byq8Q1AX09d7fNfB3jDAMHLPh43QPYVtWZ4INQx_KjXbjy_CWqEfzkq4np5asf8Oukk7Q=w1800&quot;,&quot;https://play-lh.googleusercontent.com/igGvQbJk4gNAtlPj69lQOhxc6f9BXUOmPiTQeSX4AJ1JiLrpsLb5hpFqSjV5WJVovNxN1v31TTLWlprJLqkyT9I=w1800&quot;,&quot;https://play-lh.googleusercontent.com/vj9i8WIEKG-RDoQHgJBCyPaxPsX3PAIOzCUuCDwTQtev3UPM620Q3UL5YQiQd8UjqNQbDx3NyrYBwOA0X5q3lg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/RsuI1YeoTUUWDKgdwyNaNzNSsbfJWMYlhh8nwjqiRNZ5wgoLuI-mwCOrw4OvElMSRqB9U2TYVNnlZTZCziqN5w=w1800&quot;,&quot;https://play-lh.googleusercontent.com/mYB-3vqQsIgL4ICC_KmIKmNIkmJBSIqo6eJUylBfXcHBpH4S-87SMANwwpfMnfr-BU-jIdK_7c0_swKgmXhN=w1800&quot;,&quot;https://play-lh.googleusercontent.com/Zw_-0V2Jhs3pH8Udow53lqdPchVK0ej1h_OLT54ZJt2NavnqJeGaDvzFDekjWXmDqrUmTjgtfjtDPqMQf0P7=w1800&quot;,&quot;https://play-lh.googleusercontent.com/kmjx3IUi-if0MgIfqY6GAauVvCAVwtOCpJLexLjc6GnPYRT1Wv3D3SPcfyr5NOZBBw0NfEZXXrCFj9ihIMovfg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/KeTrRmLhF3AHWXTnH54G04bVO-Y_uK9Atx7zFqGusmD0WT96wh-Z5MyL1j53DuWjZ1RLchcXqgYQ6-e8BRem=w1800&quot;,&quot;https://play-lh.googleusercontent.com/dnk0gXyA-Ys8Sbvx7byq8Q1AX09d7fNfB3jDAMHLPh43QPYVtWZ4INQx_KjXbjy_CWqEfzkq4np5asf8Oukk7Q=w1800&quot;,&quot;https://play-lh.googleusercontent.com/igGvQbJk4gNAtlPj69lQOhxc6f9BXUOmPiTQeSX4AJ1JiLrpsLb5hpFqSjV5WJVovNxN1v31TTLWlprJLqkyT9I=w1800&quot;,&quot;https://play-lh.googleusercontent.com/vj9i8WIEKG-RDoQHgJBCyPaxPsX3PAIOzCUuCDwTQtev3UPM620Q3UL5YQiQd8UjqNQbDx3NyrYBwOA0X5q3lg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/RsuI1YeoTUUWDKgdwyNaNzNSsbfJWMYlhh8nwjqiRNZ5wgoLuI-mwCOrw4OvElMSRqB9U2TYVNnlZTZCziqN5w=w1800&quot;,&quot;https://play-lh.googleusercontent.com/mYB-3vqQsIgL4ICC_KmIKmNIkmJBSIqo6eJUylBfXcHBpH4S-87SMANwwpfMnfr-BU-jIdK_7c0_swKgmXhN=w1800&quot;,&quot;https://play-lh.googleusercontent.com/Zw_-0V2Jhs3pH8Udow53lqdPchVK0ej1h_OLT54ZJt2NavnqJeGaDvzFDekjWXmDqrUmTjgtfjtDPqMQf0P7=w1800&quot;,&quot;https://play-lh.googleusercontent.com/kmjx3IUi-if0MgIfqY6GAauVvCAVwtOCpJLexLjc6GnPYRT1Wv3D3SPcfyr5NOZBBw0NfEZXXrCFj9ihIMovfg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/KeTrRmLhF3AHWXTnH54G04bVO-Y_uK9Atx7zFqGusmD0WT96wh-Z5MyL1j53DuWjZ1RLchcXqgYQ6-e8BRem=w1800&quot;,&quot;https://play-lh.googleusercontent.com/dnk0gXyA-Ys8Sbvx7byq8Q1AX09d7fNfB3jDAMHLPh43QPYVtWZ4INQx_KjXbjy_CWqEfzkq4np5asf8Oukk7Q=w1800&quot;,&quot;https://play-lh.googleusercontent.com/igGvQbJk4gNAtlPj69lQOhxc6f9BXUOmPiTQeSX4AJ1JiLrpsLb5hpFqSjV5WJVovNxN1v31TTLWlprJLqkyT9I=w1800&quot;,&quot;https://play-lh.googleusercontent.com/vj9i8WIEKG-RDoQHgJBCyPaxPsX3PAIOzCUuCDwTQtev3UPM620Q3UL5YQiQd8UjqNQbDx3NyrYBwOA0X5q3lg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/RsuI1YeoTUUWDKgdwyNaNzNSsbfJWMYlhh8nwjqiRNZ5wgoLuI-mwCOrw4OvElMSRqB9U2TYVNnlZTZCziqN5w=w1800&quot;,&quot;https://play-lh.googleusercontent.com/mYB-3vqQsIgL4ICC_KmIKmNIkmJBSIqo6eJUylBfXcHBpH4S-87SMANwwpfMnfr-BU-jIdK_7c0_swKgmXhN=w1800&quot;,&quot;https://play-lh.googleusercontent.com/Zw_-0V2Jhs3pH8Udow53lqdPchVK0ej1h_OLT54ZJt2NavnqJeGaDvzFDekjWXmDqrUmTjgtfjtDPqMQf0P7=w1800&quot;,&quot;https://play-lh.googleusercontent.com/kmjx3IUi-if0MgIfqY6GAauVvCAVwtOCpJLexLjc6GnPYRT1Wv3D3SPcfyr5NOZBBw0NfEZXXrCFj9ihIMovfg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/KeTrRmLhF3AHWXTnH54G04bVO-Y_uK9Atx7zFqGusmD0WT96wh-Z5MyL1j53DuWjZ1RLchcXqgYQ6-e8BRem=w1800&quot;,&quot;https://play-lh.googleusercontent.com/dnk0gXyA-Ys8Sbvx7byq8Q1AX09d7fNfB3jDAMHLPh43QPYVtWZ4INQx_KjXbjy_CWqEfzkq4np5asf8Oukk7Q=w1800&quot;,&quot;https://play-lh.googleusercontent.com/igGvQbJk4gNAtlPj69lQOhxc6f9BXUOmPiTQeSX4AJ1JiLrpsLb5hpFqSjV5WJVovNxN1v31TTLWlprJLqkyT9I=w1800&quot;,&quot;https://play-lh.googleusercontent.com/vj9i8WIEKG-RDoQHgJBCyPaxPsX3PAIOzCUuCDwTQtev3UPM620Q3UL5YQiQd8UjqNQbDx3NyrYBwOA0X5q3lg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/RsuI1YeoTUUWDKgdwyNaNzNSsbfJWMYlhh8nwjqiRNZ5wgoLuI-mwCOrw4OvElMSRqB9U2TYVNnlZTZCziqN5w=w1800&quot;,&quot;https://play-lh.googleusercontent.com/mYB-3vqQsIgL4ICC_KmIKmNIkmJBSIqo6eJUylBfXcHBpH4S-87SMANwwpfMnfr-BU-jIdK_7c0_swKgmXhN=w1800&quot;,&quot;https://play-lh.googleusercontent.com/Zw_-0V2Jhs3pH8Udow53lqdPchVK0ej1h_OLT54ZJt2NavnqJeGaDvzFDekjWXmDqrUmTjgtfjtDPqMQf0P7=w1800&quot;]'
     >
       <div class="app-header">
 
         <div class="rank">
-          #11
+          #12
         </div>
 
         
@@ -3354,419 +3795,6 @@ body {
   
     <section
       class="app-card"
-      data-app-name="InnoCaption Live Call Captions"
-      data-screenshots='[&quot;https://play-lh.googleusercontent.com/SafqMiLPlWwmfmSdpU-nf0c1rNNC6dv4SiO3KBwvO3CgB5DQI9tD-DjeVq5Zl3ONO4sZMaZ6Pyztw9c_U37S=w1800&quot;,&quot;https://play-lh.googleusercontent.com/o0Qm2SoGwhuh6LtfzSTR4WgLA4KGNvp9bQJfLPDbaq4xCnkNQ0v4ryO74QXB0PO2c3c2xBttm9gUiDXZEXx-GXI=w1800&quot;,&quot;https://play-lh.googleusercontent.com/tTBZgep3u_avQ3LAheXai2qurknIZxbxJr9L--f9f5qiFS-33rQ1v1pKWkSZLpexFVKJwtdx800GLhIjap8g3Q=w1800&quot;,&quot;https://play-lh.googleusercontent.com/_u3I0TaQcWiXoT2TaVy75qRy484BV0i0t-RXbCfeP9X1UdZgDrYGxuQ3XYWrIhCOQXSq6QrAFV847YZzdnvXSTo=w1800&quot;,&quot;https://play-lh.googleusercontent.com/I1czWuCeIMtWgiIIiQdNEUSaFJiHOPWyyvBk2WzvIbA2TErGcYXcnpoZASP1ZCUypVplJzWXkWmX5zp7LLqDJw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/QQUvLDvrsfSBxf0igquY-i-ymBZgO0xaIkZ5gBc08dLO7tXJQ1oAOaRCiDSJWrHwxBmpLG7LHygrpu5T9Dm5cg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/4s-Hy1PSLTm4XbdB153xW6TnyeUV_6WuVmDBE1nHCGNx_UFucTuvkdH5ypaAt8ui8DJsdQl55mhg-d4uSbAJjBA=w1800&quot;,&quot;https://play-lh.googleusercontent.com/6-Z1RE2e5o0hBxXSvwxfzCvyFGjOYvFSULFyjtKj1Q7Q3QpkTDCCxSvf101RDqP8FWconBoJ5xx6WIB75lNBLJY=w1800&quot;,&quot;https://play-lh.googleusercontent.com/SHHDiqkgLT2VXP0hKQVgiMGsyPGZHFEIkpMwrVmwKHDBbN-8w--hPQi1vczXwc9NUBZmC-S1hXzZ5wcfkKPNe2k=w1800&quot;,&quot;https://play-lh.googleusercontent.com/9YEncXH3bNXQ5Sn2q_lSYptOAwuII3EdVB5fzbVPKxhjqiSngPctHB7kbSs_uMVN0ji0umirjLr7HYbZsFVv=w1800&quot;,&quot;https://play-lh.googleusercontent.com/I40t9x7bb5GlRHTY2syZlVuMSmNEC5BQ5WbjPju0UPbz8cnJv_CN9pQ0TTM3-rg1lErXC1PRkk1Ne2tB_1OqmYg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/Gf04zNYttbXXskKiK0y4ok7qIWfxNkUFbDuG796baaO9nYyScy5_Tw7xxSUbUugdlwcmXaXpYkTxKQI4qm38Pw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/nUcKUqgWys1fFdv-GvLL6PxNDsoLMlcxIuVBGDYVvyNUjZl1AANYRJbaJckUWQ2J1fvK4auJTSsGH3qNssRY1Q=w1800&quot;,&quot;https://play-lh.googleusercontent.com/9KQyf9IWiVK3XeakGvAeRWzcRRGOBnpCpeAhkl6FMA5HEJabyYPs-NCn4ttYsnUOBDTJ8HhT75NCsL6uX93_Aw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/_hc9FjMtkjEbT_t7WwmlmV34rtxRSr_mE5EESvGvVtFlbllRkYzPIwgVxJEpH7JwAj1nogEFuCZ5BDN-TVWZbVs=w1800&quot;,&quot;https://play-lh.googleusercontent.com/rHQuMlLoanly1wtEv42B86_U-JlWVRJoZLm_Jf9VCPQ8p3cGyHyrOfLGuDWPQv3JtPjR7iVrZyN9f0OZZtV7Xw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/SHHDiqkgLT2VXP0hKQVgiMGsyPGZHFEIkpMwrVmwKHDBbN-8w--hPQi1vczXwc9NUBZmC-S1hXzZ5wcfkKPNe2k=w1800&quot;,&quot;https://play-lh.googleusercontent.com/9YEncXH3bNXQ5Sn2q_lSYptOAwuII3EdVB5fzbVPKxhjqiSngPctHB7kbSs_uMVN0ji0umirjLr7HYbZsFVv=w1800&quot;,&quot;https://play-lh.googleusercontent.com/I40t9x7bb5GlRHTY2syZlVuMSmNEC5BQ5WbjPju0UPbz8cnJv_CN9pQ0TTM3-rg1lErXC1PRkk1Ne2tB_1OqmYg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/Gf04zNYttbXXskKiK0y4ok7qIWfxNkUFbDuG796baaO9nYyScy5_Tw7xxSUbUugdlwcmXaXpYkTxKQI4qm38Pw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/nUcKUqgWys1fFdv-GvLL6PxNDsoLMlcxIuVBGDYVvyNUjZl1AANYRJbaJckUWQ2J1fvK4auJTSsGH3qNssRY1Q=w1800&quot;,&quot;https://play-lh.googleusercontent.com/9KQyf9IWiVK3XeakGvAeRWzcRRGOBnpCpeAhkl6FMA5HEJabyYPs-NCn4ttYsnUOBDTJ8HhT75NCsL6uX93_Aw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/_hc9FjMtkjEbT_t7WwmlmV34rtxRSr_mE5EESvGvVtFlbllRkYzPIwgVxJEpH7JwAj1nogEFuCZ5BDN-TVWZbVs=w1800&quot;,&quot;https://play-lh.googleusercontent.com/rHQuMlLoanly1wtEv42B86_U-JlWVRJoZLm_Jf9VCPQ8p3cGyHyrOfLGuDWPQv3JtPjR7iVrZyN9f0OZZtV7Xw=w1800&quot;]'
-    >
-      <div class="app-header">
-
-        <div class="rank">
-          #12
-        </div>
-
-        
-              <img
-                class="app-icon"
-                src="https://play-lh.googleusercontent.com/2oEhXTo0hk5xbYdBoZWwG8XZXvMkwCuBbKIt5ObSYcsVfdM2pt3L3Sjes3p3PQH0QMMe4BC3zQ6JrlR-t6ILOg"
-                alt=""
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            
-
-        <div class="app-info">
-
-          <h2 class="app-title">
-            <a
-              href="https://play.google.com/store/apps/details?id=com.innocaption.vpdp&amp;hl=en&amp;gl=us"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              InnoCaption Live Call Captions
-            </a>
-          </h2>
-
-          <div class="app-meta">
-
-            <span>MEZMO Corporation</span>
-
-            <span>评分 4.2253733</span>
-
-            <span>24 张截图</span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="screenshots-container">
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="0"
-            aria-label="查看 InnoCaption Live Call Captions 第 1 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/SafqMiLPlWwmfmSdpU-nf0c1rNNC6dv4SiO3KBwvO3CgB5DQI9tD-DjeVq5Zl3ONO4sZMaZ6Pyztw9c_U37S=w1800"
-              alt="InnoCaption Live Call Captions 截图 1"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="1"
-            aria-label="查看 InnoCaption Live Call Captions 第 2 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/o0Qm2SoGwhuh6LtfzSTR4WgLA4KGNvp9bQJfLPDbaq4xCnkNQ0v4ryO74QXB0PO2c3c2xBttm9gUiDXZEXx-GXI=w1800"
-              alt="InnoCaption Live Call Captions 截图 2"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="2"
-            aria-label="查看 InnoCaption Live Call Captions 第 3 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/tTBZgep3u_avQ3LAheXai2qurknIZxbxJr9L--f9f5qiFS-33rQ1v1pKWkSZLpexFVKJwtdx800GLhIjap8g3Q=w1800"
-              alt="InnoCaption Live Call Captions 截图 3"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="3"
-            aria-label="查看 InnoCaption Live Call Captions 第 4 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/_u3I0TaQcWiXoT2TaVy75qRy484BV0i0t-RXbCfeP9X1UdZgDrYGxuQ3XYWrIhCOQXSq6QrAFV847YZzdnvXSTo=w1800"
-              alt="InnoCaption Live Call Captions 截图 4"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="4"
-            aria-label="查看 InnoCaption Live Call Captions 第 5 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/I1czWuCeIMtWgiIIiQdNEUSaFJiHOPWyyvBk2WzvIbA2TErGcYXcnpoZASP1ZCUypVplJzWXkWmX5zp7LLqDJw=w1800"
-              alt="InnoCaption Live Call Captions 截图 5"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="5"
-            aria-label="查看 InnoCaption Live Call Captions 第 6 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/QQUvLDvrsfSBxf0igquY-i-ymBZgO0xaIkZ5gBc08dLO7tXJQ1oAOaRCiDSJWrHwxBmpLG7LHygrpu5T9Dm5cg=w1800"
-              alt="InnoCaption Live Call Captions 截图 6"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="6"
-            aria-label="查看 InnoCaption Live Call Captions 第 7 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/4s-Hy1PSLTm4XbdB153xW6TnyeUV_6WuVmDBE1nHCGNx_UFucTuvkdH5ypaAt8ui8DJsdQl55mhg-d4uSbAJjBA=w1800"
-              alt="InnoCaption Live Call Captions 截图 7"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="7"
-            aria-label="查看 InnoCaption Live Call Captions 第 8 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/6-Z1RE2e5o0hBxXSvwxfzCvyFGjOYvFSULFyjtKj1Q7Q3QpkTDCCxSvf101RDqP8FWconBoJ5xx6WIB75lNBLJY=w1800"
-              alt="InnoCaption Live Call Captions 截图 8"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="8"
-            aria-label="查看 InnoCaption Live Call Captions 第 9 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/SHHDiqkgLT2VXP0hKQVgiMGsyPGZHFEIkpMwrVmwKHDBbN-8w--hPQi1vczXwc9NUBZmC-S1hXzZ5wcfkKPNe2k=w1800"
-              alt="InnoCaption Live Call Captions 截图 9"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="9"
-            aria-label="查看 InnoCaption Live Call Captions 第 10 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/9YEncXH3bNXQ5Sn2q_lSYptOAwuII3EdVB5fzbVPKxhjqiSngPctHB7kbSs_uMVN0ji0umirjLr7HYbZsFVv=w1800"
-              alt="InnoCaption Live Call Captions 截图 10"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="10"
-            aria-label="查看 InnoCaption Live Call Captions 第 11 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/I40t9x7bb5GlRHTY2syZlVuMSmNEC5BQ5WbjPju0UPbz8cnJv_CN9pQ0TTM3-rg1lErXC1PRkk1Ne2tB_1OqmYg=w1800"
-              alt="InnoCaption Live Call Captions 截图 11"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="11"
-            aria-label="查看 InnoCaption Live Call Captions 第 12 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/Gf04zNYttbXXskKiK0y4ok7qIWfxNkUFbDuG796baaO9nYyScy5_Tw7xxSUbUugdlwcmXaXpYkTxKQI4qm38Pw=w1800"
-              alt="InnoCaption Live Call Captions 截图 12"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="12"
-            aria-label="查看 InnoCaption Live Call Captions 第 13 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/nUcKUqgWys1fFdv-GvLL6PxNDsoLMlcxIuVBGDYVvyNUjZl1AANYRJbaJckUWQ2J1fvK4auJTSsGH3qNssRY1Q=w1800"
-              alt="InnoCaption Live Call Captions 截图 13"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="13"
-            aria-label="查看 InnoCaption Live Call Captions 第 14 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/9KQyf9IWiVK3XeakGvAeRWzcRRGOBnpCpeAhkl6FMA5HEJabyYPs-NCn4ttYsnUOBDTJ8HhT75NCsL6uX93_Aw=w1800"
-              alt="InnoCaption Live Call Captions 截图 14"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="14"
-            aria-label="查看 InnoCaption Live Call Captions 第 15 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/_hc9FjMtkjEbT_t7WwmlmV34rtxRSr_mE5EESvGvVtFlbllRkYzPIwgVxJEpH7JwAj1nogEFuCZ5BDN-TVWZbVs=w1800"
-              alt="InnoCaption Live Call Captions 截图 15"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="15"
-            aria-label="查看 InnoCaption Live Call Captions 第 16 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/rHQuMlLoanly1wtEv42B86_U-JlWVRJoZLm_Jf9VCPQ8p3cGyHyrOfLGuDWPQv3JtPjR7iVrZyN9f0OZZtV7Xw=w1800"
-              alt="InnoCaption Live Call Captions 截图 16"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="16"
-            aria-label="查看 InnoCaption Live Call Captions 第 17 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/SHHDiqkgLT2VXP0hKQVgiMGsyPGZHFEIkpMwrVmwKHDBbN-8w--hPQi1vczXwc9NUBZmC-S1hXzZ5wcfkKPNe2k=w1800"
-              alt="InnoCaption Live Call Captions 截图 17"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="17"
-            aria-label="查看 InnoCaption Live Call Captions 第 18 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/9YEncXH3bNXQ5Sn2q_lSYptOAwuII3EdVB5fzbVPKxhjqiSngPctHB7kbSs_uMVN0ji0umirjLr7HYbZsFVv=w1800"
-              alt="InnoCaption Live Call Captions 截图 18"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="18"
-            aria-label="查看 InnoCaption Live Call Captions 第 19 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/I40t9x7bb5GlRHTY2syZlVuMSmNEC5BQ5WbjPju0UPbz8cnJv_CN9pQ0TTM3-rg1lErXC1PRkk1Ne2tB_1OqmYg=w1800"
-              alt="InnoCaption Live Call Captions 截图 19"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="19"
-            aria-label="查看 InnoCaption Live Call Captions 第 20 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/Gf04zNYttbXXskKiK0y4ok7qIWfxNkUFbDuG796baaO9nYyScy5_Tw7xxSUbUugdlwcmXaXpYkTxKQI4qm38Pw=w1800"
-              alt="InnoCaption Live Call Captions 截图 20"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="20"
-            aria-label="查看 InnoCaption Live Call Captions 第 21 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/nUcKUqgWys1fFdv-GvLL6PxNDsoLMlcxIuVBGDYVvyNUjZl1AANYRJbaJckUWQ2J1fvK4auJTSsGH3qNssRY1Q=w1800"
-              alt="InnoCaption Live Call Captions 截图 21"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="21"
-            aria-label="查看 InnoCaption Live Call Captions 第 22 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/9KQyf9IWiVK3XeakGvAeRWzcRRGOBnpCpeAhkl6FMA5HEJabyYPs-NCn4ttYsnUOBDTJ8HhT75NCsL6uX93_Aw=w1800"
-              alt="InnoCaption Live Call Captions 截图 22"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="22"
-            aria-label="查看 InnoCaption Live Call Captions 第 23 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/_hc9FjMtkjEbT_t7WwmlmV34rtxRSr_mE5EESvGvVtFlbllRkYzPIwgVxJEpH7JwAj1nogEFuCZ5BDN-TVWZbVs=w1800"
-              alt="InnoCaption Live Call Captions 截图 23"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="23"
-            aria-label="查看 InnoCaption Live Call Captions 第 24 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/rHQuMlLoanly1wtEv42B86_U-JlWVRJoZLm_Jf9VCPQ8p3cGyHyrOfLGuDWPQv3JtPjR7iVrZyN9f0OZZtV7Xw=w1800"
-              alt="InnoCaption Live Call Captions 截图 24"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-      </div>
-
-    </section>
-  
-    <section
-      class="app-card"
       data-app-name="CapFlow: Captions &amp; Subtitles"
       data-screenshots='[&quot;https://play-lh.googleusercontent.com/fm4Yp4K7J6pRVuBNrY6iW7W1jOl2qdYtRhmO7bm9w8kY0efwTzWsEUGNDOKekZpubSPudCfCupYjr4YyGfqNGU0=w1800&quot;,&quot;https://play-lh.googleusercontent.com/eqBwLY7gS06eRl6X76fGrgbQ4CXvTurMuGT3F2mGj9YCDhFzkoLYgk33Wod1gKkMOd-l5u5Hk2oYI6cXlKbplg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/SoeRoaM6zVEyGQhfVMPpMevDAqVcuYlp3-4TVcF1sYikpl260x_l6qgzs8vDRHMDzOtf7IJrpNdKljiRk1I6iDQ=w1800&quot;,&quot;https://play-lh.googleusercontent.com/64H9zBVuzUrl9ldOXCkD5uK2cvNy-nEBkx9zyaAS7PEDV5m24zEfSbHVMAe18HNPfO7UNUNnchi0qp-m2ClHSg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/sTHtKgXhXta0w11h4vA0wAI05Scbm5Dvtgn7aM7MdoTG3---SSTqYXUb3P0_mFOyirSWqPNz6cu3c63CNRPL=w1800&quot;]'
     >
@@ -3895,13 +3923,156 @@ body {
   
     <section
       class="app-card"
+      data-app-name="Capzy: AI Caption"
+      data-screenshots='[&quot;https://play-lh.googleusercontent.com/KJpa3hbnJkZPLye93jm6tQV6eJKrxe8kzYVS5nxdFWJpjXOHT8SJpRrt4VAI9puVS42ygH4BgwjHB-AI1Mb_Ug=w1800&quot;,&quot;https://play-lh.googleusercontent.com/cjMzegBWgYCsaZMm2orlWyqyBZ-oyQodnEKVH_P3YaJ2lZyraARSNmflp0gPa28gx9HBJYqWDl8hQT518KIZ1HM=w1800&quot;,&quot;https://play-lh.googleusercontent.com/WsKl8KN0HSKcX-6Na6nOeo3ZreTTOtwBXtxA6WOOvEWHXh9ekA6Fnjnwxi_wZdeYQgL3KfMnapziMKKvbzuqPQ=w1800&quot;,&quot;https://play-lh.googleusercontent.com/LbD2hM5fCtO36WFvFcP3Y6QHCtZlZwhmWUANBAq-8BQhkoeL6VFm1e6AmQuEIYt43xh4FqgASxk8ZRbHzwv4Bg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/ny02pSLsePqWUA4rUdIsXWOvoHP0z3-M3oQf5EEyzunT7k3zNgjFv3ta_2N0vGLrekHW0I9xF1ByEh4kA9BRYg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/-BF1mRskGp9TELqZeJpOGgbZKNI1NDUvqIoiYo1evDP3yLXnj9PiWh_staEV0R6abHvesNQrOzlCPrStrQXhiAQ=w1800&quot;]'
+    >
+      <div class="app-header">
+
+        <div class="rank">
+          #14
+        </div>
+
+        
+              <img
+                class="app-icon"
+                src="https://play-lh.googleusercontent.com/oeRzvy65C08KLeUZRFW9IZOYFYWkN3f8Rrm6Bm0uziCuQ7OLx2Vj7qfwM0d--6wbBCglruvxPbmb_pWvgJi_WQ"
+                alt=""
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              />
+            
+
+        <div class="app-info">
+
+          <h2 class="app-title">
+            <a
+              href="https://play.google.com/store/apps/details?id=org.capzy.studio&amp;hl=en&amp;gl=us"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Capzy: AI Caption
+            </a>
+          </h2>
+
+          <div class="app-meta">
+
+            <span>Capzy Inc</span>
+
+            <span>评分 4.57</span>
+
+            <span>6 张截图</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="screenshots-container">
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="0"
+            aria-label="查看 Capzy: AI Caption 第 1 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/KJpa3hbnJkZPLye93jm6tQV6eJKrxe8kzYVS5nxdFWJpjXOHT8SJpRrt4VAI9puVS42ygH4BgwjHB-AI1Mb_Ug=w1800"
+              alt="Capzy: AI Caption 截图 1"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="1"
+            aria-label="查看 Capzy: AI Caption 第 2 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/cjMzegBWgYCsaZMm2orlWyqyBZ-oyQodnEKVH_P3YaJ2lZyraARSNmflp0gPa28gx9HBJYqWDl8hQT518KIZ1HM=w1800"
+              alt="Capzy: AI Caption 截图 2"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="2"
+            aria-label="查看 Capzy: AI Caption 第 3 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/WsKl8KN0HSKcX-6Na6nOeo3ZreTTOtwBXtxA6WOOvEWHXh9ekA6Fnjnwxi_wZdeYQgL3KfMnapziMKKvbzuqPQ=w1800"
+              alt="Capzy: AI Caption 截图 3"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="3"
+            aria-label="查看 Capzy: AI Caption 第 4 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/LbD2hM5fCtO36WFvFcP3Y6QHCtZlZwhmWUANBAq-8BQhkoeL6VFm1e6AmQuEIYt43xh4FqgASxk8ZRbHzwv4Bg=w1800"
+              alt="Capzy: AI Caption 截图 4"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="4"
+            aria-label="查看 Capzy: AI Caption 第 5 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/ny02pSLsePqWUA4rUdIsXWOvoHP0z3-M3oQf5EEyzunT7k3zNgjFv3ta_2N0vGLrekHW0I9xF1ByEh4kA9BRYg=w1800"
+              alt="Capzy: AI Caption 截图 5"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+          <button
+            class="screenshot-item"
+            type="button"
+            data-image-index="5"
+            aria-label="查看 Capzy: AI Caption 第 6 张截图"
+          >
+            <img
+              src="https://play-lh.googleusercontent.com/-BF1mRskGp9TELqZeJpOGgbZKNI1NDUvqIoiYo1evDP3yLXnj9PiWh_staEV0R6abHvesNQrOzlCPrStrQXhiAQ=w1800"
+              alt="Capzy: AI Caption 截图 6"
+              loading="lazy"
+              decoding="async"
+              referrerpolicy="no-referrer"
+            />
+          </button>
+        
+      </div>
+
+    </section>
+  
+    <section
+      class="app-card"
       data-app-name="Mojo: Reels and Video Captions"
       data-screenshots='[&quot;https://play-lh.googleusercontent.com/Wj5m6eWQHabW-9AfLqijSHfn5Jl_VoycvGNb04RsyrL1wzCrJC_zsuFQZ9_jVv_rGpFCzUYmk4mLt1Q5_6luOEU=w1800&quot;,&quot;https://play-lh.googleusercontent.com/XZWEJrhYKI8k5DLRfONm_9GNwkUljLZoa3-9zgS7uFs-YFlKiz2PIZuvbKVJbnhGNGN-yFECxe2gvvprcEibRQ=w1800&quot;,&quot;https://play-lh.googleusercontent.com/EMt1znRvZfAfpbcisyVUs9v2comSEClwHsDg3LSTkhxb_Nj6V4YUsKnX9JyEftiiSX5Aon9YWhDpGiGtHT3CQts=w1800&quot;,&quot;https://play-lh.googleusercontent.com/IqoTaHYfmEigYgrAWqZ-mX8_gSKVh3UFSzVwuX4sTYMEZduznCViHyrMlcW98zARyNjob0znjau_dXhwkJsj320=w1800&quot;,&quot;https://play-lh.googleusercontent.com/HSGqWYurZuoG5NxIHl-wZtJAJNT-9P0v0hHe4cES-5bb6t1yEkP9otpFn6PcbsU0jls3RbwsGMjuieQs3BfS=w1800&quot;,&quot;https://play-lh.googleusercontent.com/Iff4Qo7on2VbMzx_dekrFt85Ik1kGI_M7jVZNHXxofTRBpzy7GP3wYNxI8233ZZOzjNfY3RhqGTXfSjFnZ3XKw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/p3n1OqQ0EKACFeiJWsPm-_6wfG-I_q8Ur-lRa_LCHlLddLiaChNFrdD3cPfT4xxawCs-fB-t_4ewhSMr03Nq=w1800&quot;,&quot;https://play-lh.googleusercontent.com/mOoeogDVtRMzfYMoUiAhsE_DpYLlz3sIi-wggvH_rwAi7yMEDk9L82DC_J760A3K7DmIlsZB0YHoN4_uGppz=w1800&quot;]'
     >
       <div class="app-header">
 
         <div class="rank">
-          #14
+          #15
         </div>
 
         
@@ -4068,19 +4239,19 @@ body {
   
     <section
       class="app-card"
-      data-app-name="Capzy: AI Caption"
-      data-screenshots='[&quot;https://play-lh.googleusercontent.com/KJpa3hbnJkZPLye93jm6tQV6eJKrxe8kzYVS5nxdFWJpjXOHT8SJpRrt4VAI9puVS42ygH4BgwjHB-AI1Mb_Ug=w1800&quot;,&quot;https://play-lh.googleusercontent.com/cjMzegBWgYCsaZMm2orlWyqyBZ-oyQodnEKVH_P3YaJ2lZyraARSNmflp0gPa28gx9HBJYqWDl8hQT518KIZ1HM=w1800&quot;,&quot;https://play-lh.googleusercontent.com/WsKl8KN0HSKcX-6Na6nOeo3ZreTTOtwBXtxA6WOOvEWHXh9ekA6Fnjnwxi_wZdeYQgL3KfMnapziMKKvbzuqPQ=w1800&quot;,&quot;https://play-lh.googleusercontent.com/LbD2hM5fCtO36WFvFcP3Y6QHCtZlZwhmWUANBAq-8BQhkoeL6VFm1e6AmQuEIYt43xh4FqgASxk8ZRbHzwv4Bg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/ny02pSLsePqWUA4rUdIsXWOvoHP0z3-M3oQf5EEyzunT7k3zNgjFv3ta_2N0vGLrekHW0I9xF1ByEh4kA9BRYg=w1800&quot;,&quot;https://play-lh.googleusercontent.com/-BF1mRskGp9TELqZeJpOGgbZKNI1NDUvqIoiYo1evDP3yLXnj9PiWh_staEV0R6abHvesNQrOzlCPrStrQXhiAQ=w1800&quot;]'
+      data-app-name="CaptionLab: AI Subtitles"
+      data-screenshots='[&quot;https://play-lh.googleusercontent.com/i0kaiJq32vn3pulxaJkPqQvxTnsj5RQkIu1UCUOxTJmuoyNfTpdTs5tNSu7cyu7LxgKeP97-s83DVc4hIq7Lj64=w1800&quot;,&quot;https://play-lh.googleusercontent.com/cXSym8f7wCMIzcBPIt4tBkugfzqjWMkggJkcgX5mpUyeho4B920xDAPhxqY-Amb-OAmi4rSzFab4cAyabY7H5A=w1800&quot;,&quot;https://play-lh.googleusercontent.com/tE1Aqab4DrdibyVHp_Z1PQnZ5V7_NESKH84EfabwbugryWITp2Ky61Yc1GZgD1W-54_2MgBiKLNzsxmJHaxD=w1800&quot;,&quot;https://play-lh.googleusercontent.com/3jJCuV9wleSkqXy4XH19kJRDm8GS0-BLnYT8xVFHRIJYF02UOyb4Ts9Po0U-g9LY3a4LymoqaTjOooiAs9YqZw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/l2okAkTwfEH8P7m1QXlE93v6ZQJq4rd09-cZBIguz3W4v2cPv4HzRtLdsiP3zYiVKIJAPkevLDPlGnQ9yjvl=w1800&quot;,&quot;https://play-lh.googleusercontent.com/Cvv80ojTJCZyFt4zA9YPt8zXREsfIqqnzz8nlVXSC3SCgI1o06_nhtKIhl4OYOo7iBDeDHDsSzPotRkZwmU5rw=w1800&quot;]'
     >
       <div class="app-header">
 
         <div class="rank">
-          #15
+          #16
         </div>
 
         
               <img
                 class="app-icon"
-                src="https://play-lh.googleusercontent.com/oeRzvy65C08KLeUZRFW9IZOYFYWkN3f8Rrm6Bm0uziCuQ7OLx2Vj7qfwM0d--6wbBCglruvxPbmb_pWvgJi_WQ"
+                src="https://play-lh.googleusercontent.com/0Nysd7yrNZmnUiH22sK-kUDzDo6d_AHVQHicGakX7NvKWqrQC4XizGE44gWZ8p6qczPz08COPurecbzIKRSB1Q"
                 alt=""
                 loading="lazy"
                 referrerpolicy="no-referrer"
@@ -4091,19 +4262,19 @@ body {
 
           <h2 class="app-title">
             <a
-              href="https://play.google.com/store/apps/details?id=org.capzy.studio&amp;hl=en&amp;gl=us"
+              href="https://play.google.com/store/apps/details?id=com.captionlab.mobile&amp;hl=en&amp;gl=us"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Capzy: AI Caption
+              CaptionLab: AI Subtitles
             </a>
           </h2>
 
           <div class="app-meta">
 
-            <span>Capzy Inc</span>
+            <span>Apexmart Internet</span>
 
-            <span>评分 4.57</span>
+            
 
             <span>6 张截图</span>
 
@@ -4119,11 +4290,11 @@ body {
             class="screenshot-item"
             type="button"
             data-image-index="0"
-            aria-label="查看 Capzy: AI Caption 第 1 张截图"
+            aria-label="查看 CaptionLab: AI Subtitles 第 1 张截图"
           >
             <img
-              src="https://play-lh.googleusercontent.com/KJpa3hbnJkZPLye93jm6tQV6eJKrxe8kzYVS5nxdFWJpjXOHT8SJpRrt4VAI9puVS42ygH4BgwjHB-AI1Mb_Ug=w1800"
-              alt="Capzy: AI Caption 截图 1"
+              src="https://play-lh.googleusercontent.com/i0kaiJq32vn3pulxaJkPqQvxTnsj5RQkIu1UCUOxTJmuoyNfTpdTs5tNSu7cyu7LxgKeP97-s83DVc4hIq7Lj64=w1800"
+              alt="CaptionLab: AI Subtitles 截图 1"
               loading="lazy"
               decoding="async"
               referrerpolicy="no-referrer"
@@ -4134,11 +4305,11 @@ body {
             class="screenshot-item"
             type="button"
             data-image-index="1"
-            aria-label="查看 Capzy: AI Caption 第 2 张截图"
+            aria-label="查看 CaptionLab: AI Subtitles 第 2 张截图"
           >
             <img
-              src="https://play-lh.googleusercontent.com/cjMzegBWgYCsaZMm2orlWyqyBZ-oyQodnEKVH_P3YaJ2lZyraARSNmflp0gPa28gx9HBJYqWDl8hQT518KIZ1HM=w1800"
-              alt="Capzy: AI Caption 截图 2"
+              src="https://play-lh.googleusercontent.com/cXSym8f7wCMIzcBPIt4tBkugfzqjWMkggJkcgX5mpUyeho4B920xDAPhxqY-Amb-OAmi4rSzFab4cAyabY7H5A=w1800"
+              alt="CaptionLab: AI Subtitles 截图 2"
               loading="lazy"
               decoding="async"
               referrerpolicy="no-referrer"
@@ -4149,11 +4320,11 @@ body {
             class="screenshot-item"
             type="button"
             data-image-index="2"
-            aria-label="查看 Capzy: AI Caption 第 3 张截图"
+            aria-label="查看 CaptionLab: AI Subtitles 第 3 张截图"
           >
             <img
-              src="https://play-lh.googleusercontent.com/WsKl8KN0HSKcX-6Na6nOeo3ZreTTOtwBXtxA6WOOvEWHXh9ekA6Fnjnwxi_wZdeYQgL3KfMnapziMKKvbzuqPQ=w1800"
-              alt="Capzy: AI Caption 截图 3"
+              src="https://play-lh.googleusercontent.com/tE1Aqab4DrdibyVHp_Z1PQnZ5V7_NESKH84EfabwbugryWITp2Ky61Yc1GZgD1W-54_2MgBiKLNzsxmJHaxD=w1800"
+              alt="CaptionLab: AI Subtitles 截图 3"
               loading="lazy"
               decoding="async"
               referrerpolicy="no-referrer"
@@ -4164,11 +4335,11 @@ body {
             class="screenshot-item"
             type="button"
             data-image-index="3"
-            aria-label="查看 Capzy: AI Caption 第 4 张截图"
+            aria-label="查看 CaptionLab: AI Subtitles 第 4 张截图"
           >
             <img
-              src="https://play-lh.googleusercontent.com/LbD2hM5fCtO36WFvFcP3Y6QHCtZlZwhmWUANBAq-8BQhkoeL6VFm1e6AmQuEIYt43xh4FqgASxk8ZRbHzwv4Bg=w1800"
-              alt="Capzy: AI Caption 截图 4"
+              src="https://play-lh.googleusercontent.com/3jJCuV9wleSkqXy4XH19kJRDm8GS0-BLnYT8xVFHRIJYF02UOyb4Ts9Po0U-g9LY3a4LymoqaTjOooiAs9YqZw=w1800"
+              alt="CaptionLab: AI Subtitles 截图 4"
               loading="lazy"
               decoding="async"
               referrerpolicy="no-referrer"
@@ -4179,11 +4350,11 @@ body {
             class="screenshot-item"
             type="button"
             data-image-index="4"
-            aria-label="查看 Capzy: AI Caption 第 5 张截图"
+            aria-label="查看 CaptionLab: AI Subtitles 第 5 张截图"
           >
             <img
-              src="https://play-lh.googleusercontent.com/ny02pSLsePqWUA4rUdIsXWOvoHP0z3-M3oQf5EEyzunT7k3zNgjFv3ta_2N0vGLrekHW0I9xF1ByEh4kA9BRYg=w1800"
-              alt="Capzy: AI Caption 截图 5"
+              src="https://play-lh.googleusercontent.com/l2okAkTwfEH8P7m1QXlE93v6ZQJq4rd09-cZBIguz3W4v2cPv4HzRtLdsiP3zYiVKIJAPkevLDPlGnQ9yjvl=w1800"
+              alt="CaptionLab: AI Subtitles 截图 5"
               loading="lazy"
               decoding="async"
               referrerpolicy="no-referrer"
@@ -4194,11 +4365,11 @@ body {
             class="screenshot-item"
             type="button"
             data-image-index="5"
-            aria-label="查看 Capzy: AI Caption 第 6 张截图"
+            aria-label="查看 CaptionLab: AI Subtitles 第 6 张截图"
           >
             <img
-              src="https://play-lh.googleusercontent.com/-BF1mRskGp9TELqZeJpOGgbZKNI1NDUvqIoiYo1evDP3yLXnj9PiWh_staEV0R6abHvesNQrOzlCPrStrQXhiAQ=w1800"
-              alt="Capzy: AI Caption 截图 6"
+              src="https://play-lh.googleusercontent.com/Cvv80ojTJCZyFt4zA9YPt8zXREsfIqqnzz8nlVXSC3SCgI1o06_nhtKIhl4OYOo7iBDeDHDsSzPotRkZwmU5rw=w1800"
+              alt="CaptionLab: AI Subtitles 截图 6"
               loading="lazy"
               decoding="async"
               referrerpolicy="no-referrer"
@@ -4217,7 +4388,7 @@ body {
       <div class="app-header">
 
         <div class="rank">
-          #16
+          #17
         </div>
 
         
@@ -4357,149 +4528,6 @@ body {
             <img
               src="https://play-lh.googleusercontent.com/2Q7lVMg-Q0eJda1-k0eHLHa5_Wdz-h4WOGUSGeQXj85Od8mE5vWF603-r9BRt8Mz9sxWdup5cB9BPacaMhTW=w1800"
               alt="Vozo AI Video Translator &amp; Dub 截图 7"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-      </div>
-
-    </section>
-  
-    <section
-      class="app-card"
-      data-app-name="CaptionLab: AI Subtitles"
-      data-screenshots='[&quot;https://play-lh.googleusercontent.com/i0kaiJq32vn3pulxaJkPqQvxTnsj5RQkIu1UCUOxTJmuoyNfTpdTs5tNSu7cyu7LxgKeP97-s83DVc4hIq7Lj64=w1800&quot;,&quot;https://play-lh.googleusercontent.com/cXSym8f7wCMIzcBPIt4tBkugfzqjWMkggJkcgX5mpUyeho4B920xDAPhxqY-Amb-OAmi4rSzFab4cAyabY7H5A=w1800&quot;,&quot;https://play-lh.googleusercontent.com/tE1Aqab4DrdibyVHp_Z1PQnZ5V7_NESKH84EfabwbugryWITp2Ky61Yc1GZgD1W-54_2MgBiKLNzsxmJHaxD=w1800&quot;,&quot;https://play-lh.googleusercontent.com/3jJCuV9wleSkqXy4XH19kJRDm8GS0-BLnYT8xVFHRIJYF02UOyb4Ts9Po0U-g9LY3a4LymoqaTjOooiAs9YqZw=w1800&quot;,&quot;https://play-lh.googleusercontent.com/l2okAkTwfEH8P7m1QXlE93v6ZQJq4rd09-cZBIguz3W4v2cPv4HzRtLdsiP3zYiVKIJAPkevLDPlGnQ9yjvl=w1800&quot;,&quot;https://play-lh.googleusercontent.com/Cvv80ojTJCZyFt4zA9YPt8zXREsfIqqnzz8nlVXSC3SCgI1o06_nhtKIhl4OYOo7iBDeDHDsSzPotRkZwmU5rw=w1800&quot;]'
-    >
-      <div class="app-header">
-
-        <div class="rank">
-          #17
-        </div>
-
-        
-              <img
-                class="app-icon"
-                src="https://play-lh.googleusercontent.com/0Nysd7yrNZmnUiH22sK-kUDzDo6d_AHVQHicGakX7NvKWqrQC4XizGE44gWZ8p6qczPz08COPurecbzIKRSB1Q"
-                alt=""
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              />
-            
-
-        <div class="app-info">
-
-          <h2 class="app-title">
-            <a
-              href="https://play.google.com/store/apps/details?id=com.captionlab.mobile&amp;hl=en&amp;gl=us"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              CaptionLab: AI Subtitles
-            </a>
-          </h2>
-
-          <div class="app-meta">
-
-            <span>Apexmart Internet</span>
-
-            
-
-            <span>6 张截图</span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="screenshots-container">
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="0"
-            aria-label="查看 CaptionLab: AI Subtitles 第 1 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/i0kaiJq32vn3pulxaJkPqQvxTnsj5RQkIu1UCUOxTJmuoyNfTpdTs5tNSu7cyu7LxgKeP97-s83DVc4hIq7Lj64=w1800"
-              alt="CaptionLab: AI Subtitles 截图 1"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="1"
-            aria-label="查看 CaptionLab: AI Subtitles 第 2 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/cXSym8f7wCMIzcBPIt4tBkugfzqjWMkggJkcgX5mpUyeho4B920xDAPhxqY-Amb-OAmi4rSzFab4cAyabY7H5A=w1800"
-              alt="CaptionLab: AI Subtitles 截图 2"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="2"
-            aria-label="查看 CaptionLab: AI Subtitles 第 3 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/tE1Aqab4DrdibyVHp_Z1PQnZ5V7_NESKH84EfabwbugryWITp2Ky61Yc1GZgD1W-54_2MgBiKLNzsxmJHaxD=w1800"
-              alt="CaptionLab: AI Subtitles 截图 3"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="3"
-            aria-label="查看 CaptionLab: AI Subtitles 第 4 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/3jJCuV9wleSkqXy4XH19kJRDm8GS0-BLnYT8xVFHRIJYF02UOyb4Ts9Po0U-g9LY3a4LymoqaTjOooiAs9YqZw=w1800"
-              alt="CaptionLab: AI Subtitles 截图 4"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="4"
-            aria-label="查看 CaptionLab: AI Subtitles 第 5 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/l2okAkTwfEH8P7m1QXlE93v6ZQJq4rd09-cZBIguz3W4v2cPv4HzRtLdsiP3zYiVKIJAPkevLDPlGnQ9yjvl=w1800"
-              alt="CaptionLab: AI Subtitles 截图 5"
-              loading="lazy"
-              decoding="async"
-              referrerpolicy="no-referrer"
-            />
-          </button>
-        
-          <button
-            class="screenshot-item"
-            type="button"
-            data-image-index="5"
-            aria-label="查看 CaptionLab: AI Subtitles 第 6 张截图"
-          >
-            <img
-              src="https://play-lh.googleusercontent.com/Cvv80ojTJCZyFt4zA9YPt8zXREsfIqqnzz8nlVXSC3SCgI1o06_nhtKIhl4OYOo7iBDeDHDsSzPotRkZwmU5rw=w1800"
-              alt="CaptionLab: AI Subtitles 截图 6"
               loading="lazy"
               decoding="async"
               referrerpolicy="no-referrer"
