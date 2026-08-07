@@ -9,7 +9,7 @@
     "maxInstalls": 4403290,
     "score": 4.1875,
     "scoreText": "4.2",
-    "ratings": 18314,
+    "ratings": 18315,
     "reviews": 404,
     "histogram": {
       "1": 2407,
@@ -80,14 +80,14 @@
     "maxInstalls": 228621,
     "score": 4.76,
     "scoreText": "4.8",
-    "ratings": 6867,
+    "ratings": 6872,
     "reviews": 98,
     "histogram": {
       "1": 110,
       "2": 36,
       "3": 110,
-      "4": 590,
-      "5": 5870
+      "4": 591,
+      "5": 5874
     },
     "price": 0,
     "free": true,
@@ -152,14 +152,14 @@
     "maxInstalls": 2601590,
     "score": 4.6465516,
     "scoreText": "4.6",
-    "ratings": 88359,
+    "ratings": 88369,
     "reviews": 286,
     "histogram": {
       "1": 3758,
       "2": 1457,
       "3": 2224,
-      "4": 6826,
-      "5": 73862
+      "4": 6827,
+      "5": 73870
     },
     "price": 0,
     "free": true,
@@ -236,14 +236,14 @@
     "maxInstalls": 2535345,
     "score": 4.1061945,
     "scoreText": "4.1",
-    "ratings": 31213,
+    "ratings": 31216,
     "reviews": 289,
     "histogram": {
-      "1": 5238,
+      "1": 5239,
       "2": 274,
       "3": 1371,
       "4": 3291,
-      "5": 20982
+      "5": 20984
     },
     "price": 0,
     "free": true,
@@ -303,14 +303,14 @@
     "maxInstalls": 1688476,
     "score": 4.31,
     "scoreText": "4.3",
-    "ratings": 21007,
+    "ratings": 21008,
     "reviews": 252,
     "histogram": {
       "1": 2500,
       "2": 204,
       "3": 1250,
       "4": 1250,
-      "5": 15755
+      "5": 15756
     },
     "price": 0,
     "free": true,
@@ -375,13 +375,13 @@
     "maxInstalls": 393206,
     "score": 4.4607844,
     "scoreText": "4.5",
-    "ratings": 8371,
+    "ratings": 8372,
     "reviews": 179,
     "histogram": {
       "1": 573,
       "2": 0,
       "3": 655,
-      "4": 900,
+      "4": 901,
       "5": 6233
     },
     "price": 0,
@@ -675,7 +675,7 @@
     "score": 4.12,
     "scoreText": "4.1",
     "ratings": 273,
-    "reviews": 108,
+    "reviews": 109,
     "histogram": {
       "1": 34,
       "2": 15,
@@ -761,14 +761,14 @@
     "maxInstalls": 2128514,
     "score": 4.402174,
     "scoreText": "4.4",
-    "ratings": 20459,
+    "ratings": 20457,
     "reviews": 594,
     "histogram": {
       "1": 2104,
       "2": 443,
       "3": 664,
       "4": 1107,
-      "5": 16116
+      "5": 16115
     },
     "price": 0,
     "free": true,
@@ -1022,14 +1022,14 @@
     "maxInstalls": 18925647,
     "score": 4.471831,
     "scoreText": "4.5",
-    "ratings": 242345,
+    "ratings": 242340,
     "reviews": 1753,
     "histogram": {
-      "1": 19449,
+      "1": 19448,
       "2": 3042,
-      "3": 6802,
+      "3": 6801,
       "4": 27276,
-      "5": 185672
+      "5": 185668
     },
     "price": 0,
     "free": true,
@@ -1097,14 +1097,14 @@
     "maxInstalls": 154768,
     "score": 4.57,
     "scoreText": "4.6",
-    "ratings": 1853,
+    "ratings": 1856,
     "reviews": 27,
     "histogram": {
-      "1": 121,
+      "1": 120,
       "2": 15,
       "3": 45,
-      "4": 106,
-      "5": 1534
+      "4": 105,
+      "5": 1539
     },
     "price": 0,
     "free": true,
@@ -1166,14 +1166,14 @@
     "maxInstalls": 4675037,
     "score": 4.39441,
     "scoreText": "4.4",
-    "ratings": 105304,
-    "reviews": 894,
+    "ratings": 105300,
+    "reviews": 893,
     "histogram": {
-      "1": 10778,
+      "1": 10781,
       "2": 2281,
-      "3": 3570,
-      "4": 6513,
-      "5": 82061
+      "3": 3571,
+      "4": 6515,
+      "5": 82050
     },
     "price": 0,
     "free": true,
@@ -1302,14 +1302,14 @@
     "maxInstalls": 9723674,
     "score": 4.5176473,
     "scoreText": "4.5",
-    "ratings": 65902,
+    "ratings": 65904,
     "reviews": 1315,
     "histogram": {
       "1": 5677,
       "2": 643,
       "3": 1029,
       "4": 5033,
-      "5": 53491
+      "5": 53493
     },
     "price": 0,
     "free": true,
@@ -1377,14 +1377,14 @@
     "maxInstalls": 5789436,
     "score": 3.7961166,
     "scoreText": "3.8",
-    "ratings": 35893,
+    "ratings": 35895,
     "reviews": 340,
     "histogram": {
-      "1": 9750,
+      "1": 9751,
       "2": 314,
       "3": 1013,
       "4": 1013,
-      "5": 23695
+      "5": 23696
     },
     "price": 0,
     "free": true,
