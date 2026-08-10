@@ -402,7 +402,7 @@ body {
 
 /*
   截图尺寸不动
-  继续保持 270px
+  继续保持 310px
 */
 
 .screenshot-item {
@@ -412,7 +412,7 @@ body {
 
   flex: 0 0 auto;
 
-  height: 270px;
+  height: 310px;
 
   overflow: hidden;
 
