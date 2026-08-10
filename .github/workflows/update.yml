@@ -31,13 +31,13 @@ jobs:
       - name: 抓取 Google Play Top 19
         run: npm run update
 
-      - name: 保存最新网页
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    - name: 保存最新网页
+  run: |
+    git config user.name "github-actions[bot]"
+    git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add index.html apps-data.json
+    git add index.html apps-data.json
+    git commit -m "Update Google Play Top 19" || exit 0
 
-          git commit -m "Update Google Play Top 19" || exit 0
-
-          git push
+    git pull --rebase origin main
+    git push origin main
