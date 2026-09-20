@@ -2,6 +2,7 @@
   "searchTerm": "captions",
   "country": "us",
   "lang": "en",
+  "source": "Google Play browser",
   "apps": [
     {
       "rank": 1,
@@ -13,31 +14,31 @@
       "screenshots": [
         {
           "path": "images/com.nocap.captions/01.jpg",
-          "hash": "abe9e2700147c855f2f462ced7cefd71724e6badf9d0415c29958f0d5338a8ce"
+          "hash": "d1091f194630c6737df9a8ff83e86851c690e66be71078d236cc4fab117b4431"
         },
         {
           "path": "images/com.nocap.captions/02.jpg",
-          "hash": "4db06b30206d84b9ae19a6550f384b1809d76f53f96f573406ec8e92b4c2eb78"
+          "hash": "d3e8760a4ada58066c04483cf13ac35eb806873d5bc8c15f99bf19ad1ae88690"
         },
         {
           "path": "images/com.nocap.captions/03.jpg",
-          "hash": "428deba6016ef0f123b07e51645efcf2e4df8d0e325eb23cfc1774939f79007f"
+          "hash": "126826f2e7a508fb92a758b8282400c142930b0e74e0a791e447401fdc23a680"
         },
         {
           "path": "images/com.nocap.captions/04.jpg",
-          "hash": "174fbc884402e9e91b1b776ac2d79e45aab391de388e8697b694d309e1612f97"
+          "hash": "b1af7183f7261b69e29a00c9eb599d97f7571e5d15237d771212ddfae4ba00b3"
         },
         {
           "path": "images/com.nocap.captions/05.jpg",
-          "hash": "2ff642356793c83f165428ed37903a6e899531c946ad9a728cdc13f22f9774ef"
+          "hash": "91ff6d4ae3d45edcbb3ba2679f3d648d35008bf5931475e328e39bca3831e8f6"
         },
         {
           "path": "images/com.nocap.captions/06.jpg",
-          "hash": "9fdfcb5c0d3d5d9c9e8cdf28d43b30391a0d660d3bc1273d8b712705bb7a2a91"
+          "hash": "16b550f2500f89df75ea73f91da40b795d20fbf7fc3c01025f524d9e3c6f7669"
         },
         {
           "path": "images/com.nocap.captions/07.jpg",
-          "hash": "744eb2787e0ea2b79e91f9ef827778e059ccbf35048305fcffb6f781967a9e5d"
+          "hash": "ccec3d52cd84d6ef80803ce39d06eb329cd69649104a9b856d765d30c867ae7d"
         }
       ]
     },
@@ -51,35 +52,35 @@
       "screenshots": [
         {
           "path": "images/captions.ai.videoeditor/01.jpg",
-          "hash": "2b24e83508e8690e74fc33182ee0a2636af3a0d182b418a3b9c21a31edfa4e89"
+          "hash": "2204b74bc07db1df742a67f44ec2a30c3327195c1ac0fccdcf0fbd76042581f8"
         },
         {
           "path": "images/captions.ai.videoeditor/02.jpg",
-          "hash": "ec7aa62bec2ab07cd9dae72d9b4e13acb64bad414c32879654a0e4f852b8b395"
+          "hash": "c1838d29802482bc790e024c0ca09dbecbe6080cec97a224131d206e65dcb17a"
         },
         {
           "path": "images/captions.ai.videoeditor/03.jpg",
-          "hash": "a9372c6faa6583b23ae62d8311f79b1219262e9197207fbddd30273bfcbdfe09"
+          "hash": "1cc768e25ec5f2febd41a6d39130f913ba4bc2be51bcf173ecb325d4ee4bd48e"
         },
         {
           "path": "images/captions.ai.videoeditor/04.jpg",
-          "hash": "417d47a6c113347f39ad28b3a64c1fdd520a8fcf26b96d91059cbddfeae03036"
+          "hash": "0380db7a2dd6f8aa0f021443e563eef10d885df864a146d8064ba996c721fb06"
         },
         {
           "path": "images/captions.ai.videoeditor/05.jpg",
-          "hash": "21cfdf262127705e7869b8d41488ad61d303f50d3e6c1fde8ee724aca288bc4a"
+          "hash": "be91fb4b4def1aa2f253b1fdeeb7210383bbf74c65777adab8e48ed79f9f4978"
         },
         {
           "path": "images/captions.ai.videoeditor/06.jpg",
-          "hash": "a21afb3508782d2eace8dfc922b5c745465df7f91d91a0c6730a1295669e1d75"
+          "hash": "e5977f3aa1048b62c832a592a72d3e32c08ec875c4ff89f42b6a0d0277a435ae"
         },
         {
           "path": "images/captions.ai.videoeditor/07.jpg",
-          "hash": "4bc03b636fd6dae35f523dfa3921761e700085462dccbe094d16d697a20e1889"
+          "hash": "b3eb7ac27ea45ea0d8d1bb84f14551ab5c0016491529efc773b804c0ae35a6a8"
         },
         {
           "path": "images/captions.ai.videoeditor/08.jpg",
-          "hash": "7ed8cd1b0e3029bdc353e13349588e680a7e8c0fdcfb0c40abad767958359611"
+          "hash": "633f4e9a3292eda2115930799b28c9716931b775af7129b014f5987edd6377c9"
         }
       ]
     },
@@ -93,19 +94,19 @@
       "screenshots": [
         {
           "path": "images/com.captionsai/01.jpg",
-          "hash": "b03aa0c227fd293eb2845f4a29964ccce79c4b0de00f2ec2d0aabc78ca51e0a7"
+          "hash": "7b4eaaf7a15583df14bccda35877e2153d59e1414f2772b1bbc9751e2aad20bc"
         },
         {
           "path": "images/com.captionsai/02.jpg",
-          "hash": "6958c5dc53ae8c00888f23bd60793ca14b724664cce1adaf5651d2c1713d7093"
+          "hash": "71d4f98f4ead5ffaf2de883e72790a8842d0dc353e2a9f761e12cd31382d2c0c"
         },
         {
           "path": "images/com.captionsai/03.jpg",
-          "hash": "c0c3564a9eb1fbfa2e6d383f70a6c8478d8337d84b77ce53d338940c8d205130"
+          "hash": "7f2009f51194a934b172d7c5aa133c1fdde79ea682064f79aa8af74908449337"
         },
         {
           "path": "images/com.captionsai/04.jpg",
-          "hash": "4c18f90ee5703eb3a4fba5415a3e1b58611e9912922f6b6842eb73a2f6a17080"
+          "hash": "2da9d6242d61dd5d8e56dc69ed4b05f4f788898b64251b25581b9fc949aa564a"
         }
       ]
     },
@@ -119,43 +120,43 @@
       "screenshots": [
         {
           "path": "images/com.pixsterstudio.captions/01.png",
-          "hash": "024c1c651e19929570d9cb33804f718e07780258019c936e17dd1c748954d5a4"
+          "hash": "7b94118165abc8240a6a4f09855990916bf8e872f9856d81fd6b1a8fa3c39bbe"
         },
         {
           "path": "images/com.pixsterstudio.captions/02.png",
-          "hash": "8f851cd793e6c6c96232057848c98e9f0b27b20615ff73b22e852a2ebe4016f0"
+          "hash": "c65f434bd7484b8671dc54a9c857ee907c523e1cd89cd2a6beabdb1a3ba64db7"
         },
         {
           "path": "images/com.pixsterstudio.captions/03.png",
-          "hash": "6dabc661ccbe90c329b53358c06585e60e95a66d65445330d3e9a625f33f3dcd"
+          "hash": "ead45983549646b573191680574fc167e9dadf7136c9b531fa13d016ff52b82b"
         },
         {
           "path": "images/com.pixsterstudio.captions/04.png",
-          "hash": "68731dbeff991643ce41c19a7cc011e47a90d18a16b620ef097dc73764ae8de2"
+          "hash": "4a862e5733b396b908f51606f6bca0de68173555cb77cf9588db86a6abf42606"
         },
         {
           "path": "images/com.pixsterstudio.captions/05.png",
-          "hash": "ae67381d618d01c0e6dc09b0d4946c5327949b0a1db6a8654e8b1fee5d1e2779"
+          "hash": "8098a609b5ac77a105249767df081a6747c330495ff43472371686d47124457f"
         },
         {
           "path": "images/com.pixsterstudio.captions/06.png",
-          "hash": "1eb96ad5b39cfcd7cd16e9b77359ed3bb4176be7f8eaa92338dcaca7be54c22a"
+          "hash": "f7a399c0d151fccde5edb1208c298bc27ef8f6a225abedb21b8b95701e0de8e5"
         },
         {
           "path": "images/com.pixsterstudio.captions/07.png",
-          "hash": "5af59d0812a5278e10a9571aa1e8ad3eb4aa2e9044382d88042b01d902cbc02b"
+          "hash": "170d549000eddd4f166e3c00b0452ed3fcf404f4c107ee9d87b20dca1b4d5f18"
         },
         {
           "path": "images/com.pixsterstudio.captions/08.png",
-          "hash": "133d45f880368000aa7e82eb573bddfdc0d5e7c64c74bbd71242534ad4a55403"
+          "hash": "6748a8953e4b578f22fbbf3dfca7c4b6b4410a5f6a58d72ac7a7a13254e551ae"
         },
         {
           "path": "images/com.pixsterstudio.captions/09.png",
-          "hash": "fe4f9727e5d67a7ff15f7231014e452adcd15272ca94ed67d202cdf54cbd99c6"
+          "hash": "d498e2e373dc5a46584d5be1d30556537b642d33e0f2295b75b83ab2669df5b9"
         },
         {
           "path": "images/com.pixsterstudio.captions/10.png",
-          "hash": "7e9c1e8fd0daf351e4f9a55683bea1419f96921da898278e5bf68d3451d97bd9"
+          "hash": "a0e133a4234cb8db2b4ab9e5508a0d385752467125dc234b08361a4b121a5c9a"
         }
       ]
     },
@@ -169,35 +170,35 @@
       "screenshots": [
         {
           "path": "images/com.ai.captionsgenerator/01.jpg",
-          "hash": "7a4add8b7d7703fd87e622d78dbf324fec4f4c1d825d9fc0ce4aeed9fd01331d"
+          "hash": "697dde69e45162384401d4bcbdde2bfddba4886c5e68026b05dacfda861c5cb0"
         },
         {
           "path": "images/com.ai.captionsgenerator/02.jpg",
-          "hash": "b44a47dadb42cccd803a8635e287023df04b86a0fa8e8a218149f6f1e2e2c886"
+          "hash": "fda5369f0ff3f65d3ab2a069f2c5e2072f9d4a5c305278d03cbbc66bd0bf65a4"
         },
         {
           "path": "images/com.ai.captionsgenerator/03.jpg",
-          "hash": "c00017f484f2b3f9b9d22f29f8cf53e5723d499ad83efae7a20ebfc0af097477"
+          "hash": "df38b0c059b6f2b89f5d42f620bffd9249d6da3f5b8a06476b979dee70de8492"
         },
         {
           "path": "images/com.ai.captionsgenerator/04.jpg",
-          "hash": "a9d97aac06ee6241230e07a990c5f2fcafd614b1ea160c677a49565f3bff555d"
+          "hash": "c6a38df90691411149a1541bfc4d5065a832105e5dedfd749e60befdd9ddd033"
         },
         {
           "path": "images/com.ai.captionsgenerator/05.jpg",
-          "hash": "e39529c9d2006ad5115d9182696ecc2f2e51988ad75edfef8bcfd33ff3d8fc9f"
+          "hash": "f1cf401b97f28af7c181f82c9631ff151cee53f624b2565406feab6d1dd501d1"
         },
         {
           "path": "images/com.ai.captionsgenerator/06.jpg",
-          "hash": "8b10831254244ea0f293c91a1bd0d04be5265c1fbfc256cfb2559a6ffdd9900b"
+          "hash": "5841953bd05f5cfb644281fc96fe568a1fabeccecaf84298aac97c746113937b"
         },
         {
           "path": "images/com.ai.captionsgenerator/07.jpg",
-          "hash": "d6b7398e253ad75bd739427dd46723f30990edd343fe218b2c60435cca4d6c36"
+          "hash": "e6156b75c1fe5580257859eecaddc3c75f56fe264d0aac21cc33bc05e0e4d44f"
         },
         {
           "path": "images/com.ai.captionsgenerator/08.jpg",
-          "hash": "16a70b6ab386873d6373c2bbdbc572d11c8f1e02b87b129303404fdd904e4ef5"
+          "hash": "367a84267548c678e3d005f4cd46e421fd9027b717a2c39a2850f081d9619e97"
         }
       ]
     },
@@ -211,43 +212,43 @@
       "screenshots": [
         {
           "path": "images/com.ratel.subcap/01.png",
-          "hash": "d97bb448ea75635a77d890ecb049463f5ed97a278701496f510fb7a2df4bae50"
+          "hash": "b83ed67ae376a694944ca7e52a4eac7fd118f81b9c39cefb38c8970157f5217f"
         },
         {
           "path": "images/com.ratel.subcap/02.png",
-          "hash": "1c7ca019c6cbc93aa6c137a8bf1fc1da86cbafe572e58b1c8669af030c8c8fbd"
+          "hash": "093e0e8dc51a3bc15f1629c968505c4992e1109906a7306267702a7063bee321"
         },
         {
           "path": "images/com.ratel.subcap/03.png",
-          "hash": "b417d8c7c521c2636b781f8acbf29282be33f143c46f6977bdf04a9a4d3512ae"
+          "hash": "951787bb599fe4fe717ef9d07ff7eeedd7eaf94f3f2183a482fef1d2adef79e7"
         },
         {
           "path": "images/com.ratel.subcap/04.png",
-          "hash": "3c7c0b75230e8e4e1b6b91dc3e41897248b557db888ee101ed6024ee0c2d56c3"
+          "hash": "4c87d6e81ef66f8c49d85fbc6886565f8927443baa35138a55e704635840a9c3"
         },
         {
           "path": "images/com.ratel.subcap/05.png",
-          "hash": "d245b57baacfa1eed98b52785f319a3fd4644fdd8aca28119af2b0bcf0eec151"
+          "hash": "633196eae7ea867fdc71790d6b709a388513a28a6c88b263302941814c644b1b"
         },
         {
           "path": "images/com.ratel.subcap/06.png",
-          "hash": "f56539241dedcfaf711871321b795814b04b774f9b49f8214e5f0b07fb157992"
+          "hash": "712792a1c218dec78a9fc86fd71c6b107dc87706230bb5b45874c0595063fb48"
         },
         {
           "path": "images/com.ratel.subcap/07.png",
-          "hash": "f63a9a6ef370876b0bec6c148600ff708039f042093e79c707d6bacc054d658f"
+          "hash": "f9442b308b25e25372121ac59c0f32c26b0c28ba3585f7723d2004edb2222497"
         },
         {
           "path": "images/com.ratel.subcap/08.png",
-          "hash": "5eaa4d4dfcc07dea787bd5025d69623b27d0e534a8644f47a839bbf9fd8ef304"
+          "hash": "6f6d10b7c79343f8c2b3303ec60fc5b90d89d671771c94cf4cd9110749e6d350"
         },
         {
           "path": "images/com.ratel.subcap/09.png",
-          "hash": "d67cc4abdd4e65138954f8b4f4168c05ccacc350d4662b9a6094ac21c5f6f97d"
+          "hash": "68372f9d7db768ce5baa9c14e5c0397b8dfbbe781968f6c45cf4fc0d4af5b0b2"
         },
         {
           "path": "images/com.ratel.subcap/10.png",
-          "hash": "b8024d1fb88d7bc5c1c7817528ecdf6a562ceef5e66a57500f05dd5224589e1d"
+          "hash": "2b2587ff8a4a164027c7ab2f0759326d6e84a6adad4ac6c1f1d84c2b46751031"
         }
       ]
     },
@@ -261,27 +262,27 @@
       "screenshots": [
         {
           "path": "images/ai.quso.app/01.png",
-          "hash": "c4dbf4fc56b20a3559816abcfea486aceff511b632932127149fe7ff1bd358fe"
+          "hash": "1b18e2b8a10bf697ae6fc6447dbe3f2c7b43c9618b8a3e9d5425842aee8e95ca"
         },
         {
           "path": "images/ai.quso.app/02.png",
-          "hash": "992b9cda05222b4550afae5f9c6bb67919723a319699117ac23ec8fb4df90711"
+          "hash": "f574a91edb8fac59c3b9fa1c56bf8f221131c99c1535359026eda452a97c4ec0"
         },
         {
           "path": "images/ai.quso.app/03.png",
-          "hash": "5cac60151323e1f73f16d2e82988fce41664381b21c383911863e072fc298162"
+          "hash": "75594010172a5c7129d07ed487e145e333c91c9f87660bed7239467a5102e754"
         },
         {
           "path": "images/ai.quso.app/04.png",
-          "hash": "b8a67170f21bcedb9a94071568f0ce57f9b728f36d00fa9113750159b3b0d934"
+          "hash": "4a044cd4d803c87aa7fbef154a8a1da8d149ce72a13227453ac8937179673c05"
         },
         {
           "path": "images/ai.quso.app/05.png",
-          "hash": "57a80393e8a962d96acd78473e07039d34501c901ad86a1f491730bbeab67314"
+          "hash": "ce3e8b3122e00c4c89566e746d55b1a6734a9027a143404936bff6a3a5f28941"
         },
         {
           "path": "images/ai.quso.app/06.png",
-          "hash": "1ab5a536610f7b151ebb37477498daf0c7106edfc77d545952adffdd1b7a7daf"
+          "hash": "965a7d2149bd6ae51959cf17ac599b450e3222bdf167913456f4a48b3642b71b"
         }
       ]
     },
@@ -295,35 +296,35 @@
       "screenshots": [
         {
           "path": "images/video.mojo/01.jpg",
-          "hash": "ea57a5d74d2b898580ef53387c2acc7206e7c44271df885a4f32ed94d7c5d2ac"
+          "hash": "fcc02f198218ceb713f34d37b439b5c86f8f3af43c6f690173f65c95e6317666"
         },
         {
           "path": "images/video.mojo/02.jpg",
-          "hash": "0c34bdf8facb54de03452827c769c5f9a73f3a5d8ee6305a380413a739319327"
+          "hash": "b81655737cc738ca968b147d43799b01e782de1d33a386125cbcd0db603443a5"
         },
         {
           "path": "images/video.mojo/03.jpg",
-          "hash": "76fc7c06099395ea322ea74a27d104f5bb6b06dbba12bba4779acae5cf97d9bc"
+          "hash": "3d0e15b84893c5b0900342c0715488cea0750cb6429d768fddd193a6d6ecba3b"
         },
         {
           "path": "images/video.mojo/04.jpg",
-          "hash": "5795befdf4f5472176cab6672a524832ae935c03ca607b06d169beebaa3cccc8"
+          "hash": "521abaebc1ed4d0bd8c8835cdc8af4562e2847763b83b444e8a7c6a5ba7c6e04"
         },
         {
           "path": "images/video.mojo/05.jpg",
-          "hash": "cf4d5d834eab5567ccd5476c5dc72fcf37fa5d936f6c6c9e0ca5b6d1f311549e"
+          "hash": "7fa00d2802945ce9f32fa5c8e81d37be3c9d5a97bbc7c559c7cb5a086d768e26"
         },
         {
           "path": "images/video.mojo/06.jpg",
-          "hash": "38d143bf82c1f22938ac8575aef864909f6bd1eab699ab21ea1e5f0a1a57ecdb"
+          "hash": "6ea48ad32e3449da4bd0f6a4c9be149ab31eb7c2f908360e4d876e4d6caf800e"
         },
         {
           "path": "images/video.mojo/07.jpg",
-          "hash": "dad6849c3010abdf6ced5ba5f098457f95c32f04a355677f25ba276dcbc7daed"
+          "hash": "5dca8da91e8cb91690f5e8cb1dda401dbd4dd619797a0fa761a570ece38d707b"
         },
         {
           "path": "images/video.mojo/08.jpg",
-          "hash": "8528953fa3f61d8f78dbaa89c629eb02ac63bda6d06e43ddea718d6bef77186d"
+          "hash": "8f5b0f0741d9b9e2648de48bad4c34a75f6b055feb9812a42fb50845f4e84508"
         }
       ]
     },
@@ -337,35 +338,35 @@
       "screenshots": [
         {
           "path": "images/ai.captiono.app/01.png",
-          "hash": "d59bd6fe2e3a9d2ed7089a1d66e24c2e35e309b66782eda332b7461049affbc3"
+          "hash": "d66f68433a660b3dbefd29fe4f6e7c266672d9db5b95eb3e5bc3e7f4317521c0"
         },
         {
           "path": "images/ai.captiono.app/02.png",
-          "hash": "14b323cb4bfab98bc1a0c49b0d0a9be75855c5d7ab19842cb2ab768304452b97"
+          "hash": "e5cc1e939a561f0ec70f4af33c914d021bbb7290a004e80f9bd6bcd0b1149afd"
         },
         {
           "path": "images/ai.captiono.app/03.png",
-          "hash": "5f98e27f5a452094bcae2768afff6bc91150c65e553cc04a287703b7a64172c9"
+          "hash": "b71329d9957d49c2e0f8bca09fbb29c87c08531fa10f9b7f982bb43ca45d539c"
         },
         {
           "path": "images/ai.captiono.app/04.png",
-          "hash": "9a120c31576f99fbf9a2c28ef5ed95e80573388cd2d58393eb64d3d377372fd9"
+          "hash": "66a1c73feed6e2f7f790ee6a439fdbfef5799a34feeeab28a9c95dc713d0ab3d"
         },
         {
           "path": "images/ai.captiono.app/05.png",
-          "hash": "c3e5ed1e35afe889cf6590f7868b80a3fb89307245a29938c9cbc2c3329c4cfe"
+          "hash": "034949f75be5bedcd0e9848207cbe440c5f1c10af7828283db40dab0ede62678"
         },
         {
           "path": "images/ai.captiono.app/06.png",
-          "hash": "eb99d7ddfd998e0a06e37bdc6ca4b33cf05a8640879d3d9faa7b96ec63bee71b"
+          "hash": "51649eaf3cd56a605732fba17977668e42903f20f8734867e231124e4c6186e4"
         },
         {
           "path": "images/ai.captiono.app/07.png",
-          "hash": "937c12a3ff95bf4dfd70bb01aa8410ba03b24478f8c5b2be9bd52922064008ce"
+          "hash": "e53026315c6b667b6877c4970bb235dac97e20cdbae657ddf2bfa224e62eb20a"
         },
         {
           "path": "images/ai.captiono.app/08.png",
-          "hash": "4c13d12a8e6293a9b87c6024b5719895dc0e7d3eaacb8fe24f719e8e0793eabd"
+          "hash": "29ddb12512bdd834eece9718b8322fa0ac355faf62cf01be04226d19b92274e1"
         }
       ]
     },
@@ -379,27 +380,27 @@
       "screenshots": [
         {
           "path": "images/org.capzy.studio/01.png",
-          "hash": "f296383dd8c1ba408331f05ba74dda757bf95a88e7d53b42828393e28fdb80f0"
+          "hash": "7218a483c1b5d941812bcb87e6f898eb12c1cd7f37d5454ddb2f4b19809e342a"
         },
         {
           "path": "images/org.capzy.studio/02.png",
-          "hash": "5c698b0730e4351332b1e2b17447e9fc01109fddbe96b554ee935d11079c7d61"
+          "hash": "cbe32dd99ef1cfcce829aaf6b877eec4490d5d40fcdaea010a49431459e9a863"
         },
         {
           "path": "images/org.capzy.studio/03.png",
-          "hash": "10828c592bd1768caf164cdf8b2b2d0442855cb2bdbc9b5ab68583cded999dba"
+          "hash": "aaab13d92de0332d1d99c17f24e779001ad04758bc153b5e8e7022862ee2f55b"
         },
         {
           "path": "images/org.capzy.studio/04.png",
-          "hash": "2b5b3d2b5bac6b278e3d1c52dd5b423aff6bba884712d0839fdef06b6a621eda"
+          "hash": "a850d31a9ea864f96439630066519b8dafec1874b66dcf43a5294a1d32765e31"
         },
         {
           "path": "images/org.capzy.studio/05.png",
-          "hash": "87172281b43d8fc70f1c71ff762f7054ff557319adde3be630e2ae0b15a3dab9"
+          "hash": "009fc85f2abe9295498d118a3cd48ad8e2f95721030a574d79d68548048255ad"
         },
         {
           "path": "images/org.capzy.studio/06.png",
-          "hash": "32397924181e0c5f15761629c2ff9b717fd45a67c3091cbc58155784368a2444"
+          "hash": "36b4f16c0e141b68697c67f5d5990767f450e48b48e3b73e0e3dcb4a1c0a97da"
         }
       ]
     },
@@ -413,43 +414,43 @@
       "screenshots": [
         {
           "path": "images/com.innocaption.vpdp/01.jpg",
-          "hash": "8fc2aa80133bffd7ace3edc1dc370f0c619687c800f355d844735747be1c2783"
+          "hash": "2a0968b9c3e299c156f96510d3b8a8683982262e2d080c4e888be725935c7ad4"
         },
         {
           "path": "images/com.innocaption.vpdp/02.jpg",
-          "hash": "9add222295ff905cc8f4aa3640de68731dd4659514433bb3d87a8d6416b2e9f1"
+          "hash": "dd6e40b8e5f31354e558e0af4ef1c83cd8e924e9a8fe85c65db8ba735f752b72"
         },
         {
           "path": "images/com.innocaption.vpdp/03.jpg",
-          "hash": "2197a7c984be964dea46c90e7df5f8fde59d6faba36cef8c1d041541dcfc1bbd"
+          "hash": "69e81ab511cbcbb881cccfee64da9b379bc0cb6c7a3d2cdacf7b0be34736dec7"
         },
         {
           "path": "images/com.innocaption.vpdp/04.jpg",
-          "hash": "4c9a983801a5ea10953074de6f4d1bf55e95f0dca6d15f90ca4dd1813e264abe"
+          "hash": "92fe124125ec73b7c7c334d601fb216d23042bb3dc5ed561b4599ef09b6aab54"
         },
         {
           "path": "images/com.innocaption.vpdp/05.jpg",
-          "hash": "5fdce51fd1e924e7c076dc6155ada4bf3b08a05884e9e102b67c2e0cd6839569"
+          "hash": "097d2a58a66ca4adc4e4906378a49b1fec12d6b9b3978a763d506c26ffd5bb3c"
         },
         {
           "path": "images/com.innocaption.vpdp/06.jpg",
-          "hash": "73067bead244988827bb99487238a1b3eb91adbf4ef7e40da48d0b32c5061920"
+          "hash": "05b5287e749c9d393583c3416294b43724f042e08cab5958756952915d837c0e"
         },
         {
           "path": "images/com.innocaption.vpdp/07.jpg",
-          "hash": "1849a615c279ee6a4f0b2fc06b70f129450d0e227270da2fd16e157273ad1ac5"
+          "hash": "0f19804c6ac959538e2db4d0fd17a00c890145b3e88398a13aff1ea232d79cc8"
         },
         {
           "path": "images/com.innocaption.vpdp/08.jpg",
-          "hash": "08a53a14e9821a7a97f9b202019b53e23522b5305aa2965639c560d0599fe0e7"
+          "hash": "729b7e02a69e35008de80609551bf5e76c1f52c6272f399253dc17067e783ee2"
         },
         {
           "path": "images/com.innocaption.vpdp/09.jpg",
-          "hash": "44dcce5d8a1f804c801f35bf4e120b8b7e07b50eded54cc595613218fc4983b3"
+          "hash": "0af703a0093f2b1ce3157d371cba7c38f8614338f5d10f1c2f00571e88739eb2"
         },
         {
           "path": "images/com.innocaption.vpdp/10.jpg",
-          "hash": "67d15d686ea7b866119744f00539f99b919701bfa260ca86826bbfb64249dcf1"
+          "hash": "705431eb65754028985fb0efd20a26f87a4f0cb23af1a19cb31d776f9ac3323c"
         }
       ]
     },
@@ -463,43 +464,35 @@
       "screenshots": [
         {
           "path": "images/com.laika.kinetictypovid/01.jpg",
-          "hash": "ab737c18618fa072eac7188488f5e865baca14413a9e0feb23eb6343e079d610"
+          "hash": "dda653aba6414e1e4935ef8fdc78cd5258c69a52965ff4ffa2281027ca0322ff"
         },
         {
           "path": "images/com.laika.kinetictypovid/02.jpg",
-          "hash": "bb62671aa9ad69d79190d1104e11d4983ee02ae7ebb1b9728ab73cd986034324"
+          "hash": "05012ad79040fe06e9f4aa17ba4b4461a72642b6d4505cc9312546e74fc66250"
         },
         {
           "path": "images/com.laika.kinetictypovid/03.jpg",
-          "hash": "17b8b76d65652783ddc45695d265e3c004fe6c7f67eb3e6aca7fc38b76ac8e4c"
+          "hash": "b980721c571d07447e9f241f8fa4c5df939aa763ce96b60c7ded8ffa99ed34fc"
         },
         {
           "path": "images/com.laika.kinetictypovid/04.jpg",
-          "hash": "82c180893c5919fb78f663d45ef016d4f1e39a20f8456e3411cbcea785bc26c9"
+          "hash": "e03d4e57fd42d89cbbd18000c04561e6ea14486b2b0956a5babedcd339570486"
         },
         {
           "path": "images/com.laika.kinetictypovid/05.jpg",
-          "hash": "f89ae2431b2ef639c195d4097feb7af0d593227b8bb5e550e096a33bd955d975"
+          "hash": "988fd63e1d5718f1236fed2e6e1aec03c50ef38b48e905edfaf37ac923aa89ec"
         },
         {
           "path": "images/com.laika.kinetictypovid/06.jpg",
-          "hash": "568cdd9af54a5dbf8f6b1751994a8a8c88e789c848719d405c8c95810d5dd093"
+          "hash": "c9279ec42ac55ea67a62d2407b2a254b72dad83bf37092d347707064b1950c0b"
         },
         {
           "path": "images/com.laika.kinetictypovid/07.jpg",
-          "hash": "438f2875346302e02342ccbbaac75ba10b6f8212566066c55944a12193afcccc"
+          "hash": "b9cdd44db7f5cfe139bd4375b679928e0c3c45a5fe92a22febf48168aa114b75"
         },
         {
           "path": "images/com.laika.kinetictypovid/08.jpg",
-          "hash": "5a45dc41dc5259ccde6bc159a51279c25aba55a52a87bc6ba5b6138be0515af9"
-        },
-        {
-          "path": "images/com.laika.kinetictypovid/09.jpg",
-          "hash": "ab737c18618fa072eac7188488f5e865baca14413a9e0feb23eb6343e079d610"
-        },
-        {
-          "path": "images/com.laika.kinetictypovid/10.jpg",
-          "hash": "bb62671aa9ad69d79190d1104e11d4983ee02ae7ebb1b9728ab73cd986034324"
+          "hash": "d75cd74ca110cde5a3a06bb12701777e18394e35a9b5e33ab961b7e502213365"
         }
       ]
     },
@@ -513,23 +506,23 @@
       "screenshots": [
         {
           "path": "images/co.mixcord.mixcaptions/01.png",
-          "hash": "01cb44bef3f644510748c3322248628d561c462fa20d6d4bdf58810930b8cb57"
+          "hash": "6b1555e13a64ca01b1a2ca190676cd0ee59e9a3d714f8acd5fe5a414d5f237ed"
         },
         {
           "path": "images/co.mixcord.mixcaptions/02.png",
-          "hash": "24d74be95e8a82960f61f14bf0eabb2345db44e476fb7b18500955c3c22d77ca"
+          "hash": "7da20766e6362c0084f0c76eaddeaab45fc43f3e12684d8d53b2e64c7a1b1465"
         },
         {
           "path": "images/co.mixcord.mixcaptions/03.png",
-          "hash": "d193fa746b7745519b1bcbb7bd6ab23c8bd407f237602daa9588def7b0da4c69"
+          "hash": "3b871e1a0b2eb4645b513992ef80d3fc38e47753784ed0f333cf2a003a1f30f1"
         },
         {
           "path": "images/co.mixcord.mixcaptions/04.png",
-          "hash": "ac868a436d336b444ea8f72915ea9d433311d9980c7b2cf112b1500247cc0ee9"
+          "hash": "1311f7b3a01052e587f9dd2c52a1d746f037da74ee62f99653f25b2f44d15183"
         },
         {
           "path": "images/co.mixcord.mixcaptions/05.png",
-          "hash": "09a333f6d46e2e199322d433a249da733a15196043141aaf757ac4d702f634f6"
+          "hash": "f8d0882085464bff52aced1bdc2010c736845294062f94b8d6500d1689f5801b"
         }
       ]
     },
@@ -543,35 +536,35 @@
       "screenshots": [
         {
           "path": "images/com.machinegenius.olelo/01.png",
-          "hash": "3b07666d8b4fd4d72ff5f3df3ae18229c9a2ddce3516702001d37cda219d58f9"
+          "hash": "0c147d43e9652d8c113e5549afeea641420ea894ae5ba413e3d0b766dea865fa"
         },
         {
           "path": "images/com.machinegenius.olelo/02.png",
-          "hash": "0822aed082d86597190442931a2136483b198e0fd78170468160565707459b6d"
+          "hash": "7b6929de491d20ce9b5b1483fc0713551e4a1c7ffeca2a0ac0dd4ad21ed88004"
         },
         {
           "path": "images/com.machinegenius.olelo/03.png",
-          "hash": "3664092d98e96d8ffd13fe021e790b1fdf27314abcf8ef5ef30a4317562ac966"
+          "hash": "24be724f83440503ea1beddef5f0a8f36d681aa7d3a03ba810ea527184babda4"
         },
         {
           "path": "images/com.machinegenius.olelo/04.png",
-          "hash": "15cb4c8ccf1b6a42f2fb4395cedc775ac6002eb226ce87fa45a0db63e8fd6365"
+          "hash": "6c2ec185bb8f0632297782314ce650aaefebe3279c52a03a9ccec4d0f9131e99"
         },
         {
           "path": "images/com.machinegenius.olelo/05.png",
-          "hash": "f71940690297ed11efff0b999948d52a4fe631d0f83279e7aedc73aa16bc8df0"
+          "hash": "0cabc9b8b09f63b1785c9bed5dcad599aa78269251370e25a9d823d688afc373"
         },
         {
           "path": "images/com.machinegenius.olelo/06.png",
-          "hash": "79108794a015a8c166acca5ce87c19f4dc57f17f555e4f4835c0f984805d4e55"
+          "hash": "43ad918b373c55230ca720b756bc1d925ce4426cbdab25b1c362378e47500fc0"
         },
         {
           "path": "images/com.machinegenius.olelo/07.png",
-          "hash": "21322d25d8d4aa7f6c805810c2c46ef843de001f507b67820bd63572b480a410"
+          "hash": "263e70ea7c1cabf39f2327dd6eba502ae61c465920059d66b6a9a179281193ee"
         },
         {
           "path": "images/com.machinegenius.olelo/08.png",
-          "hash": "fcb80358f482989abb49f371d6fbaae0d3e214fbe062f1277b73c89a36992345"
+          "hash": "c55b13ee6c233696d47b261d4411c5dbd2567409fdd55065e7156880b7e6c83a"
         }
       ]
     },
@@ -585,31 +578,31 @@
       "screenshots": [
         {
           "path": "images/com.vistring.blink.android/01.jpg",
-          "hash": "2f606997c2e94d0019cba942b6127a1498dd3e325285989fcf59cca0dc5453f7"
+          "hash": "f97bf9a4d9d40a0387ccc3316565fde4299ddbd4b5f8aae85e772ad0b3962455"
         },
         {
           "path": "images/com.vistring.blink.android/02.jpg",
-          "hash": "0afdd70fb3b1877315101ed861e61990c709d185e9aed169f47a4c9665b44160"
+          "hash": "8727f020f200e8cde64e7b25f65b00b7236626e802f991885cd867c95c9b48f9"
         },
         {
           "path": "images/com.vistring.blink.android/03.jpg",
-          "hash": "b66358c3f80b417e3c6fbdc36808e166f9d715cb6aee01ac2e573cbe1408f78b"
+          "hash": "ce48a1462f4a7abcdd5ee6f3b9d54fc83e2a96bfcc34ef289990d863085b0d26"
         },
         {
           "path": "images/com.vistring.blink.android/04.jpg",
-          "hash": "cabce0b365b274e7b4e08d64f8a2ecd821a5ff38fbaa256b8f300434e48e988d"
+          "hash": "168e165d7d16aa082460005b85968835d45363e24edb2ccff1d949b16ca4cdee"
         },
         {
           "path": "images/com.vistring.blink.android/05.jpg",
-          "hash": "a67d4cbb208f05d4618a64a0499b863aa73620efdede9321ae3c45e5fff135d1"
+          "hash": "cf48c77ce8b1b95b35d304c6cd45f45f3efd47fbc15a89c5b7cdb5515f708760"
         },
         {
           "path": "images/com.vistring.blink.android/06.jpg",
-          "hash": "701b81aeee55fcbb0d5f4ea47c393b66c9fc91d5b451a810a2fdc251a37d088b"
+          "hash": "d6d8b81b4ce3746226575e8b2423df9a2f64a801bb58ab8ab53e49193d001983"
         },
         {
           "path": "images/com.vistring.blink.android/07.jpg",
-          "hash": "3dac70e466143dbd606e5cb060bd1608fda5eaf22889664dba2f152ca0d6bc14"
+          "hash": "0fa19ee7f6d16bb3f15996fab05552fae527e66fbd19ea6bdaf5387ffe0a2126"
         }
       ]
     },
@@ -623,43 +616,43 @@
       "screenshots": [
         {
           "path": "images/com.captionmate.app/01.png",
-          "hash": "cfee056f990a2c34cac00c6476dc19066bbf276b74b2e596ad482792195db608"
+          "hash": "8657ad8d5c734213fed396eb84c10e406cdfd62b90a97c6baeb166c39472006b"
         },
         {
           "path": "images/com.captionmate.app/02.png",
-          "hash": "d405e8de04a8c7ff5f4c8eb616bf948e25c44b34f138213f34c5b6d2170b0175"
+          "hash": "325cf69a55728a6bb17ba09e714f4dcb8e8003dd2aa18959a3ea7e99efa28734"
         },
         {
           "path": "images/com.captionmate.app/03.png",
-          "hash": "70bb9f7e9c10479558eaa8e2986e0249563beca7e0f653ac2c737fd3295add21"
+          "hash": "f9be151816f1d7b2a010532465ed15d6229fc5e4ab84a5a543882a3fc0d16499"
         },
         {
           "path": "images/com.captionmate.app/04.png",
-          "hash": "c15d6859a4f952236e8c10e98e804aede499f4f8106ae26d39752b1f12cde436"
+          "hash": "24b21be897bce432e0cf773235134d2a52630e77e44b0849ceb2e464bfce8563"
         },
         {
           "path": "images/com.captionmate.app/05.png",
-          "hash": "16681afed478f6f86242696eeb63f87fb755ac6abe4701e5f3e2a70aec71f092"
+          "hash": "74a9f2519e71c2f005f197e4801e9a8f5246143b125b50d8dd9340b9dd110b4f"
         },
         {
           "path": "images/com.captionmate.app/06.png",
-          "hash": "ad9239280ba36285b506354a77be2f42838382402a318e7bc4e488232bd8b6ba"
+          "hash": "4a73160fd174bdb6725016de806c84ecfdf048bd493bfd3546ed5c1791b10ce9"
         },
         {
           "path": "images/com.captionmate.app/07.png",
-          "hash": "628b4f0318bbeff0ad3e7fd8804f210df5ceac29bf24597373cc40bd828122a9"
+          "hash": "5a75e59a737bd7f4a34a132fae00149cf08d6f22953501450e49faac5234952b"
         },
         {
           "path": "images/com.captionmate.app/08.png",
-          "hash": "0d5fd4725b93f8617e7c44ea2de180a0369b4a4dd643e7ef6615160f313cc180"
+          "hash": "8ee33a3d801fb638c32fc4300774359dc58776aff922f2e5c1b47039eacb9678"
         },
         {
           "path": "images/com.captionmate.app/09.png",
-          "hash": "caefe3cad80f512852b01326d66467ee16a44e6d7899eb9c80950cdd3810f0b9"
+          "hash": "39d98b6d2bd6a4251948f451939dbe1a7ac5054578a6e8ae9adb06ac8f943e8f"
         },
         {
           "path": "images/com.captionmate.app/10.png",
-          "hash": "b3475b00a928a81145bd205e4a05d279095162c738470f687ba7cf0741e6d6f0"
+          "hash": "1ef665b51869ec67b4a307f552b072c53841b79837a6398cd5de80f2845c23a5"
         }
       ]
     },
@@ -673,43 +666,35 @@
       "screenshots": [
         {
           "path": "images/io.captionkit.app/01.png",
-          "hash": "0570357b3cbe64df1295dd8c111a0332ecd7b65e73db0056d81bafb061f0f67e"
+          "hash": "8a8ef525fd2fe9f952f73e43876c8866de623db525e5cb7a663de18e357ac8ec"
         },
         {
           "path": "images/io.captionkit.app/02.png",
-          "hash": "3334fd2aa522da58b281917fd101f471e7394bc203ee35715fc8df5303bed61f"
+          "hash": "57d77440b8b1f5d96dd1ef1808a3ccda086525c5cdc8fbfcea005d849595ae93"
         },
         {
           "path": "images/io.captionkit.app/03.png",
-          "hash": "d403b138e43bc9c8ea31aeabd36790132015921ace72e9dae5d1e3be4391a6a2"
+          "hash": "32e8ab12fb25683dc7a2f3cec58d363785997efdca4ad8bd4d04bac7b657660c"
         },
         {
           "path": "images/io.captionkit.app/04.png",
-          "hash": "b0f153071a9c8f39776c280445f9b286064c1add09d6fa7c62c2146dd3d0ded4"
+          "hash": "e789db30ba74b2d007e9df051ae5f86f71666adacaec3db0157456fb69d2afda"
         },
         {
           "path": "images/io.captionkit.app/05.png",
-          "hash": "1b65c8ab54f6a97d6b97e701f9325222948daf0891d3796a266f2d2b8734e370"
+          "hash": "524bd1717acc9a83966ec005114131c2b930848f5ae53f4a9ca7350249275fdb"
         },
         {
           "path": "images/io.captionkit.app/06.png",
-          "hash": "ee741ebfacae3493d848003494b67958f1c9a8568537d15d6f5b1292c2442b9b"
+          "hash": "a0afa15b71b98996eaa58b52d2de1e230d4f7a627aa0683796f39ef197d3828f"
         },
         {
           "path": "images/io.captionkit.app/07.png",
-          "hash": "ebb136cacaecfd790ca3ff715ec3f9734f48fe47c2c8fd018af16768d0227fd9"
+          "hash": "ce1ef9b009683e766c6e649825c4c59175348c4488903a8df66ab88fa2cf1adf"
         },
         {
           "path": "images/io.captionkit.app/08.png",
-          "hash": "c85cca3b8d880f3d67b5187a369770e4be22a26619aead186f75c066cbd1142a"
-        },
-        {
-          "path": "images/io.captionkit.app/09.png",
-          "hash": "1b65c8ab54f6a97d6b97e701f9325222948daf0891d3796a266f2d2b8734e370"
-        },
-        {
-          "path": "images/io.captionkit.app/10.png",
-          "hash": "ee741ebfacae3493d848003494b67958f1c9a8568537d15d6f5b1292c2442b9b"
+          "hash": "2f6f6a82f16170f57bb2ca40d221257f1382e6422eae2698abfe79d68de7c936"
         }
       ]
     },
@@ -723,43 +708,23 @@
       "screenshots": [
         {
           "path": "images/com.inverseai.captions.subtitles/01.png",
-          "hash": "f11a5e4df6dd135cce765498ab9404f548142b1b83892627a1214210ebd6c8c4"
+          "hash": "c39c0b897e75bcceab11bcfb069f49583ad8b70ed7814276fe096bc997692386"
         },
         {
           "path": "images/com.inverseai.captions.subtitles/02.png",
-          "hash": "0e3435de59b36fbb7178750d38ae8c99c8d51e5a04535be62e915d50895f28bd"
+          "hash": "75253450d551bb472b9cd88e0b55bbc6587b7d7617b546059c068edee77d517f"
         },
         {
           "path": "images/com.inverseai.captions.subtitles/03.png",
-          "hash": "c29c519e3ba0c547ac5b2daced1a6466b332284b51a02b11a0c65bdad5f49a63"
+          "hash": "7a7534ada3208aae90f8f2aa7b32fbd9e7e8f4fc15b78184200a3bf2c53bc739"
         },
         {
           "path": "images/com.inverseai.captions.subtitles/04.png",
-          "hash": "bdd01bcb524d87c34e3b6b419556393f0d81ab461328b5af843644677c7171fa"
+          "hash": "c55f4bd2bd1db98b002d92796d49ae324c4172ca48c9fdbe82b53fc32a59ca22"
         },
         {
           "path": "images/com.inverseai.captions.subtitles/05.png",
-          "hash": "738193d0071deab84a6a2cdd1c41c7c81b62e90dc5130ab63f50964d6655b787"
-        },
-        {
-          "path": "images/com.inverseai.captions.subtitles/06.png",
-          "hash": "f11a5e4df6dd135cce765498ab9404f548142b1b83892627a1214210ebd6c8c4"
-        },
-        {
-          "path": "images/com.inverseai.captions.subtitles/07.png",
-          "hash": "0e3435de59b36fbb7178750d38ae8c99c8d51e5a04535be62e915d50895f28bd"
-        },
-        {
-          "path": "images/com.inverseai.captions.subtitles/08.png",
-          "hash": "c29c519e3ba0c547ac5b2daced1a6466b332284b51a02b11a0c65bdad5f49a63"
-        },
-        {
-          "path": "images/com.inverseai.captions.subtitles/09.png",
-          "hash": "bdd01bcb524d87c34e3b6b419556393f0d81ab461328b5af843644677c7171fa"
-        },
-        {
-          "path": "images/com.inverseai.captions.subtitles/10.png",
-          "hash": "738193d0071deab84a6a2cdd1c41c7c81b62e90dc5130ab63f50964d6655b787"
+          "hash": "217d5d234feb460a0d920f1ffe6fcca7fb84722729f50ac45b4ba1a466b681a9"
         }
       ]
     },
@@ -773,19 +738,19 @@
       "screenshots": [
         {
           "path": "images/kaptioned.app/01.jpg",
-          "hash": "242fb62c7ef97b90721238d31815dc3fdd6dc88c5cf6572719f864f218534335"
+          "hash": "d81f985397b182e92fa775f539e983a1c27c5dc2260b873412beb626bbd95637"
         },
         {
           "path": "images/kaptioned.app/02.jpg",
-          "hash": "6ec7412830384cfc794ec149876b194da985162016c3648db85014ff1d65d5d5"
+          "hash": "092906ddff52ee9f5e575d1afabf0dde5d5fc411295d061c19ab132f084ee0a5"
         },
         {
           "path": "images/kaptioned.app/03.jpg",
-          "hash": "cf77dd0ba40fc1e3205fa50506f424a99c481a0b9ce7faa72571010949744310"
+          "hash": "b9e7f973113a9ebd1c7c3b5ed546bfe3e8aafc28e0bd6426eaf0103ae6507320"
         },
         {
           "path": "images/kaptioned.app/04.jpg",
-          "hash": "ee0bd9ba1cc9b7b298076a64e15454b4f191ec0a71da7133bbb2ce83d8a1e11f"
+          "hash": "7bccf4b10a5b776507017e8b3d0f6cb61f2d25929979c11f66b349de4e932c1d"
         }
       ]
     },
@@ -799,43 +764,19 @@
       "screenshots": [
         {
           "path": "images/com.quix.videoclipper.caption.aidubbing/01.png",
-          "hash": "dbb3d35a43097f7a5383a76f389d846ee77d6ea35c2b866ccdad52ae1b521bed"
+          "hash": "6904de71e33503a2e03f3992d7cf44161b15f33ab40ba868affa0ea17c9510bf"
         },
         {
           "path": "images/com.quix.videoclipper.caption.aidubbing/02.png",
-          "hash": "b2d6b0137e27c24dacbe183c9c165a0a2d0b7fe178296d85543b42ed8f807a9d"
+          "hash": "43eafeed66fa42f943388fcf5dcb08e2939a4f8515f4432c37febe3b272a8bf1"
         },
         {
           "path": "images/com.quix.videoclipper.caption.aidubbing/03.png",
-          "hash": "9c68dd88dbb7a9dcda576e181f87c9e42496c29e99c09da1dc237d004e210cbe"
+          "hash": "8647a72175dba5143c67acad72da21d7f4ff46d4c762ca6dbfb5cab5c864a764"
         },
         {
           "path": "images/com.quix.videoclipper.caption.aidubbing/04.png",
-          "hash": "3b717bf882d7b230257f9757494d5b8a5b7db474efdde4cb6ab6b02a37bed8ad"
-        },
-        {
-          "path": "images/com.quix.videoclipper.caption.aidubbing/05.png",
-          "hash": "dbb3d35a43097f7a5383a76f389d846ee77d6ea35c2b866ccdad52ae1b521bed"
-        },
-        {
-          "path": "images/com.quix.videoclipper.caption.aidubbing/06.png",
-          "hash": "b2d6b0137e27c24dacbe183c9c165a0a2d0b7fe178296d85543b42ed8f807a9d"
-        },
-        {
-          "path": "images/com.quix.videoclipper.caption.aidubbing/07.png",
-          "hash": "9c68dd88dbb7a9dcda576e181f87c9e42496c29e99c09da1dc237d004e210cbe"
-        },
-        {
-          "path": "images/com.quix.videoclipper.caption.aidubbing/08.png",
-          "hash": "3b717bf882d7b230257f9757494d5b8a5b7db474efdde4cb6ab6b02a37bed8ad"
-        },
-        {
-          "path": "images/com.quix.videoclipper.caption.aidubbing/09.png",
-          "hash": "dbb3d35a43097f7a5383a76f389d846ee77d6ea35c2b866ccdad52ae1b521bed"
-        },
-        {
-          "path": "images/com.quix.videoclipper.caption.aidubbing/10.png",
-          "hash": "b2d6b0137e27c24dacbe183c9c165a0a2d0b7fe178296d85543b42ed8f807a9d"
+          "hash": "bb97589fac613ef5196b042c30aed2d4fe9f1ac3a2a9b352da21cb74785874a3"
         }
       ]
     }
