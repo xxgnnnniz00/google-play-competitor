@@ -1,0 +1,843 @@
+{
+  "searchTerm": "captions",
+  "country": "us",
+  "lang": "en",
+  "apps": [
+    {
+      "rank": 1,
+      "appId": "com.nocap.captions",
+      "title": "Captions Lite",
+      "icon": "https://play-lh.googleusercontent.com/sCUCk1yeohxck2IeoEB5jhqPT6KTpOm3tsMtyRaK_PruKBMnWH1TSZxmVpxTl_7R6erhG7K9vxEGymCkj5rW",
+      "score": 4.201389,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/com.nocap.captions/01.jpg",
+          "hash": "abe9e2700147c855f2f462ced7cefd71724e6badf9d0415c29958f0d5338a8ce"
+        },
+        {
+          "path": "images/com.nocap.captions/02.jpg",
+          "hash": "4db06b30206d84b9ae19a6550f384b1809d76f53f96f573406ec8e92b4c2eb78"
+        },
+        {
+          "path": "images/com.nocap.captions/03.jpg",
+          "hash": "428deba6016ef0f123b07e51645efcf2e4df8d0e325eb23cfc1774939f79007f"
+        },
+        {
+          "path": "images/com.nocap.captions/04.jpg",
+          "hash": "174fbc884402e9e91b1b776ac2d79e45aab391de388e8697b694d309e1612f97"
+        },
+        {
+          "path": "images/com.nocap.captions/05.jpg",
+          "hash": "2ff642356793c83f165428ed37903a6e899531c946ad9a728cdc13f22f9774ef"
+        },
+        {
+          "path": "images/com.nocap.captions/06.jpg",
+          "hash": "9fdfcb5c0d3d5d9c9e8cdf28d43b30391a0d660d3bc1273d8b712705bb7a2a91"
+        },
+        {
+          "path": "images/com.nocap.captions/07.jpg",
+          "hash": "744eb2787e0ea2b79e91f9ef827778e059ccbf35048305fcffb6f781967a9e5d"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "appId": "captions.ai.videoeditor",
+      "title": "Captions AI - Auto Captions",
+      "icon": "https://play-lh.googleusercontent.com/LEcOmYY_oeNFJHnNmkwfVuf4n9sKTX1wYw6EliXE6OJ22iXbcjmPW3k87CNN0-_-Tnq7k6lsixLtNyA9LQ6xyg",
+      "score": 4.95,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/captions.ai.videoeditor/01.jpg",
+          "hash": "2b24e83508e8690e74fc33182ee0a2636af3a0d182b418a3b9c21a31edfa4e89"
+        },
+        {
+          "path": "images/captions.ai.videoeditor/02.jpg",
+          "hash": "ec7aa62bec2ab07cd9dae72d9b4e13acb64bad414c32879654a0e4f852b8b395"
+        },
+        {
+          "path": "images/captions.ai.videoeditor/03.jpg",
+          "hash": "a9372c6faa6583b23ae62d8311f79b1219262e9197207fbddd30273bfcbdfe09"
+        },
+        {
+          "path": "images/captions.ai.videoeditor/04.jpg",
+          "hash": "417d47a6c113347f39ad28b3a64c1fdd520a8fcf26b96d91059cbddfeae03036"
+        },
+        {
+          "path": "images/captions.ai.videoeditor/05.jpg",
+          "hash": "21cfdf262127705e7869b8d41488ad61d303f50d3e6c1fde8ee724aca288bc4a"
+        },
+        {
+          "path": "images/captions.ai.videoeditor/06.jpg",
+          "hash": "a21afb3508782d2eace8dfc922b5c745465df7f91d91a0c6730a1295669e1d75"
+        },
+        {
+          "path": "images/captions.ai.videoeditor/07.jpg",
+          "hash": "4bc03b636fd6dae35f523dfa3921761e700085462dccbe094d16d697a20e1889"
+        },
+        {
+          "path": "images/captions.ai.videoeditor/08.jpg",
+          "hash": "7ed8cd1b0e3029bdc353e13349588e680a7e8c0fdcfb0c40abad767958359611"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "appId": "com.captionsai",
+      "title": "Dubs: Captions for Videos",
+      "icon": "https://play-lh.googleusercontent.com/TwRZaBQYFA29fHxonnvHjgNu5XjrFVOkKn1eKI79GIGJn9lBdokfULSZsXed55M0diLOpjVSaWkjbDG4pi7leQ",
+      "score": 4.2608695,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/com.captionsai/01.jpg",
+          "hash": "b03aa0c227fd293eb2845f4a29964ccce79c4b0de00f2ec2d0aabc78ca51e0a7"
+        },
+        {
+          "path": "images/com.captionsai/02.jpg",
+          "hash": "6958c5dc53ae8c00888f23bd60793ca14b724664cce1adaf5651d2c1713d7093"
+        },
+        {
+          "path": "images/com.captionsai/03.jpg",
+          "hash": "c0c3564a9eb1fbfa2e6d383f70a6c8478d8337d84b77ce53d338940c8d205130"
+        },
+        {
+          "path": "images/com.captionsai/04.jpg",
+          "hash": "4c18f90ee5703eb3a4fba5415a3e1b58611e9912922f6b6842eb73a2f6a17080"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "appId": "com.pixsterstudio.captions",
+      "title": "Captions AI: Videos Subtitles",
+      "icon": "https://play-lh.googleusercontent.com/mbWtYGzY6W3-m53FBGyrpvMbh3kSUR6gETUlegKMizS3cDlllHLhIkGfevVWvqlwkLWyKtH0uQ6a33qbSfmm",
+      "score": 4.616,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/com.pixsterstudio.captions/01.png",
+          "hash": "024c1c651e19929570d9cb33804f718e07780258019c936e17dd1c748954d5a4"
+        },
+        {
+          "path": "images/com.pixsterstudio.captions/02.png",
+          "hash": "8f851cd793e6c6c96232057848c98e9f0b27b20615ff73b22e852a2ebe4016f0"
+        },
+        {
+          "path": "images/com.pixsterstudio.captions/03.png",
+          "hash": "6dabc661ccbe90c329b53358c06585e60e95a66d65445330d3e9a625f33f3dcd"
+        },
+        {
+          "path": "images/com.pixsterstudio.captions/04.png",
+          "hash": "68731dbeff991643ce41c19a7cc011e47a90d18a16b620ef097dc73764ae8de2"
+        },
+        {
+          "path": "images/com.pixsterstudio.captions/05.png",
+          "hash": "ae67381d618d01c0e6dc09b0d4946c5327949b0a1db6a8654e8b1fee5d1e2779"
+        },
+        {
+          "path": "images/com.pixsterstudio.captions/06.png",
+          "hash": "1eb96ad5b39cfcd7cd16e9b77359ed3bb4176be7f8eaa92338dcaca7be54c22a"
+        },
+        {
+          "path": "images/com.pixsterstudio.captions/07.png",
+          "hash": "5af59d0812a5278e10a9571aa1e8ad3eb4aa2e9044382d88042b01d902cbc02b"
+        },
+        {
+          "path": "images/com.pixsterstudio.captions/08.png",
+          "hash": "133d45f880368000aa7e82eb573bddfdc0d5e7c64c74bbd71242534ad4a55403"
+        },
+        {
+          "path": "images/com.pixsterstudio.captions/09.png",
+          "hash": "fe4f9727e5d67a7ff15f7231014e452adcd15272ca94ed67d202cdf54cbd99c6"
+        },
+        {
+          "path": "images/com.pixsterstudio.captions/10.png",
+          "hash": "7e9c1e8fd0daf351e4f9a55683bea1419f96921da898278e5bf68d3451d97bd9"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "appId": "com.ai.captionsgenerator",
+      "title": "Captions AI - Video Subtitles",
+      "icon": "https://play-lh.googleusercontent.com/PUyAVysrqZl0qQ0GCkT24ISUL8UsD07167xblJrJx9BUYkfPNbRJfis9ohgGmy-Z3TODn5R3gkplt9tjL9QjNg",
+      "score": 1.6363636,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/com.ai.captionsgenerator/01.jpg",
+          "hash": "7a4add8b7d7703fd87e622d78dbf324fec4f4c1d825d9fc0ce4aeed9fd01331d"
+        },
+        {
+          "path": "images/com.ai.captionsgenerator/02.jpg",
+          "hash": "b44a47dadb42cccd803a8635e287023df04b86a0fa8e8a218149f6f1e2e2c886"
+        },
+        {
+          "path": "images/com.ai.captionsgenerator/03.jpg",
+          "hash": "c00017f484f2b3f9b9d22f29f8cf53e5723d499ad83efae7a20ebfc0af097477"
+        },
+        {
+          "path": "images/com.ai.captionsgenerator/04.jpg",
+          "hash": "a9d97aac06ee6241230e07a990c5f2fcafd614b1ea160c677a49565f3bff555d"
+        },
+        {
+          "path": "images/com.ai.captionsgenerator/05.jpg",
+          "hash": "e39529c9d2006ad5115d9182696ecc2f2e51988ad75edfef8bcfd33ff3d8fc9f"
+        },
+        {
+          "path": "images/com.ai.captionsgenerator/06.jpg",
+          "hash": "8b10831254244ea0f293c91a1bd0d04be5265c1fbfc256cfb2559a6ffdd9900b"
+        },
+        {
+          "path": "images/com.ai.captionsgenerator/07.jpg",
+          "hash": "d6b7398e253ad75bd739427dd46723f30990edd343fe218b2c60435cca4d6c36"
+        },
+        {
+          "path": "images/com.ai.captionsgenerator/08.jpg",
+          "hash": "16a70b6ab386873d6373c2bbdbc572d11c8f1e02b87b129303404fdd904e4ef5"
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "appId": "com.ratel.subcap",
+      "title": "Captions for Videos - SUBCAP",
+      "icon": "https://play-lh.googleusercontent.com/2jETUFMR2I15-s3dHdhNde4kzgHQfYwiGxXH1t7er37u3Mjw4YqHJayemtGEK53qGyWsOW1PnsFWnF3odu2G",
+      "score": 4.3980584,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/com.ratel.subcap/01.png",
+          "hash": "d97bb448ea75635a77d890ecb049463f5ed97a278701496f510fb7a2df4bae50"
+        },
+        {
+          "path": "images/com.ratel.subcap/02.png",
+          "hash": "1c7ca019c6cbc93aa6c137a8bf1fc1da86cbafe572e58b1c8669af030c8c8fbd"
+        },
+        {
+          "path": "images/com.ratel.subcap/03.png",
+          "hash": "b417d8c7c521c2636b781f8acbf29282be33f143c46f6977bdf04a9a4d3512ae"
+        },
+        {
+          "path": "images/com.ratel.subcap/04.png",
+          "hash": "3c7c0b75230e8e4e1b6b91dc3e41897248b557db888ee101ed6024ee0c2d56c3"
+        },
+        {
+          "path": "images/com.ratel.subcap/05.png",
+          "hash": "d245b57baacfa1eed98b52785f319a3fd4644fdd8aca28119af2b0bcf0eec151"
+        },
+        {
+          "path": "images/com.ratel.subcap/06.png",
+          "hash": "f56539241dedcfaf711871321b795814b04b774f9b49f8214e5f0b07fb157992"
+        },
+        {
+          "path": "images/com.ratel.subcap/07.png",
+          "hash": "f63a9a6ef370876b0bec6c148600ff708039f042093e79c707d6bacc054d658f"
+        },
+        {
+          "path": "images/com.ratel.subcap/08.png",
+          "hash": "5eaa4d4dfcc07dea787bd5025d69623b27d0e534a8644f47a839bbf9fd8ef304"
+        },
+        {
+          "path": "images/com.ratel.subcap/09.png",
+          "hash": "d67cc4abdd4e65138954f8b4f4168c05ccacc350d4662b9a6094ac21c5f6f97d"
+        },
+        {
+          "path": "images/com.ratel.subcap/10.png",
+          "hash": "b8024d1fb88d7bc5c1c7817528ecdf6a562ceef5e66a57500f05dd5224589e1d"
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "appId": "ai.quso.app",
+      "title": "AI Captions",
+      "icon": "https://play-lh.googleusercontent.com/FUYoiu5jDrdAX2D7uCwO9almpz7frPW7w5WOWUkLqTv3wysxYYsRabhjfM0OfFNNjEsOOwZhTWFx5Jhz9R4m",
+      "score": 4.57,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/ai.quso.app/01.png",
+          "hash": "c4dbf4fc56b20a3559816abcfea486aceff511b632932127149fe7ff1bd358fe"
+        },
+        {
+          "path": "images/ai.quso.app/02.png",
+          "hash": "992b9cda05222b4550afae5f9c6bb67919723a319699117ac23ec8fb4df90711"
+        },
+        {
+          "path": "images/ai.quso.app/03.png",
+          "hash": "5cac60151323e1f73f16d2e82988fce41664381b21c383911863e072fc298162"
+        },
+        {
+          "path": "images/ai.quso.app/04.png",
+          "hash": "b8a67170f21bcedb9a94071568f0ce57f9b728f36d00fa9113750159b3b0d934"
+        },
+        {
+          "path": "images/ai.quso.app/05.png",
+          "hash": "57a80393e8a962d96acd78473e07039d34501c901ad86a1f491730bbeab67314"
+        },
+        {
+          "path": "images/ai.quso.app/06.png",
+          "hash": "1ab5a536610f7b151ebb37477498daf0c7106edfc77d545952adffdd1b7a7daf"
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "appId": "video.mojo",
+      "title": "Mojo: Reels and Video Captions",
+      "icon": "https://play-lh.googleusercontent.com/edjJkjz5dJJgyZV32afRPPB4fMCwBKrYuwfwQZFc02ItExFyZaV-ASkzMefuPJOZ5iVQO2JAXPpgi_AY9S8tDhw",
+      "score": 4.474648,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/video.mojo/01.jpg",
+          "hash": "ea57a5d74d2b898580ef53387c2acc7206e7c44271df885a4f32ed94d7c5d2ac"
+        },
+        {
+          "path": "images/video.mojo/02.jpg",
+          "hash": "0c34bdf8facb54de03452827c769c5f9a73f3a5d8ee6305a380413a739319327"
+        },
+        {
+          "path": "images/video.mojo/03.jpg",
+          "hash": "76fc7c06099395ea322ea74a27d104f5bb6b06dbba12bba4779acae5cf97d9bc"
+        },
+        {
+          "path": "images/video.mojo/04.jpg",
+          "hash": "5795befdf4f5472176cab6672a524832ae935c03ca607b06d169beebaa3cccc8"
+        },
+        {
+          "path": "images/video.mojo/05.jpg",
+          "hash": "cf4d5d834eab5567ccd5476c5dc72fcf37fa5d936f6c6c9e0ca5b6d1f311549e"
+        },
+        {
+          "path": "images/video.mojo/06.jpg",
+          "hash": "38d143bf82c1f22938ac8575aef864909f6bd1eab699ab21ea1e5f0a1a57ecdb"
+        },
+        {
+          "path": "images/video.mojo/07.jpg",
+          "hash": "dad6849c3010abdf6ced5ba5f098457f95c32f04a355677f25ba276dcbc7daed"
+        },
+        {
+          "path": "images/video.mojo/08.jpg",
+          "hash": "8528953fa3f61d8f78dbaa89c629eb02ac63bda6d06e43ddea718d6bef77186d"
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "appId": "ai.captiono.app",
+      "title": "Captiono: AI Subtitles",
+      "icon": "https://play-lh.googleusercontent.com/fROaPeJXcL6USzmkBt1nHpo55heIS7NgNiJN0Jd55HmMRGmX0lhLLzmYfLP6IjwZLJ0BGQSyKuOSCJ2CcpxHDw",
+      "score": 4.68,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/ai.captiono.app/01.png",
+          "hash": "d59bd6fe2e3a9d2ed7089a1d66e24c2e35e309b66782eda332b7461049affbc3"
+        },
+        {
+          "path": "images/ai.captiono.app/02.png",
+          "hash": "14b323cb4bfab98bc1a0c49b0d0a9be75855c5d7ab19842cb2ab768304452b97"
+        },
+        {
+          "path": "images/ai.captiono.app/03.png",
+          "hash": "5f98e27f5a452094bcae2768afff6bc91150c65e553cc04a287703b7a64172c9"
+        },
+        {
+          "path": "images/ai.captiono.app/04.png",
+          "hash": "9a120c31576f99fbf9a2c28ef5ed95e80573388cd2d58393eb64d3d377372fd9"
+        },
+        {
+          "path": "images/ai.captiono.app/05.png",
+          "hash": "c3e5ed1e35afe889cf6590f7868b80a3fb89307245a29938c9cbc2c3329c4cfe"
+        },
+        {
+          "path": "images/ai.captiono.app/06.png",
+          "hash": "eb99d7ddfd998e0a06e37bdc6ca4b33cf05a8640879d3d9faa7b96ec63bee71b"
+        },
+        {
+          "path": "images/ai.captiono.app/07.png",
+          "hash": "937c12a3ff95bf4dfd70bb01aa8410ba03b24478f8c5b2be9bd52922064008ce"
+        },
+        {
+          "path": "images/ai.captiono.app/08.png",
+          "hash": "4c13d12a8e6293a9b87c6024b5719895dc0e7d3eaacb8fe24f719e8e0793eabd"
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "appId": "org.capzy.studio",
+      "title": "Capzy: AI Caption",
+      "icon": "https://play-lh.googleusercontent.com/oeRzvy65C08KLeUZRFW9IZOYFYWkN3f8Rrm6Bm0uziCuQ7OLx2Vj7qfwM0d--6wbBCglruvxPbmb_pWvgJi_WQ",
+      "score": 4.5148516,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/org.capzy.studio/01.png",
+          "hash": "f296383dd8c1ba408331f05ba74dda757bf95a88e7d53b42828393e28fdb80f0"
+        },
+        {
+          "path": "images/org.capzy.studio/02.png",
+          "hash": "5c698b0730e4351332b1e2b17447e9fc01109fddbe96b554ee935d11079c7d61"
+        },
+        {
+          "path": "images/org.capzy.studio/03.png",
+          "hash": "10828c592bd1768caf164cdf8b2b2d0442855cb2bdbc9b5ab68583cded999dba"
+        },
+        {
+          "path": "images/org.capzy.studio/04.png",
+          "hash": "2b5b3d2b5bac6b278e3d1c52dd5b423aff6bba884712d0839fdef06b6a621eda"
+        },
+        {
+          "path": "images/org.capzy.studio/05.png",
+          "hash": "87172281b43d8fc70f1c71ff762f7054ff557319adde3be630e2ae0b15a3dab9"
+        },
+        {
+          "path": "images/org.capzy.studio/06.png",
+          "hash": "32397924181e0c5f15761629c2ff9b717fd45a67c3091cbc58155784368a2444"
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "appId": "com.innocaption.vpdp",
+      "title": "InnoCaption Live Call Captions",
+      "icon": "https://play-lh.googleusercontent.com/2oEhXTo0hk5xbYdBoZWwG8XZXvMkwCuBbKIt5ObSYcsVfdM2pt3L3Sjes3p3PQH0QMMe4BC3zQ6JrlR-t6ILOg",
+      "score": 4.3314686,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/com.innocaption.vpdp/01.jpg",
+          "hash": "8fc2aa80133bffd7ace3edc1dc370f0c619687c800f355d844735747be1c2783"
+        },
+        {
+          "path": "images/com.innocaption.vpdp/02.jpg",
+          "hash": "9add222295ff905cc8f4aa3640de68731dd4659514433bb3d87a8d6416b2e9f1"
+        },
+        {
+          "path": "images/com.innocaption.vpdp/03.jpg",
+          "hash": "2197a7c984be964dea46c90e7df5f8fde59d6faba36cef8c1d041541dcfc1bbd"
+        },
+        {
+          "path": "images/com.innocaption.vpdp/04.jpg",
+          "hash": "4c9a983801a5ea10953074de6f4d1bf55e95f0dca6d15f90ca4dd1813e264abe"
+        },
+        {
+          "path": "images/com.innocaption.vpdp/05.jpg",
+          "hash": "5fdce51fd1e924e7c076dc6155ada4bf3b08a05884e9e102b67c2e0cd6839569"
+        },
+        {
+          "path": "images/com.innocaption.vpdp/06.jpg",
+          "hash": "73067bead244988827bb99487238a1b3eb91adbf4ef7e40da48d0b32c5061920"
+        },
+        {
+          "path": "images/com.innocaption.vpdp/07.jpg",
+          "hash": "1849a615c279ee6a4f0b2fc06b70f129450d0e227270da2fd16e157273ad1ac5"
+        },
+        {
+          "path": "images/com.innocaption.vpdp/08.jpg",
+          "hash": "08a53a14e9821a7a97f9b202019b53e23522b5305aa2965639c560d0599fe0e7"
+        },
+        {
+          "path": "images/com.innocaption.vpdp/09.jpg",
+          "hash": "44dcce5d8a1f804c801f35bf4e120b8b7e07b50eded54cc595613218fc4983b3"
+        },
+        {
+          "path": "images/com.innocaption.vpdp/10.jpg",
+          "hash": "67d15d686ea7b866119744f00539f99b919701bfa260ca86826bbfb64249dcf1"
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "appId": "com.laika.kinetictypovid",
+      "title": "AutoCap Captions Teleprompter",
+      "icon": "https://play-lh.googleusercontent.com/e2EQI-obiXTZopNgaTLmrG5VAgaR0g31C4htJSKVeEnRbVFwiSSwwnmKUmeoI9UyhaOqpa10aDnWU256azhq",
+      "score": 4.4301076,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/com.laika.kinetictypovid/01.jpg",
+          "hash": "ab737c18618fa072eac7188488f5e865baca14413a9e0feb23eb6343e079d610"
+        },
+        {
+          "path": "images/com.laika.kinetictypovid/02.jpg",
+          "hash": "bb62671aa9ad69d79190d1104e11d4983ee02ae7ebb1b9728ab73cd986034324"
+        },
+        {
+          "path": "images/com.laika.kinetictypovid/03.jpg",
+          "hash": "17b8b76d65652783ddc45695d265e3c004fe6c7f67eb3e6aca7fc38b76ac8e4c"
+        },
+        {
+          "path": "images/com.laika.kinetictypovid/04.jpg",
+          "hash": "82c180893c5919fb78f663d45ef016d4f1e39a20f8456e3411cbcea785bc26c9"
+        },
+        {
+          "path": "images/com.laika.kinetictypovid/05.jpg",
+          "hash": "f89ae2431b2ef639c195d4097feb7af0d593227b8bb5e550e096a33bd955d975"
+        },
+        {
+          "path": "images/com.laika.kinetictypovid/06.jpg",
+          "hash": "568cdd9af54a5dbf8f6b1751994a8a8c88e789c848719d405c8c95810d5dd093"
+        },
+        {
+          "path": "images/com.laika.kinetictypovid/07.jpg",
+          "hash": "438f2875346302e02342ccbbaac75ba10b6f8212566066c55944a12193afcccc"
+        },
+        {
+          "path": "images/com.laika.kinetictypovid/08.jpg",
+          "hash": "5a45dc41dc5259ccde6bc159a51279c25aba55a52a87bc6ba5b6138be0515af9"
+        },
+        {
+          "path": "images/com.laika.kinetictypovid/09.jpg",
+          "hash": "ab737c18618fa072eac7188488f5e865baca14413a9e0feb23eb6343e079d610"
+        },
+        {
+          "path": "images/com.laika.kinetictypovid/10.jpg",
+          "hash": "bb62671aa9ad69d79190d1104e11d4983ee02ae7ebb1b9728ab73cd986034324"
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "appId": "co.mixcord.mixcaptions",
+      "title": "MixCaptions AI Text, Subtitle",
+      "icon": "https://play-lh.googleusercontent.com/h6b1Msu3psRp_5P9vlzP-XyykVZ_K6xwFmiI42n5ypbwHoO0ZQxtt5pR3z2lokSRdc10N-Y0yrYcxIsD5wTAQbo",
+      "score": 3.47,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/co.mixcord.mixcaptions/01.png",
+          "hash": "01cb44bef3f644510748c3322248628d561c462fa20d6d4bdf58810930b8cb57"
+        },
+        {
+          "path": "images/co.mixcord.mixcaptions/02.png",
+          "hash": "24d74be95e8a82960f61f14bf0eabb2345db44e476fb7b18500955c3c22d77ca"
+        },
+        {
+          "path": "images/co.mixcord.mixcaptions/03.png",
+          "hash": "d193fa746b7745519b1bcbb7bd6ab23c8bd407f237602daa9588def7b0da4c69"
+        },
+        {
+          "path": "images/co.mixcord.mixcaptions/04.png",
+          "hash": "ac868a436d336b444ea8f72915ea9d433311d9980c7b2cf112b1500247cc0ee9"
+        },
+        {
+          "path": "images/co.mixcord.mixcaptions/05.png",
+          "hash": "09a333f6d46e2e199322d433a249da733a15196043141aaf757ac4d702f634f6"
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "appId": "com.machinegenius.olelo",
+      "title": "CaptionCall",
+      "icon": "https://play-lh.googleusercontent.com/-tu26AMAfPS2wnMURnbuVgAeaWL6iXTD4Hb9Lrt2yisILEYom85Bm-6XBCJLmu4FRn587Xy3Rl5lU6tqyl1zIKQ",
+      "score": 4.1139536,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/com.machinegenius.olelo/01.png",
+          "hash": "3b07666d8b4fd4d72ff5f3df3ae18229c9a2ddce3516702001d37cda219d58f9"
+        },
+        {
+          "path": "images/com.machinegenius.olelo/02.png",
+          "hash": "0822aed082d86597190442931a2136483b198e0fd78170468160565707459b6d"
+        },
+        {
+          "path": "images/com.machinegenius.olelo/03.png",
+          "hash": "3664092d98e96d8ffd13fe021e790b1fdf27314abcf8ef5ef30a4317562ac966"
+        },
+        {
+          "path": "images/com.machinegenius.olelo/04.png",
+          "hash": "15cb4c8ccf1b6a42f2fb4395cedc775ac6002eb226ce87fa45a0db63e8fd6365"
+        },
+        {
+          "path": "images/com.machinegenius.olelo/05.png",
+          "hash": "f71940690297ed11efff0b999948d52a4fe631d0f83279e7aedc73aa16bc8df0"
+        },
+        {
+          "path": "images/com.machinegenius.olelo/06.png",
+          "hash": "79108794a015a8c166acca5ce87c19f4dc57f17f555e4f4835c0f984805d4e55"
+        },
+        {
+          "path": "images/com.machinegenius.olelo/07.png",
+          "hash": "21322d25d8d4aa7f6c805810c2c46ef843de001f507b67820bd63572b480a410"
+        },
+        {
+          "path": "images/com.machinegenius.olelo/08.png",
+          "hash": "fcb80358f482989abb49f371d6fbaae0d3e214fbe062f1277b73c89a36992345"
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "appId": "com.vistring.blink.android",
+      "title": "Vozo AI Video Translator & Dub",
+      "icon": "https://play-lh.googleusercontent.com/A56kYBiIRyVKGElO5-wpYpWSe9KslJzLAhgrFUod-Kuys64UhWsOM4zGFojCwBsoE3nnkgR8CAabPBxM_qLw",
+      "score": 4.305296,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/com.vistring.blink.android/01.jpg",
+          "hash": "2f606997c2e94d0019cba942b6127a1498dd3e325285989fcf59cca0dc5453f7"
+        },
+        {
+          "path": "images/com.vistring.blink.android/02.jpg",
+          "hash": "0afdd70fb3b1877315101ed861e61990c709d185e9aed169f47a4c9665b44160"
+        },
+        {
+          "path": "images/com.vistring.blink.android/03.jpg",
+          "hash": "b66358c3f80b417e3c6fbdc36808e166f9d715cb6aee01ac2e573cbe1408f78b"
+        },
+        {
+          "path": "images/com.vistring.blink.android/04.jpg",
+          "hash": "cabce0b365b274e7b4e08d64f8a2ecd821a5ff38fbaa256b8f300434e48e988d"
+        },
+        {
+          "path": "images/com.vistring.blink.android/05.jpg",
+          "hash": "a67d4cbb208f05d4618a64a0499b863aa73620efdede9321ae3c45e5fff135d1"
+        },
+        {
+          "path": "images/com.vistring.blink.android/06.jpg",
+          "hash": "701b81aeee55fcbb0d5f4ea47c393b66c9fc91d5b451a810a2fdc251a37d088b"
+        },
+        {
+          "path": "images/com.vistring.blink.android/07.jpg",
+          "hash": "3dac70e466143dbd606e5cb060bd1608fda5eaf22889664dba2f152ca0d6bc14"
+        }
+      ]
+    },
+    {
+      "rank": 16,
+      "appId": "com.captionmate.app",
+      "title": "CaptionMate: Call Captions",
+      "icon": "https://play-lh.googleusercontent.com/zTqKx1AvsqnnAuEFj5-ykEobwEcdKI-_y_tlVGKS90iqrtJYjZFibcYTU5tUp-JyvjQqXuRYYWxb0m4eNrFOKQ",
+      "score": 4.2,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/com.captionmate.app/01.png",
+          "hash": "cfee056f990a2c34cac00c6476dc19066bbf276b74b2e596ad482792195db608"
+        },
+        {
+          "path": "images/com.captionmate.app/02.png",
+          "hash": "d405e8de04a8c7ff5f4c8eb616bf948e25c44b34f138213f34c5b6d2170b0175"
+        },
+        {
+          "path": "images/com.captionmate.app/03.png",
+          "hash": "70bb9f7e9c10479558eaa8e2986e0249563beca7e0f653ac2c737fd3295add21"
+        },
+        {
+          "path": "images/com.captionmate.app/04.png",
+          "hash": "c15d6859a4f952236e8c10e98e804aede499f4f8106ae26d39752b1f12cde436"
+        },
+        {
+          "path": "images/com.captionmate.app/05.png",
+          "hash": "16681afed478f6f86242696eeb63f87fb755ac6abe4701e5f3e2a70aec71f092"
+        },
+        {
+          "path": "images/com.captionmate.app/06.png",
+          "hash": "ad9239280ba36285b506354a77be2f42838382402a318e7bc4e488232bd8b6ba"
+        },
+        {
+          "path": "images/com.captionmate.app/07.png",
+          "hash": "628b4f0318bbeff0ad3e7fd8804f210df5ceac29bf24597373cc40bd828122a9"
+        },
+        {
+          "path": "images/com.captionmate.app/08.png",
+          "hash": "0d5fd4725b93f8617e7c44ea2de180a0369b4a4dd643e7ef6615160f313cc180"
+        },
+        {
+          "path": "images/com.captionmate.app/09.png",
+          "hash": "caefe3cad80f512852b01326d66467ee16a44e6d7899eb9c80950cdd3810f0b9"
+        },
+        {
+          "path": "images/com.captionmate.app/10.png",
+          "hash": "b3475b00a928a81145bd205e4a05d279095162c738470f687ba7cf0741e6d6f0"
+        }
+      ]
+    },
+    {
+      "rank": 17,
+      "appId": "io.captionkit.app",
+      "title": "CaptionKit",
+      "icon": "https://play-lh.googleusercontent.com/8neRKtdC8abgFJ99zwKtmstLoEnn1_L-Us2H107TmVe8tu2BWv26Yr5-2JzOhSZgG4O2PM4p2Jr5PC8Ktu2QuA",
+      "score": null,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/io.captionkit.app/01.png",
+          "hash": "0570357b3cbe64df1295dd8c111a0332ecd7b65e73db0056d81bafb061f0f67e"
+        },
+        {
+          "path": "images/io.captionkit.app/02.png",
+          "hash": "3334fd2aa522da58b281917fd101f471e7394bc203ee35715fc8df5303bed61f"
+        },
+        {
+          "path": "images/io.captionkit.app/03.png",
+          "hash": "d403b138e43bc9c8ea31aeabd36790132015921ace72e9dae5d1e3be4391a6a2"
+        },
+        {
+          "path": "images/io.captionkit.app/04.png",
+          "hash": "b0f153071a9c8f39776c280445f9b286064c1add09d6fa7c62c2146dd3d0ded4"
+        },
+        {
+          "path": "images/io.captionkit.app/05.png",
+          "hash": "1b65c8ab54f6a97d6b97e701f9325222948daf0891d3796a266f2d2b8734e370"
+        },
+        {
+          "path": "images/io.captionkit.app/06.png",
+          "hash": "ee741ebfacae3493d848003494b67958f1c9a8568537d15d6f5b1292c2442b9b"
+        },
+        {
+          "path": "images/io.captionkit.app/07.png",
+          "hash": "ebb136cacaecfd790ca3ff715ec3f9734f48fe47c2c8fd018af16768d0227fd9"
+        },
+        {
+          "path": "images/io.captionkit.app/08.png",
+          "hash": "c85cca3b8d880f3d67b5187a369770e4be22a26619aead186f75c066cbd1142a"
+        },
+        {
+          "path": "images/io.captionkit.app/09.png",
+          "hash": "1b65c8ab54f6a97d6b97e701f9325222948daf0891d3796a266f2d2b8734e370"
+        },
+        {
+          "path": "images/io.captionkit.app/10.png",
+          "hash": "ee741ebfacae3493d848003494b67958f1c9a8568537d15d6f5b1292c2442b9b"
+        }
+      ]
+    },
+    {
+      "rank": 18,
+      "appId": "com.inverseai.captions.subtitles",
+      "title": "Captions AI : Video Subtitles",
+      "icon": "https://play-lh.googleusercontent.com/JR5DzHWen-uReDNcrtsABdR2OQpExUqVYkdgbUnI-vA6vZxUNxETJz7Ssjv9sdXe-Kt7UHSE4FdocKvNEVqv5A",
+      "score": 4.8333335,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/com.inverseai.captions.subtitles/01.png",
+          "hash": "f11a5e4df6dd135cce765498ab9404f548142b1b83892627a1214210ebd6c8c4"
+        },
+        {
+          "path": "images/com.inverseai.captions.subtitles/02.png",
+          "hash": "0e3435de59b36fbb7178750d38ae8c99c8d51e5a04535be62e915d50895f28bd"
+        },
+        {
+          "path": "images/com.inverseai.captions.subtitles/03.png",
+          "hash": "c29c519e3ba0c547ac5b2daced1a6466b332284b51a02b11a0c65bdad5f49a63"
+        },
+        {
+          "path": "images/com.inverseai.captions.subtitles/04.png",
+          "hash": "bdd01bcb524d87c34e3b6b419556393f0d81ab461328b5af843644677c7171fa"
+        },
+        {
+          "path": "images/com.inverseai.captions.subtitles/05.png",
+          "hash": "738193d0071deab84a6a2cdd1c41c7c81b62e90dc5130ab63f50964d6655b787"
+        },
+        {
+          "path": "images/com.inverseai.captions.subtitles/06.png",
+          "hash": "f11a5e4df6dd135cce765498ab9404f548142b1b83892627a1214210ebd6c8c4"
+        },
+        {
+          "path": "images/com.inverseai.captions.subtitles/07.png",
+          "hash": "0e3435de59b36fbb7178750d38ae8c99c8d51e5a04535be62e915d50895f28bd"
+        },
+        {
+          "path": "images/com.inverseai.captions.subtitles/08.png",
+          "hash": "c29c519e3ba0c547ac5b2daced1a6466b332284b51a02b11a0c65bdad5f49a63"
+        },
+        {
+          "path": "images/com.inverseai.captions.subtitles/09.png",
+          "hash": "bdd01bcb524d87c34e3b6b419556393f0d81ab461328b5af843644677c7171fa"
+        },
+        {
+          "path": "images/com.inverseai.captions.subtitles/10.png",
+          "hash": "738193d0071deab84a6a2cdd1c41c7c81b62e90dc5130ab63f50964d6655b787"
+        }
+      ]
+    },
+    {
+      "rank": 19,
+      "appId": "kaptioned.app",
+      "title": "AI Auto Captions & Subtitles",
+      "icon": "https://play-lh.googleusercontent.com/CATqeQiissBL27NpWBpBRbknlZZFU298cr4Qg9NJ_hf77wIxTFwLCPIjmfCr-yDAkXW1nGCdpihWPBE1Nqm3zQ",
+      "score": 3.89,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/kaptioned.app/01.jpg",
+          "hash": "242fb62c7ef97b90721238d31815dc3fdd6dc88c5cf6572719f864f218534335"
+        },
+        {
+          "path": "images/kaptioned.app/02.jpg",
+          "hash": "6ec7412830384cfc794ec149876b194da985162016c3648db85014ff1d65d5d5"
+        },
+        {
+          "path": "images/kaptioned.app/03.jpg",
+          "hash": "cf77dd0ba40fc1e3205fa50506f424a99c481a0b9ce7faa72571010949744310"
+        },
+        {
+          "path": "images/kaptioned.app/04.jpg",
+          "hash": "ee0bd9ba1cc9b7b298076a64e15454b4f191ec0a71da7133bbb2ce83d8a1e11f"
+        }
+      ]
+    },
+    {
+      "rank": 20,
+      "appId": "com.quix.videoclipper.caption.aidubbing",
+      "title": "AI Video Clipper - Captions",
+      "icon": "https://play-lh.googleusercontent.com/t-b35w8oRqh18LlM0PiVQeRab70rrb5DXhqf1H-FiiOTXM6C475eRNMitGkqvveLyqUuM_h5qSe2XyoNPGNtA3o",
+      "score": null,
+      "updatedAt": "2026-09-20",
+      "screenshots": [
+        {
+          "path": "images/com.quix.videoclipper.caption.aidubbing/01.png",
+          "hash": "dbb3d35a43097f7a5383a76f389d846ee77d6ea35c2b866ccdad52ae1b521bed"
+        },
+        {
+          "path": "images/com.quix.videoclipper.caption.aidubbing/02.png",
+          "hash": "b2d6b0137e27c24dacbe183c9c165a0a2d0b7fe178296d85543b42ed8f807a9d"
+        },
+        {
+          "path": "images/com.quix.videoclipper.caption.aidubbing/03.png",
+          "hash": "9c68dd88dbb7a9dcda576e181f87c9e42496c29e99c09da1dc237d004e210cbe"
+        },
+        {
+          "path": "images/com.quix.videoclipper.caption.aidubbing/04.png",
+          "hash": "3b717bf882d7b230257f9757494d5b8a5b7db474efdde4cb6ab6b02a37bed8ad"
+        },
+        {
+          "path": "images/com.quix.videoclipper.caption.aidubbing/05.png",
+          "hash": "dbb3d35a43097f7a5383a76f389d846ee77d6ea35c2b866ccdad52ae1b521bed"
+        },
+        {
+          "path": "images/com.quix.videoclipper.caption.aidubbing/06.png",
+          "hash": "b2d6b0137e27c24dacbe183c9c165a0a2d0b7fe178296d85543b42ed8f807a9d"
+        },
+        {
+          "path": "images/com.quix.videoclipper.caption.aidubbing/07.png",
+          "hash": "9c68dd88dbb7a9dcda576e181f87c9e42496c29e99c09da1dc237d004e210cbe"
+        },
+        {
+          "path": "images/com.quix.videoclipper.caption.aidubbing/08.png",
+          "hash": "3b717bf882d7b230257f9757494d5b8a5b7db474efdde4cb6ab6b02a37bed8ad"
+        },
+        {
+          "path": "images/com.quix.videoclipper.caption.aidubbing/09.png",
+          "hash": "dbb3d35a43097f7a5383a76f389d846ee77d6ea35c2b866ccdad52ae1b521bed"
+        },
+        {
+          "path": "images/com.quix.videoclipper.caption.aidubbing/10.png",
+          "hash": "b2d6b0137e27c24dacbe183c9c165a0a2d0b7fe178296d85543b42ed8f807a9d"
+        }
+      ]
+    }
+  ]
+}
