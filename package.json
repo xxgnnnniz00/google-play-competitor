@@ -1,0 +1,12 @@
+{
+  "name": "google-play-competitor",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "update": "node update.js"
+  },
+  "dependencies": {
+    "@mradex77/google-play-scraper": "^1.2.0"
+  }
+}
